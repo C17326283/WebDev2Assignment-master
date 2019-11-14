@@ -1,155 +1,120 @@
-body {
-  margin: 0px;
-    font-family: roboto;
-}
-<<<<<<< HEAD
-=======
-p
+*
 {
-    margin: 0px;
+    font-family: 'Google Sans', sans-serif;
 }
-
-.main
+body
 {
-    background: pink;
+    background-color: #F5F5F5;
+}
+img
+{
+    width: 5em;
 }
 
-.top
+.top-box
 {
-    position: relative;
-    background: blue;
-    width: 100%;
-    height: 200px;
-    margin: 0px;
-    overflow: hidden;/*cut off image if outside of box*/
-}
-
-.top img
-{
-    width:100%;
-    align-items: center;
-    vertical-align: middle;
-    margin-top: -150px
-}
-
-
-nav
-{
-    background: #202020;
-    
-    color: snow;/*text*/
-    padding: 5px 5px 5px 5px;
-    width: calc(100% - 10px);
-    float: left;/*make everything stay together at even width*/
-    position: relative;
-    align-items: center;
-    align-content: center;
+    background: grey;
     vertical-align: bottom;
-    margin-top: -5px;
+    text-align: center;
+}
+.tab-box img
+{
+    width: 60%;
+    max-width: 4em;
+}
+.row
+{
+    margin-left: -20px;
 }
 
-
-nav ul/*The list of buttons*/
+.logo-box
 {
-    display:inline;   /*put everything on same line*/   
-    
-
-}
-nav ul li/* The elements of the list*/
-{
-    list-style-type:none;/* get rid of dots*/
-    display:inline-block;/* Stay together on same line */
-    background:#202020;/* box behind match background */
-    padding: 4px 8px;/* For adding size to inside of element  */
     float: left;
-    margin-left:  1%;
-    margin-right:  1%;
-    border-radius: 5px;/*roundness of box*/
-    border:2px solid #202020;
-    font-size: 20px;
-    margin-top: auto;
+    background-color: red;
+    margin: 0px;
+    padding: 2px;
+    height: 100%;
+}
+.tab-box
+{
+    background-color: purple;
+    color: snow;
+    height: 200px;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: bottom;
     margin-bottom: auto;
-    
-}
-nav ul li:hover/*when hover over element*/ 
-{ 
-  border:2px solid snow;
-}
-nav ul li a
-{
-    text-decoration: none;
-    color:white;
-}
-
-.dropdown/*the dropdown area*/
-{
-    position: relative;
-    display: inline-block;
-    float: right;
-    padding: 4px 8px;/* For adding size to inside of element  */
-    border-radius: 5px;/*roundness of box*/
-    border:2px solid #202020;
-    font-size: 20px;
     margin-top: auto;
-    margin-bottom: auto;
-    
+    border: 1px solid grey;
 }
-
-.dropdown-menu/*the pop up menu*/
+.top-logo
 {
-    display: none;/*hide unless hovering over*/
+    width: 100%;
+    height: 100%;
+}
+.tab-box img
+{
+    vertical-align: bottom;
+    width: 80%;
+    position:absolute;
+    left:0;
+    bottom:0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tab-box p
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
-    background-color: #ededed;
-    min-width: 160px;
-    float: left;
-    right: 0; /*move over*/
+    bottom:0px;
+    top:auto;
 }
-/*makes menu pop up*/
-.dropdown:hover .dropdown-menu
+.op-cont
 {
-    display: block;
+    height: 100%;
+    border: 2px solid black;
 }
-
-/*the box/link colors*/
-.dropdown-menu a/*styling for the links*/
+.link-name
 {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: 1px solid #646464 ;
+    
 }
->>>>>>> parent of 05bfa73... Trying to get bootstrap navbar to work
 
-.grid-container {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        background-color: #ffa2a2;
-    }
+.gallery
+{
+    background-color: #454E5C;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-height: 400px;
+    overflow: hidden;
+}
+.gallery img
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Welcome
+{
+    background-color: #E27D5F;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-height: 400px;
+    overflow: hidden;
+    color: snow;
+    padding: 1em;
+}
+.search
+{
+    background-color: #fffeed;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-height: 400px;
+    overflow: hidden;
+    padding: 1em;
+}
 
-    .box {
-        background-color: #444;
-        color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-        font-size: 150%;
-    }
-
-    .a {
-        grid-column: 1 / 7;
-        grid-row: 1;
-        position: sticky;
-    }
-    .b {
-        grid-column: 1 ;
-        grid-row: 2 / 6;
-    }
-    .d {
-        grid-column: 2/7;
-        grid-row: 2/6;
-    }
-    .e {
-        grid-column: 1/7;
-    }
