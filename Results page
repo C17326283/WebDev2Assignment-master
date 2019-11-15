@@ -1,7 +1,6 @@
 <!DOCTYPE html><!-- HTML5 -->
 <html lang="en"><!-- language-->
 <head>
-    <title>Home</title>
     <meta charset="utf-8"><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
@@ -17,9 +16,7 @@
         
         <div class = "row top">
             <div class="col-sm-5 banner-box">
-                <a href="index.html">
                 <img class ="topLogo" src="logosample.png">
-                </a>
             </div>
             <div class="col-sm-7 banner-box">
                 <div class="top-medias">
@@ -27,50 +24,47 @@
                 <div class="top-search">
                     <input type="search" id="quickSearchBox" placeholder="Quick Search">
                     <input type="button" value="Go!">
-                    <a href="Results.html"><h4>Go to advanced search</h4></a>
+                    <p>Go to advanced search</p>
                 </div>
             </div>
         </div>
         
         <nav>
             <div class = "row navRow">
-                <a href="index.html">
+                <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                    <img src="HomeWhite.png">
-                    <h6>Home</h6>
+                    <img src="HomeWhite.png"><h6>Home</h6>
                 </div>
                 </a>
                 
-                <a href="Results.html">
+                <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                    <img src="magnifyingGlassIcon.png">
+                    <img src="HomeWhite.png">
                     <h6>Search</h6>
                 </div>
                 </a>
                 <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                        <img src="questionIcon.png">
+                        <img src="HomeWhite.png">
                         <h6>How to use</h6>
                 </div>
                     </a>
                 <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                    <img src="aboutUsIcon.png"><h6>About Us</h6>
+                    <img src="HomeWhite.png"><h6>About Us</h6>
                 </div>
                     </a> 
                 <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                    <img src="ContactIcon.png"><h6>Contact</h6>
+                    <img src="HomeWhite.png"><h6>Contact</h6>
                 </div>
                     </a>
-                <div class="col-sm-1 tab-box">
-                </div>
                     
                 <a href="https://www.google.com/">
-                <div class="col-sm-1 tab-box drop-box">
+                <div class="col-sm-2 tab-box">
                     <div class="dropdown">
                         <img class="login" src="DropIcon.png" height="20px;">
-                        <div class="dropdown-menu">cd
+                        <div class="dropdown-menu">
                             <a href="https://www.google.com/">test1</a>
                             <a href="https://www.google.com/">test2</a>
                             <a href="https://www.google.com/">test3</a>
@@ -126,10 +120,7 @@
                     
                     <div class="card">
                         <h2>News</h2>
-                        <p>Paul Blart maul cop in cinemas now</p>
-                         <p>Red hot chilly peppers arent even that hot</p>
-                         <p>How many pages quanifies a book? 3?</p>
-                        <p>You can only fold a regular sheet of paper 7 times</p>
+                        <p>test1</p>
                     </div>
                     
                     <div class="card">
@@ -147,3 +138,77 @@
         </footer>
     </div>
 </body>
+    
+    <!--
+    <div class="container-fluid">
+    <div class = "top" style="background:blue;">
+        <div class="logo-box">
+            <img src="samplelogo.jpg">
+        </div>
+        <nav>
+        <div class="row">
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <img src="home.png">
+                <p>Home</p>
+            </div>
+            <div class="col-sm-1 top-box tab-box">
+                <div class="bst-icon"></div>
+                    <img src="home.png">
+                    <p>Home</p>
+            </div>
+        </div>
+    </div>
+    <div class = "gallery">
+        <img src="sampletop.jpg">
+    </div>
+    <div class = "Welcome">
+        <p>Welcome to the </p>
+    </div>
+        
+    <div class = "search">
+        <p>SearchBox, Go</p>
+        <p>Go to advanced Search</p>
+    </div>
+    </div>
+</body>
+-->
