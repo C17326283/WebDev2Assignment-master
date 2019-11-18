@@ -19,48 +19,50 @@
         
         <nav>
             <div class = "row navRow">
-                <a href="index.html">
+                <a href="index.php">
                 <div class="col-sm-2 tab-box">
-                    <img src="HomeWhite.png">
+                    <img src="res/HomeWhite.png">
                     <h6>Home</h6>
                 </div>
                 </a>
                 
-                <a href="Results.html">
+                <a href="Results.php">
                 <div class="col-sm-2 tab-box">
-                    <img src="magnifyingGlassIcon.png">
+                    <img src="res/magnifyingGlassIcon.png">
                     <h6>Search</h6>
                 </div>
                 </a>
                 <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                        <img src="questionIcon.png">
+                        <img src="res/questionIcon.png">
                         <h6>How to use</h6>
                 </div>
                     </a>
                 <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                    <img src="aboutUsIcon.png"><h6>About Us</h6>
+                    <img src="res/aboutUsIcon.png"><h6>About Us</h6>
                 </div>
                     </a> 
                 <a href="https://www.google.com/">
                 <div class="col-sm-2 tab-box">
-                    <img src="ContactIcon.png"><h6>Contact</h6>
+                    <img src="res/ContactIcon.png"><h6>Contact</h6>
                 </div>
                     </a>
                 <div class="col-sm-1 tab-box">
                 </div>
                     
+                <a href="https://www.google.com/">
                 <div class="col-sm-1 tab-box drop-box">
                     <div class="dropdown">
-                        <img class="login" src="DropIcon.png" height="20px;">
-                        <div class="dropdown-menu">
+                        <img class="login" src="res/DropIcon.png" height="20px;">
+                        <div class="dropdown-menu">cd
                             <a href="https://www.google.com/">test1</a>
                             <a href="https://www.google.com/">test2</a>
                             <a href="https://www.google.com/">test3</a>
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </nav>
         
@@ -91,7 +93,7 @@
                     <div class="card">
                         <div class="result">
                             <div class="col-sm-3">
-                                <img src="bookCover.jpg" style="height: 15em;">
+                                <img src="res/bookCover.jpg" style="height: 15em;">
                             </div>
                             <div class="col-sm-9">
                                 <br>
@@ -103,7 +105,7 @@
                         </div>
                         <div class="result">
                             <div class="col-sm-3">
-                                <img src="bookCover.jpg" style="height: 15em;">
+                                <img src="res/bookCover.jpg" style="height: 15em;">
                             </div>
                             <div class="col-sm-9">
                                 <br>
@@ -115,7 +117,7 @@
                         </div>
                         <div class="result">
                             <div class="col-sm-3">
-                                <img src="bookCover.jpg" style="height: 15em;">
+                                <img src="res/bookCover.jpg" style="height: 15em;">
                             </div>
                             <div class="col-sm-9">
                                 <br>
@@ -127,7 +129,7 @@
                         </div>
                         <div class="result">
                             <div class="col-sm-3">
-                                <img src="bookCover.jpg" style="height: 15em;">
+                                <img src="res/bookCover.jpg" style="height: 15em;">
                             </div>
                             <div class="col-sm-9">
                                 <br>
@@ -139,7 +141,7 @@
                         </div>
                         <div class="result">
                             <div class="col-sm-3">
-                                <img src="bookCover.jpg" style="height: 15em;">
+                                <img src="res/bookCover.jpg" style="height: 15em;">
                             </div>
                             <div class="col-sm-9">
                                 <br>

@@ -71,8 +71,8 @@
                     <div class="dropdown">
                         <img class="login" src="res/DropIcon.png" height="20px;">
                         <div class="dropdown-menu">cd
-                            <a href="https://www.google.com/">Login</a>
-                            <a href="registerUser.php">Register</a>
+                            <a href="https://www.google.com/">test1</a>
+                            <a href="https://www.google.com/">test2</a>
                             <a href="https://www.google.com/">test3</a>
                         </div>
                     </div>
@@ -91,56 +91,15 @@
                 ?>
             </div>
             
-            <div class="row">
-                <div class="col-sm-3 leftMain">
-                    <div class="card">
-                        <h2>Contact Us</h2>
-                        <p>For any inqueries please feel free to get in contact with using the email or phone number below:
-                        </p><br>
-                        <p>Email: 123library@lib.com</p><br>
-                        <p>Phone: 085 1234321</p><br>
-                        
-                        <p>You can also submit a feedbakc form here: link</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h2>Opening Times</h2>
-                        <p>Monday: 09:00 to 17:00</p>
-                        <p>Tuesday: 09:00 to 17:00</p>
-                        <p>Wednesday: 09:00 to 17:00</p>
-                        <p>Thursday: 09:00 to 17:00</p>
-                        <p>Friday: 09:00 to 17:00</p>
-                        <p>Saturday: CLOSED</p>
-                        <p>Sunday: CLOSED</p>
-                    </div>
-                </div>
-                <div class="col-sm-9 rightMain">
-                    <div class="card">
-                        <h2>About Us</h2>
-                        <p>Welcome to Library Services - TU Dublin City Centre
-                        TU Dublin City Centre has six libraries, at Aungier Street, Bolton Street, Cathal Brugha Street, Grangegorman, Kevin Street, and Rathmines.</p>
-                        <p>
-                        We provide a wide range of services, including the Library Catalogue, databases, and online resources, access to computers, and support.
-                        </p>
-                        <p>
-                        If you need information and guidance, have a look in particular at Using the Library and Get Started/Get Support.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h2>News</h2>
-                        <p>Paul Blart maul cop in cinemas now</p>
-                         <p>Red hot chilly peppers arent even that hot</p>
-                         <p>How many pages quanifies a book? 3?</p>
-                        <p>You can only fold a regular sheet of paper 7 times</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h2>Our Location</h2>
-                        <p>test</p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.3414580735366!2d-6.270425284193342!3d53.337143579977145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c2089d84a1d%3A0x6e1d03e3d62489ae!2sTU%20Dublin%20Kevin%20Street!5e0!3m2!1sen!2sie!4v1573836416750!5m2!1sen!2sie" width="600" height="450" frameborder="1" style="border:0;" allowfullscreen=""></iframe>
-                    </div>
-                </div>
-            </div>
+            <form method="post" action="addUserSql.php">
+                Name:<br>
+                <input type="text" id="Name" name="Name" minlength="3" maxlength="40" required><br>
+                Email:<br>
+                <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
+                Password:<br>
+                <input type="password" id="Pass" name="Password" minlength="4" maxlength="40" required><br>
+                <input type="Submit" value="Submit" >
+            </form>
             
         </div>
         <footer>
