@@ -5,7 +5,7 @@
 body
 {
     background-color: #f5f5f5;
-    
+    min-height: 30px
 }
 .container-fluid
 {
@@ -37,6 +37,7 @@ h2
 .banner-box
 {
     margin: 0px;
+    padding: 2px
 }
 .topLogo
 {
@@ -58,7 +59,7 @@ h2
 }
 .top-search
 {
-    background-color: #E27D5F;
+    background-color: #fff6f4;
     float: center;
     vertical-align: middle;
     
@@ -74,7 +75,7 @@ nav
     margin: 0px;
     background: #db994b;
     
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 2;
 }
@@ -83,10 +84,9 @@ nav
     color: snow;
     text-align: center;
     vertical-align: bottom;
-    margin-bottom: 0px;
-    margin-top: 0px;
     border-top: 1px solid white;
     padding: 0px;
+    margin: 0px;
 }
 .drop-box
 {
@@ -103,7 +103,6 @@ nav
     background-color: #e87909;
     border-bottom: 1px solid white;
     padding: 0px;
-    float: right;
 }
 .tab-box img
 {
