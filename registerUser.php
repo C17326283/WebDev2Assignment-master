@@ -1,3 +1,7 @@
+
+    
+    
+    
 <!DOCTYPE html><!-- HTML5 -->
 <html lang="en"><!-- language-->
 <head>
@@ -15,22 +19,7 @@
 <body>
     <div class = "container-fluid wholePage">
         
-        <div class = "row top">
-            <div class="col-sm-4 banner-box">
-                <a href="index.php">
-                <img class ="topLogo" src="res/logosample.png">
-                </a>
-            </div>
-            <div class="col-sm-8 banner-box">
-                <div class="top-medias">
-                </div>
-                <div class="top-search">
-                    <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
-                    <input type="button" value="Go!">
-                    <a href="Results.html"><h4>Go to advanced search</h4></a>
-                </div>
-            </div>
-        </div>
+        
         
         <nav>
             <div class = "row navRow">
@@ -71,8 +60,8 @@
                     <div class="dropdown">
                         <img class="login" src="res/DropIcon.png" height="20px;">
                         <div class="dropdown-menu">cd
-                            <a href="https://www.google.com/">test1</a>
-                            <a href="https://www.google.com/">test2</a>
+                            <a href="https://www.google.com/">Login</a>
+                            <a href="registerUser.php">Register</a>
                             <a href="https://www.google.com/">test3</a>
                         </div>
                     </div>
@@ -82,15 +71,6 @@
         </nav>
         
         <div class = "mainBody">
-            <div class = "gallery">
-                <img src="res/sampletop.jpg">
-            </div>
-            <div class = "Welcome">
-                <h1>Welcome to the Ry and Ky public Libary!</h1>
-                <?php
-                ?>
-            </div>
-            
             <form method="post" action="addUserSql.php">
                 Name:<br>
                 <input type="text" id="Name" name="Name" minlength="3" maxlength="40" required><br>
@@ -99,7 +79,8 @@
                 Password:<br>
                 <input type="password" id="Pass" name="Password" minlength="4" maxlength="40" required><br>
                 <input type="Submit" value="Submit" >
-            </form>
+                </form>
+            
             
         </div>
         <footer>
