@@ -14,7 +14,7 @@
 
 <body>
     <div class = "container-fluid wholePage">
-        hi
+        hi kyle
         
         <div class = "row top">
             <div class="col-sm-4 banner-box">
