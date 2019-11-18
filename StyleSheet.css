@@ -43,20 +43,7 @@ h2
 {
     width: 100%;
 }
-.top-medias
-{
-    background-color: aqua;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
-}
-.mediaIcons
-{
-    width: 2em;
-    float: right;
-    padding: 0px;
-}
+
 .top-search
 {
     background-color: #fff6f4;
@@ -67,7 +54,6 @@ h2
     padding: .1em 0em;
     margin-bottom: 0px;
 }
-
 
 nav
 {

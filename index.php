@@ -14,7 +14,6 @@
 
 <body>
     <div class = "container-fluid wholePage">
-        hi kyle
         
         <div class = "row top">
             <div class="col-sm-4 banner-box">
@@ -22,9 +21,7 @@
                     <img class ="topLogo" src="res/logosample.png">
                 </a>
             </div>
-            <div class="col-sm-9 banner-box">
-                <div class="top-medias">
-                </div>
+            <div class="col-sm-8 banner-box">
                 <div class="top-search">
                     <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
                     <input type="button" value="Go!">
@@ -67,18 +64,18 @@
                 <div class="col-sm-1 tab-box">
                 </div>
                     
-                <a href="https://www.google.com/">
-                    <div class="col-sm-1 tab-box drop-box">
-                        <div class="dropdown">
-                            <img class="login" src="res/DropIcon.png" height="20px;">
-                            <div class="dropdown-menu">cd
-                                <a href="https://www.google.com/">Login</a>
-                                <a href="registerUser.php">Register</a>
-                                <a href="https://www.google.com/">test3</a>
-                            </div>
+                
+                <div class="col-sm-1 tab-box drop-box">
+                    <div class="dropdown">
+                        <img class="login" src="res/DropIcon.png" height="20px;">
+                        <div class="dropdown-menu">cd
+                            <a href="https://www.google.com/">Login</a>
+                            <a href="registerUser.php">Register</a>
+                            <a href="https://www.google.com/">test3</a>
                         </div>
                     </div>
-                </a>
+                </div>
+
             </div>
         </nav>
         
@@ -101,7 +98,7 @@
                         <p>Email: 123library@lib.com</p><br>
                         <p>Phone: 085 1234321</p><br>
                         
-                        <p>You can also submit a feedbakc form here: link</p>
+                        <p>You can also submit a feedback form here: link</p>
                     </div>
                     
                     <div class="card">
