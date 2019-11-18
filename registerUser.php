@@ -71,17 +71,17 @@
         </nav>
         
         <div class = "mainBody">
-            <form method="post" action="addUserSql.php">
+            <form method="post" action="registerUserSql.php">
                 Name:<br>
                 <input type="text" id="Name" name="Name" minlength="3" maxlength="40" required><br>
+                Username:<br>
+                <input type="text" id="Username" name="Username" minlength="3" maxlength="40" required><br>
                 Email:<br>
                 <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
                 Password:<br>
                 <input type="password" id="Pass" name="Password" minlength="4" maxlength="40" required><br>
                 <input type="Submit" value="Submit" >
                 </form>
-            
-            
         </div>
         <footer>
             <p>By Kyle Heffernan & Ryan Byrne</p>

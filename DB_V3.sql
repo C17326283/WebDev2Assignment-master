@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2019 at 03:07 AM
+-- Generation Time: Nov 18, 2019 at 03:46 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -25,18 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `books`
---
-
-CREATE TABLE `books` (
-  `bk_isbn` varchar(13) NOT NULL,
-  `bk_name` varchar(50) NOT NULL,
-  `bk_author` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -52,7 +40,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`name`, `username`, `email`, `password`) VALUES
-('Ryan Byrne', 'ryandbyrne', 'ryby@rybyr.com', '123456');
+('ryby', '', 'ryby@ryby', 'ryby'),
+('Ryan Byrne', 'ryandbyrne', 'ryby@rybyr.com', '123456'),
+('ryky', 'rykyry', 'ryky@kyry', 'ryky');
 
 --
 -- Indexes for dumped tables
