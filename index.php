@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="StyleSheet" href="stylesheet.css"/>
+    <link rel="StyleSheet" href="StyleSheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
 </head>
 
@@ -58,21 +58,22 @@
                 </a>
                 <a href="https://www.google.com/">
                     <div class="col-sm-2 tab-box">
-                        <img src="res/ContactIcon.png"><h6>Contact</h6>
+                        <img src="res/ContactIcon.png">
+                        <div class="navText">
+                            <h6>Contact</h6>
+                        </div>
                     </div>
                 </a>
                 <div class="col-sm-1 tab-box">
                 </div>
                     
                 
-                <div class="col-sm-1 tab-box drop-box">
-                    <div class="dropdown">
-                        <img class="login" src="res/DropIcon.png" height="20px;">
-                        <div class="dropdown-menu">cd
-                            <a href="https://www.google.com/">Login</a>
-                            <a href="registerUser.php">Register</a>
-                            <a href="https://www.google.com/">test3</a>
-                        </div>
+                <div class="col-sm-1 tab-box dropdown-button">
+                    <img class="login" src="res/DropIcon.png" height="20px;">
+                    <div class="dropdown-menu">
+                        <a href="https://www.google.com/">Login</a>
+                        <a href="registerUser.php">Register</a>
+                        <a href="https://www.google.com/">test3</a>
                     </div>
                 </div>
 
@@ -134,7 +135,6 @@
                     
                     <div class="card">
                         <h2>Our Location</h2>
-                        <p>test</p>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.3414580735366!2d-6.270425284193342!3d53.337143579977145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c2089d84a1d%3A0x6e1d03e3d62489ae!2sTU%20Dublin%20Kevin%20Street!5e0!3m2!1sen!2sie!4v1573836416750!5m2!1sen!2sie" width="600" height="450" frameborder="1" style="border:0;" allowfullscreen=""></iframe>
                     </div>
                 </div>

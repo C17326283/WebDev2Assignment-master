@@ -53,6 +53,11 @@ h2
     text-align: center;
     padding: .1em 0em;
     margin-bottom: 0px;
+    
+    background: #fffff9;
+    margin: 1em 2em;
+    overflow:auto;
+    border-radius: 3px;
 }
 
 nav
@@ -73,11 +78,8 @@ nav
     border-top: 1px solid white;
     padding: 0px;
     margin: 0px;
-}
-.drop-box
-{
-    padding-top: 1em;
-    padding-bottom: 1em;
+    border-radius: 5px;/*roundness of box*/
+    border:2px solid #db994b;
 }
 .tab-menu
 {
@@ -103,6 +105,11 @@ nav
     margin-bottom: 2px;
     font-size: Large;
     padding: 0px
+}
+.tab-box:hover
+{
+    border:2px solid snow;
+    text-decoration:none;
 }
 
 .mainBody
@@ -160,9 +167,10 @@ nav
 {
     background: #fffff9;
     margin: 1em 2em;
-    padding: 1.5em;
+    padding: 1em 2em;
     overflow:auto;
     border-radius: 3px;
+    box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
 }
 
 footer
@@ -179,36 +187,43 @@ input[type=search]
 {
     width: 75%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 0px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-family: sans-serif;
-    font-size:20px;
+    font-size: x-Large;
 }
 input[type=button]
 {
-    width: 10%;
-    padding: 12px 6px;
-    margin: 8px 0;
+    width: 15%;
+    padding: 12px 20px;
+    margin: 0px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-family: sans-serif;
-    font-size:20px;
+    font-size: x-Large;
 }
 
-
 /*For menu*/
-.dropdown 
+.dropdown-button
 {
+    position: relative;
+    display: inline-block;
+    float: right;
 }
 .dropdown-menu
 {
+    display: none;
+    position: absolute;
     background-color: #ededed;
-    text-align: center;
+    min-width: 160px;
+    float: left;
+    right: 0;  
+    top:0;
+    margin-left: -200px;
+    padding: 0px;
 }
 /*the box/link colors*/
 .dropdown-menu a
@@ -225,18 +240,53 @@ input[type=button]
     background-color: #cecece;
 }
 /*makes menu pop up*/
-.dropdown:hover .dropdown-menu
+.dropdown-button:hover .dropdown-menu
 {
     display: block;
 }
 
-.tab-box
+.forms
 {
-    border-radius: 5px;/*roundness of box*/
-    border:2px solid #db994b;
+    padding: 2em 8em;
 }
-.tab-box:hover
+.forms input
 {
-    border:2px solid snow;
-    text-decoration:none;
+    width: 100%;
+    padding: 5px 20px;
+    margin: 0px 0px 10px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: large;
+}
+.forms input[type=button]
+{
+    width: 15%;
+    padding: 12px 20px;
+    margin: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: x-Large;
+    color: aqua;
+}
+.forms h3, h4
+{
+    text-align: center;
+    float: center;
+    margin: 0px;
+    padding: 0px;
+}
+input[type=submit] {
+    width: 30%;
+    background-color: #057de3;
+    color: white;
+    padding: 14px 20px;
+    margin: .1em 35%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size:20px;
 }
