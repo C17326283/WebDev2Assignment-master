@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
 </head>
@@ -33,7 +36,7 @@
         <nav>
             <div class = "row navRow">
                 <a href="index.php">
-                    <div class="col-sm-2 tab-box">
+                    <div class="col-sm-2 tab-box current-box">
                         <img src="res/HomeWhite.png">
                         <h6>Home</h6>
                     </div>
@@ -45,7 +48,7 @@
                         <h6>Search</h6>
                     </div>
                 </a>
-                <a href="https://www.google.com/">
+                <a href="https://www.google.com/search?rlz=1C1CHBF_enIE826IE826&ei=CyjUXYGVNei31fAPr56Y8A4&q=how+to+use+online+library&oq=how+to+use+online+library&gs_l=psy-ab.3..0l2j0i30j0i8i30l7.1917.1917..2024...0.2..0.57.57.1......0....1..gws-wiz.......0i71.8okqYHnAz74&ved=0ahUKEwjBxryA6PblAhXoWxUIHS8PBu4Q4dUDCAs&uact=5">
                     <div class="col-sm-2 tab-box">
                             <img src="res/questionIcon.png">
                             <h6>How to use</h6>
@@ -64,23 +67,25 @@
                         </div>
                     </div>
                 </a>
-                <div class="col-sm-1 tab-box">
+                <div class="col-sm-1 tab-box" style="height:20px;">
                 </div>
                     
                 
-                <div class="col-sm-1 tab-box dropdown-button">
-                    <img class="login" src="res/DropIcon.png" height="20px;">
-                    <div class="dropdown-menu">
-                        <a href="https://www.google.com/">Login</a>
-                        <a href="registerUser.php">Register</a>
-                        <a href="https://www.google.com/">test3</a>
-                    </div>
+                <div class="col-sm-1 tab-box dropdown-button" onclick="slide()">
+                    <img class="login" src="res/DropIcon.png">
                 </div>
 
             </div>
         </nav>
         
         <div class = "mainBody">
+            <div class="moreMenu" id="menuSlide">
+                <ul>
+                    <li><a href="loginUser.php"><p>Login</p></a></li>
+                    <li><a href="registerUser.php"><p>Register</p></a></li>
+                    <li><a href="https://www.google.com/"><p>test3</p></a></li>
+                </ul>
+            </div>
             <div class = "gallery">
                 <img src="res/sampletop.jpg">
             </div>
@@ -92,7 +97,7 @@
             
             <div class="row">
                 <div class="col-sm-3 leftMain">
-                    <div class="card">
+                    <div class="card textbtn">
                         <h2>Contact Us</h2>
                         <p>For any inqueries please feel free to get in contact with using the email or phone number below:
                         </p><br>

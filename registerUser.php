@@ -72,7 +72,7 @@
         
         <div class = "mainBody">
             <div class = "card forms">
-                <h3>Register Form</h3><br> 
+                <h2>Register Form</h2><br> 
                 <h4><strong>Please enter your details below to make an account.</strong></h4><br>
                 <form method="post" action="registerUserSql.php">
                     <p>Name:</p>
@@ -83,7 +83,7 @@
                     <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
                     <p>Password:</p>
                     <input type="password" id="Pass" name="Password" minlength="4" maxlength="40" required><br>
-                    <input type="Submit" value="Submit">
+                    <input type="Submit" value="Register">
                 </form>
             </div>
         </div>

@@ -16,6 +16,7 @@ body
 .row
 {
     padding: 0px;
+    margin: 0px
 }
 p
 {
@@ -64,7 +65,7 @@ nav
 {
     padding: 0px;
     margin: 0px;
-    background: #db994b;
+    background: #485B66;
     
     position: relative;
     top: 0;
@@ -76,10 +77,16 @@ nav
     text-align: center;
     vertical-align: bottom;
     border-top: 1px solid white;
-    padding: 0px;
+    padding: .1em;
     margin: 0px;
-    border-radius: 5px;/*roundness of box*/
-    border:2px solid #db994b;
+    border-radius: 9px;/*roundness of box*/
+    border:2px solid #485B66;
+    min-height: 4.5em;
+    
+}
+.current-box
+{
+    background: #394952;
 }
 .tab-menu
 {
@@ -209,41 +216,45 @@ input[type=button]
 /*For menu*/
 .dropdown-button
 {
-    position: relative;
-    display: inline-block;
-    float: right;
+    display: block;
+    float: left;
+    padding: 1em;
 }
-.dropdown-menu
+
+
+.moreMenu
 {
     display: none;
-    position: absolute;
-    background-color: #ededed;
-    min-width: 160px;
-    float: left;
-    right: 0;  
-    top:0;
-    margin-left: -200px;
-    padding: 0px;
 }
-/*the box/link colors*/
-.dropdown-menu a
+.moreMenu li, ul
 {
-    color: black;
-    padding: 12px 16px;
+    background: #db994b;
+    margin: 0;
+    list-style: none;
+    border-top: 1px solid white;
+}
+.moreMenu ul
+{
+    padding: 0;
+    margin: 0;
+}
+.moreMenu a
+{
     text-decoration: none;
-    display: block;
-    border: 1px solid #646464 ;
+    color: white;
 }
-/*change color when hover over*/
-.dropdown-menu a:hover
+.moreMenu li
 {
-    background-color: #cecece;
+    padding: 1em 0em;
+    text-align: center;
+    list-style: none;
 }
-/*makes menu pop up*/
-.dropdown-button:hover .dropdown-menu
+.moreMenu li:hover
 {
-    display: block;
+    background: #bc7c30;
 }
+
+
 
 .forms
 {
@@ -272,7 +283,7 @@ input[type=button]
     font-size: x-Large;
     color: aqua;
 }
-.forms h3, h4
+.forms h2, h4
 {
     text-align: center;
     float: center;
@@ -281,7 +292,7 @@ input[type=button]
 }
 input[type=submit] {
     width: 30%;
-    background-color: #057de3;
+    background-color: #05e352;
     color: white;
     padding: 14px 20px;
     margin: .1em 35%;
