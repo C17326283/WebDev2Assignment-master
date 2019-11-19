@@ -17,6 +17,10 @@
 </head>
 
 <body>
+    <?php
+            /*For logging in*/
+            session_start();
+        ?>
     <div class = "container-fluid wholePage">
         
         
@@ -74,11 +78,11 @@
             <div class = "card forms">
                 <h2>Login</h2><br> 
                 <h4><strong>Enter your details to log in.</strong></h4><br>
-                <form method="post" action="registerUserSql.php">
+                <form method="post" action="loginSql.php">
                     <p>Username:</p>
                     <input type="text" id="Username" name="Username" minlength="3" maxlength="40" required><br>
                     <p>Password:</p>
-                    <input type="password" id="Pass" name="Password" minlength="4" maxlength="40" required><br>
+                    <input type="password" id="Password" name="Password" minlength="4" maxlength="40" required><br>
                     <input type="Submit" value="Log in">
                 </form>
             </div>

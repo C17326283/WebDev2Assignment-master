@@ -16,6 +16,10 @@
 </head>
 
 <body>
+    <?php
+            /*For logging in*/
+            session_start();
+        ?>
     <div class = "container-fluid wholePage">
         
         <div class = "row top">
@@ -29,6 +33,18 @@
                     <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
                     <input type="button" value="Go!">
                     <a href="Results.html"><h4>Go to advanced search</h4></a>
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                    {
+                        echo'<br><p>logged in as: ';
+                        echo $_SESSION['Username'];
+                        echo'</p>';
+                    }
+                    else
+                    {
+                        echo"not in";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -71,7 +87,7 @@
                 </div>
                     
                 
-                <div class="col-sm-1 tab-box dropdown-button" onclick="slide()">
+                <div class="col-sm-1 tab-box" onclick="slide()" style="padding:16px;">
                     <img class="login" src="res/DropIcon.png">
                 </div>
 
@@ -91,13 +107,11 @@
             </div>
             <div class = "Welcome">
                 <h1>Welcome to the Ry and Ky public Libary!</h1>
-                <?php
-                ?>
             </div>
             
             <div class="row">
                 <div class="col-sm-3 leftMain">
-                    <div class="card textbtn">
+                    <div class="card">
                         <h2>Contact Us</h2>
                         <p>For any inqueries please feel free to get in contact with using the email or phone number below:
                         </p><br>

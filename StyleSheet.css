@@ -213,15 +213,6 @@ input[type=button]
     font-size: x-Large;
 }
 
-/*For menu*/
-.dropdown-button
-{
-    display: block;
-    float: left;
-    padding: 1em;
-}
-
-
 .moreMenu
 {
     display: none;
