@@ -1,6 +1,7 @@
 <html>
-    <body>
-        <?php 
+
+<body>
+    <?php 
                 session_start();
                 session_destroy();/*Log out*/
                 unset($_SESSION['loggedin']);
@@ -10,5 +11,6 @@
                 header('Location: index.php');
                 exit;
          ?>
-    </body>
+</body>
+
 </html>

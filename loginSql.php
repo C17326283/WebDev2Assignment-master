@@ -1,6 +1,7 @@
 <html>
-    <body>
-        <?php
+
+<body>
+    <?php
             session_start();
         
             $servername = "localhost";
@@ -41,5 +42,6 @@
             }
             $conn->close();
         ?>
-    </body>
+</body>
+
 </html>

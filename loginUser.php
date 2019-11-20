@@ -1,9 +1,7 @@
-
-    
-    
-    
 <!DOCTYPE html><!-- HTML5 -->
-<html lang="en"><!-- language-->
+<html lang="en">
+<!-- language-->
+
 <head>
     <title>Home</title>
     <meta charset="utf-8"><!-- character set -->
@@ -12,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="StyleSheet" href="stylesheet.css"/>
+    <link rel="StyleSheet" href="stylesheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
 </head>
 
@@ -21,19 +19,19 @@
             /*For logging in*/
             session_start();
         ?>
-    <div class = "container-fluid wholePage">
-        
-        
-        
+    <div class="container-fluid wholePage">
+
+
+
         <nav>
-            <div class = "row navRow">
+            <div class="row navRow">
                 <a href="index.php">
                     <div class="col-sm-2 tab-box">
                         <img src="res/HomeWhite.png">
                         <h6>Home</h6>
                     </div>
                 </a>
-                
+
                 <a href="Results.php">
                     <div class="col-sm-2 tab-box">
                         <img src="res/magnifyingGlassIcon.png">
@@ -42,13 +40,14 @@
                 </a>
                 <a href="howToUse.php">
                     <div class="col-sm-2 tab-box">
-                            <img src="res/questionIcon.png">
-                            <h6>How to use</h6>
+                        <img src="res/questionIcon.png">
+                        <h6>How to use</h6>
                     </div>
                 </a>
                 <a href="aboutUs.php">
                     <div class="col-sm-2 tab-box">
-                        <img src="res/aboutUsIcon.png"><h6>About Us</h6>
+                        <img src="res/aboutUsIcon.png">
+                        <h6>About Us</h6>
                     </div>
                 </a>
                 <a href="contact.php">
@@ -61,18 +60,18 @@
                 </a>
                 <div class="col-sm-1 tab-box" style="visibility:hidden;">
                 </div>
-                    
-                
+
+
                 <div class="col-sm-1 tab-box" onclick="slide()" style="padding:16px;">
                     <img class="login" src="res/DropIcon.png">
                 </div>
 
             </div>
         </nav>
-        
-        <div class = "mainBody">
-            <div class = "card forms">
-                <h2>Login</h2><br> 
+
+        <div class="mainBody">
+            <div class="card forms">
+                <h2>Login</h2><br>
                 <h4><strong>Enter your details to log in.</strong></h4><br>
                 <form method="post" action="loginSql.php">
                     <p>Username:</p>

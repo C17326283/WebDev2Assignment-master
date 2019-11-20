@@ -40,7 +40,7 @@
                     </div>
                 </a>
                 <a href="howToUse.php">
-                    <div class="col-sm-2 tab-box current-box">
+                    <div class="col-sm-2 tab-box">
                         <img src="res/questionIcon.png">
                         <h6>How to use</h6>
                     </div>
@@ -89,11 +89,39 @@
                 <div class="col-sm-3 leftMain">
                     <div class="card">
                         <h2>Card1</h2>
+                        <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                    {
+                        echo'<br><p>logged in as: ';
+                        echo $_SESSION['Username'];
+                        echo'</p>';
+                    }
+                    else
+                    {
+                        echo"not logged in";
+                    }
+                    ?>
                     </div>
                 </div>
                 <div class="col-sm-9 rightMain">
                     <div class="card">
-                        <h2>Card2 Explanation</h2>
+                        <h2>Card2 Account info</h2>
+                        <?php
+                            //setting db details:
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "project2";
+                            //establish a connection:
+                            $connection = new mysqli($servername, $username, $password, $dbname);
+                            //run a query and store results in variable $result:
+                            $emailResult = $connection->query("SELECT email FROM users WHERE username ='".$_SESSION['Username']."'");
+                        
+                        $result = mysql_query("SELECT 'email' FROM `events` WHERE `id` = '$eventid' ");
+                        
+                            echo "<p>".$result."<p>";
+                        ?>
+
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <html>
-    <body>
-        <?php
+
+<body>
+    <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -30,5 +31,6 @@
 
             $conn->close();
         ?>
-    </body>
+</body>
+
 </html>

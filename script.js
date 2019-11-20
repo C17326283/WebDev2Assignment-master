@@ -1,4 +1,3 @@
-function slide()
-{
-    $(document.getElementById("menuSlide")).slideToggle( "slow" );
+function slide() {
+    $(document.getElementById("menuSlide")).slideToggle("slow");
 };
