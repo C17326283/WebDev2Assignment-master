@@ -52,7 +52,7 @@
                     </div>
                 </a>
                 <a href="contact.php">
-                    <div class="col-sm-2 tab-box">
+                    <div class="col-sm-2 tab-box current-box">
                         <img src="res/ContactIcon.png">
                         <div class="navText">
                             <h6>Contact</h6>
@@ -71,15 +71,22 @@
         </nav>
         
         <div class = "mainBody">
+            <div class="moreMenu" id="menuSlide">
+                <ul>
+                    <li><a href="loginUser.php"><p>Login</p></a></li>
+                    <li><a href="registerUser.php"><p>Register</p></a></li>
+                    <li><a href="https://www.google.com/"><p>test3</p></a></li>
+                </ul>
+            </div>
             <div class = "card forms">
-                <h2>Login</h2><br> 
-                <h4><strong>Enter your details to log in.</strong></h4><br>
-                <form method="post" action="loginSql.php">
-                    <p>Username:</p>
-                    <input type="text" id="Username" name="Username" minlength="3" maxlength="40" required><br>
-                    <p>Password:</p>
-                    <input type="password" id="Password" name="Password" minlength="4" maxlength="40" required><br>
-                    <input type="Submit" value="Log in">
+                <h2>Contact Form</h2><br> 
+                <h4><strong>Please enter your information and message below. </strong></h4>
+                <form method="post" action="contactSql.php">
+                    <p>Name:</p>
+                    <input type="text" id="Name" name="Name">
+                    <p>Message:</p>
+                    <textarea id="Message" name="Message" rows="6" cols="100%"></textarea>
+                    <input type="Submit" value="Submit" >
                 </form>
             </div>
         </div>

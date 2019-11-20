@@ -1,7 +1,3 @@
-
-    
-    
-    
 <!DOCTYPE html><!-- HTML5 -->
 <html lang="en"><!-- language-->
 <head>
@@ -12,7 +8,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="StyleSheet" href="stylesheet.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <script src="script.js"></script>
+    <link rel="StyleSheet" href="StyleSheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
 </head>
 
@@ -22,8 +21,6 @@
             session_start();
         ?>
     <div class = "container-fluid wholePage">
-        
-        
         
         <nav>
             <div class = "row navRow">
@@ -47,7 +44,7 @@
                     </div>
                 </a>
                 <a href="aboutUs.php">
-                    <div class="col-sm-2 tab-box">
+                    <div class="col-sm-2 tab-box current-box">
                         <img src="res/aboutUsIcon.png"><h6>About Us</h6>
                     </div>
                 </a>
@@ -71,17 +68,27 @@
         </nav>
         
         <div class = "mainBody">
-            <div class = "card forms">
-                <h2>Login</h2><br> 
-                <h4><strong>Enter your details to log in.</strong></h4><br>
-                <form method="post" action="loginSql.php">
-                    <p>Username:</p>
-                    <input type="text" id="Username" name="Username" minlength="3" maxlength="40" required><br>
-                    <p>Password:</p>
-                    <input type="password" id="Password" name="Password" minlength="4" maxlength="40" required><br>
-                    <input type="Submit" value="Log in">
-                </form>
+            <div class="moreMenu" id="menuSlide">
+                <ul>
+                    <li><a href="loginUser.php"><p>Login</p></a></li>
+                    <li><a href="registerUser.php"><p>Register</p></a></li>
+                    <li><a href="https://www.google.com/"><p>test3</p></a></li>
+                </ul>
             </div>
+            
+            <div class="row">
+                <div class="col-sm-3 leftMain">
+                    <div class="card">
+                        <h2>Card1</h2>
+                    </div>
+                </div>
+                <div class="col-sm-9 rightMain">
+                    <div class="card">
+                        <h2>Card2 About Us</h2>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         <footer>
             <p>By Kyle Heffernan & Ryan Byrne</p>

@@ -20,7 +20,8 @@
             /*For logging in*/
             session_start();
         ?>
-    <div class = "container-fluid wholePage">
+    <div class = "wholePage">
+        <div class = "container-fluid">
         
         <div class = "row top">
             <div class="col-sm-4 banner-box">
@@ -33,7 +34,8 @@
                     <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
                     <input type="button" value="Go!">
                     <a href="Results.html"><h4>Go to advanced search</h4></a>
-                    <?php
+                </div>
+                <?php
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                     {
                         echo'<br><p>logged in as: ';
@@ -42,10 +44,9 @@
                     }
                     else
                     {
-                        echo"not in";
+                        echo"not logged in";
                     }
                     ?>
-                </div>
             </div>
         </div>
         
@@ -64,18 +65,18 @@
                         <h6>Search</h6>
                     </div>
                 </a>
-                <a href="https://www.google.com/search?rlz=1C1CHBF_enIE826IE826&ei=CyjUXYGVNei31fAPr56Y8A4&q=how+to+use+online+library&oq=how+to+use+online+library&gs_l=psy-ab.3..0l2j0i30j0i8i30l7.1917.1917..2024...0.2..0.57.57.1......0....1..gws-wiz.......0i71.8okqYHnAz74&ved=0ahUKEwjBxryA6PblAhXoWxUIHS8PBu4Q4dUDCAs&uact=5">
+                <a href="howToUse.php">
                     <div class="col-sm-2 tab-box">
                             <img src="res/questionIcon.png">
                             <h6>How to use</h6>
                     </div>
                 </a>
-                <a href="https://www.google.com/">
+                <a href="aboutUs.php">
                     <div class="col-sm-2 tab-box">
                         <img src="res/aboutUsIcon.png"><h6>About Us</h6>
                     </div>
                 </a>
-                <a href="https://www.google.com/">
+                <a href="contact.php">
                     <div class="col-sm-2 tab-box">
                         <img src="res/ContactIcon.png">
                         <div class="navText">
@@ -83,7 +84,7 @@
                         </div>
                     </div>
                 </a>
-                <div class="col-sm-1 tab-box" style="height:20px;">
+                <div class="col-sm-1 tab-box" style="visibility:hidden;">
                 </div>
                     
                 
@@ -159,6 +160,8 @@
                 </div>
             </div>
             
+            
+        </div>
         </div>
         <footer>
             <p>By Kyle Heffernan & Ryan Byrne</p>
