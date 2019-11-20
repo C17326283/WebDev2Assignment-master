@@ -115,13 +115,27 @@
                             //establish a connection:
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
-                            $emailResult = $connection->query("SELECT email FROM users WHERE username ='".$_SESSION['Username']."'");
                         
-                        $result = mysql_query("SELECT 'email' FROM `events` WHERE `id` = '$eventid' ");
                         
-                            echo "<p>".$result."<p>";
-                        ?>
+                        
+                        $sql = "SELECT email FROM users WHERE username ='".$_SESSION['Username']."' ";
+                        
+                        $result = $connection->query($sql);
 
+                        if ($result->num_rows > 0)
+                        {
+                            // output data of each row
+                            while($row = $result->fetch_assoc())
+                            {
+                            echo "email: " . $row["email"]. "<br>";
+                            }
+                        } 
+                        else 
+                        {
+                            echo "0 results";
+                        }
+
+                        ?>
                     </div>
                 </div>
             </div>
