@@ -97,8 +97,8 @@
                         <li><a href="registerUser.php">
                                 <p>Register</p>
                             </a></li>
-                        <li><a href="https://www.google.com/">
-                                <p>test3</p>
+                        <li><a href="logoutSql.php">
+                                <p>Log out</p>
                             </a></li>
                     </ul>
                 </div>

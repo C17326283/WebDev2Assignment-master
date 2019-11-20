@@ -10,7 +10,7 @@ body {
 
 /*need for footer*/
     {
-    min-height: 100em;
+    min-height: 80em;
     overflow: hidden;
     display: block;
     position: relative;
@@ -78,6 +78,7 @@ nav {
     position: relative;
     top: 0;
     z-index: 2;
+
 }
 
 .tab-box {
@@ -253,7 +254,7 @@ ul {
 }
 
 .moreMenu li:hover {
-    background: #bc7c30;
+    background: #344048;
 }
 
 
