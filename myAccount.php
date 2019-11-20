@@ -89,23 +89,20 @@
                 <div class="col-sm-3 leftMain">
                     <div class="card">
                         <h2>Card1</h2>
-                        <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                    {
-                        echo'<br><p>logged in as: ';
-                        echo $_SESSION['Username'];
-                        echo'</p>';
-                    }
-                    else
-                    {
-                        echo"not logged in";
-                    }
-                    ?>
+
+                        <p>USER ICON</p>
+                        <?php echo '<p>'.$_SESSION['Username'].'</p>'; ?>
+                        <p>log out</p><br>
+
+                        <p>My account</p>
+                        <p>My books</p>
+                        <p>Account Settings</p>
+
                     </div>
                 </div>
                 <div class="col-sm-9 rightMain">
                     <div class="card">
-                        <h2>Card2 Account info</h2>
+                        <h2>My Details</h2>
                         <?php
                             //setting db details:
                             $servername = "localhost";
@@ -125,18 +122,28 @@
                             // output data of each row
                             while($row = $result->fetch_assoc())
                             {
-                            echo "<tr>
-                            <th>Name: </th>
-                            <td>".$row["name"]."</td>
-                            </tr><br>
+                            echo 
+                            "<table>
+                            <tr>
+                                <th>Name: </th>
+                                <td>".$row["name"]."</td>
+                                <td><a href='https://www.google.com/'>click to change</a></td>
+                            </tr>
+                            <br>
                             
-                            <th>Username: </th>
-                            <td>".$row["username"]."</td>
-                            </tr><br>
+                            <tr>
+                                <th>Username: </th>
+                                <td>".$row["username"]."</td>
+                                <td><a href='https://www.google.com/'>click to change</a></td>
+                            </tr>
+                            <br>
                             
-                            <th>Email: </th>
-                            <td>".$row["email"]."</td>
-                            </tr>";
+                            <tr>
+                                <th>Email: </th>
+                                <td>".$row["email"]."</td>
+                                <td><a href='https://www.google.com/'>click to change</a></td>
+                            </tr>
+                            </table>";
                             
                             }
                             echo "</table>";
