@@ -23,7 +23,6 @@
 
             if ($conn->query($sql) === TRUE)
             {
-                echo "<br>Message sent!.";
                 header("location: contact.php");
             }
             else
