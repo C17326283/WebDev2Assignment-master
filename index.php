@@ -19,9 +19,9 @@
 
 <body>
     <?php
-            /*For logging in*/
-            session_start();
-        ?>
+        /*For logging in*/
+        session_start();
+    ?>
     <div class="wholePage">
         <div class="container-fluid">
 
@@ -111,19 +111,18 @@
 
                 <div class="row">
                     <div class="col-sm-3 leftMain">
-
                         <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                    {
-                        echo'<br><p>logged in as: ';
-                        echo $_SESSION['Username'];
-                        echo'</p>';
-                    }
-                    else
-                    {
-                        echo"not logged in";
-                    }
-                    ?>
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                            {
+                                echo'<br><p>logged in as: ';
+                                echo $_SESSION['Username'];
+                                echo'</p>';
+                            }
+                            else
+                            {
+                                echo"not logged in";
+                            }
+                        ?>
                         <div class="card">
                             <h2>Contact Us</h2>
                             <p>For any inqueries please feel free to get in contact with using the email or phone number below:
