@@ -17,7 +17,6 @@
             echo "Connected successfully <br>";
     
             
-        
             $sql = "INSERT INTO contact (name, email, message)
             VALUES ('".$_POST["Name"]."','".$_POST["Email"]."', '".$_POST["Message"]."')";
 
