@@ -85,25 +85,15 @@
                 </ul>
             </div>
             <div class="card forms">
-                <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                    {
-                        echo'<br><p>logged in as: ';
-                        echo $_SESSION['Username'];
-                        echo'</p>';
-                    }
-                    else
-                    {
-                        echo"<script> alert('Please log in first!'); window.location='loginUser.php' </script>";
-                    }
-                ?>
                 <h2>Contact Form</h2><br>
                 <h4><strong>Please enter your information and message below. </strong></h4>
                 <form method="post" action="contactSql.php">
                     <p>Name:</p>
-                    <input type="text" id="Name" name="Name">
+                    <input type="text" id="Name" name="Name" required>
+                    <p>Email:</p>
+                    <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
                     <p>Message:</p>
-                    <textarea id="Message" name="Message" rows="6" cols="100%"></textarea>
+                    <textarea id="Message" name="Message" rows="6" cols="100%" required></textarea>
                     <input type="Submit" value="Submit">
                 </form>
             </div>
