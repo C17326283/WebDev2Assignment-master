@@ -26,12 +26,12 @@
         <div class="container-fluid">
 
             <div class="row top">
-                <div class="col-sm-4 banner-box">
+                <div class="col-sm-3 banner-box">
                     <a href="index.php">
                         <img class="topLogo" src="res/logosample.png">
                     </a>
                 </div>
-                <div class="col-sm-8 banner-box">
+                <div class="col-sm-9 banner-box">
                     <div class="top-search">
                         <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
                         <input type="button" value="Go!">
@@ -39,18 +39,6 @@
                             <h4>Go to advanced search</h4>
                         </a>
                     </div>
-                    <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                    {
-                        echo'<br><p>logged in as: ';
-                        echo $_SESSION['Username'];
-                        echo'</p>';
-                    }
-                    else
-                    {
-                        echo"not logged in";
-                    }
-                    ?>
                 </div>
             </div>
 
@@ -123,6 +111,19 @@
 
                 <div class="row">
                     <div class="col-sm-3 leftMain">
+
+                        <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                    {
+                        echo'<br><p>logged in as: ';
+                        echo $_SESSION['Username'];
+                        echo'</p>';
+                    }
+                    else
+                    {
+                        echo"not logged in";
+                    }
+                    ?>
                         <div class="card">
                             <h2>Contact Us</h2>
                             <p>For any inqueries please feel free to get in contact with using the email or phone number below:
