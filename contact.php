@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
     <link rel="StyleSheet" href="stylesheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
 </head>
@@ -84,6 +85,18 @@
                 </ul>
             </div>
             <div class="card forms">
+                <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                    {
+                        echo'<br><p>logged in as: ';
+                        echo $_SESSION['Username'];
+                        echo'</p>';
+                    }
+                    else
+                    {
+                        echo"<script> alert('Please log in first!'); window.location='loginUser.php' </script>";
+                    }
+                ?>
                 <h2>Contact Form</h2><br>
                 <h4><strong>Please enter your information and message below. </strong></h4>
                 <form method="post" action="contactSql.php">
