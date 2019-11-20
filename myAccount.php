@@ -118,22 +118,28 @@
                         
                         
                         
-                        $sql = "SELECT email FROM users WHERE username ='".$_SESSION['Username']."' ";
+                        $sql = "SELECT name, username, email FROM users WHERE username ='".$_SESSION['Username']."' ";
                         
                         $result = $connection->query($sql);
-
-                        if ($result->num_rows > 0)
-                        {
+                        
                             // output data of each row
                             while($row = $result->fetch_assoc())
                             {
-                            echo "email: " . $row["email"]. "<br>";
+                            echo "<tr>
+                            <th>Name: </th>
+                            <td>".$row["name"]."</td>
+                            </tr><br>
+                            
+                            <th>Username: </th>
+                            <td>".$row["username"]."</td>
+                            </tr><br>
+                            
+                            <th>Email: </th>
+                            <td>".$row["email"]."</td>
+                            </tr>";
+                            
                             }
-                        } 
-                        else 
-                        {
-                            echo "0 results";
-                        }
+                            echo "</table>";
 
                         ?>
                     </div>

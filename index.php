@@ -100,6 +100,9 @@
                         <li><a href="logoutSql.php">
                                 <p>Log out</p>
                             </a></li>
+                        <li><a href="myAccount.php">
+                                <p>My Account</p>
+                            </a></li>
                     </ul>
                 </div>
                 <div class="gallery">
