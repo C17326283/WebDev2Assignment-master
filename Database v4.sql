@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2019 at 11:59 PM
+-- Generation Time: Nov 21, 2019 at 12:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -25,8 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Table structure for table `books`
 --
+
+CREATE TABLE `books` (
+  `bk_isbn` varchar(13) NOT NULL,
+  `bk_name` varchar(50) NOT NULL,
+  `bk_author` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`bk_isbn`, `bk_name`, `bk_author`) VALUES
+('1234', 'harry thrones', 'ben stiller');
+
+
 
 CREATE TABLE `contact` (
   `contactID` int(11) NOT NULL,
@@ -45,7 +60,6 @@ INSERT INTO `contact` (`contactID`, `name`, `email`, `message`) VALUES
 (3, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'third times a charg'),
 (4, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'four guys burgers and fries'),
 (5, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'four guys burgers and fries');
-
 -- --------------------------------------------------------
 
 --
@@ -64,37 +78,34 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`name`, `username`, `email`, `password`) VALUES
-('Hometest111', 'Hometest111', 'home@test1.com', 'hometest111'),
+('ryby', '', 'ryby@ryby', 'ryby'),
+('rayn', 'rayn', 'rayn@rayn', 'rayn'),
 ('Ryan Byrne', 'ryandbyrne', 'ryby@rybyr.com', '123456'),
-('ryky', 'rykyry', 'ryky@kyry', 'ryky');
+('ryky', 'rykyry', 'ryky@kyry', 'ryky'),
+('rysy', 'rysy', 'rysy@rysy', 'rysy');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `contact`
+-- Indexes for table `users`
 --
+
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`contactID`);
 
---
--- Indexes for table `users`
---
+
 ALTER TABLE `users`
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `contact`
---
 ALTER TABLE `contact`
   MODIFY `contactID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
+
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
