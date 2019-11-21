@@ -35,7 +35,7 @@
                     <div class="top-search">
                         <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
                         <input type="button" value="Go!">
-                        <a href="Results.html">
+                        <a href="Results.php">
                             <h5>Go to advanced search</h5>
                         </a>
                     </div>

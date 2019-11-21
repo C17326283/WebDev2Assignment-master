@@ -139,7 +139,7 @@
                             $result = $connection->query($sql);/*store all rows in result*/
                             
                             $i = 0;
-                            while($row = $result->fetch_assoc() and $i < 10)/*print all rows that are stored in result*/
+                            while($row = $result->fetch_assoc() and $i < 100)/*print all rows that are stored in result*/
                             {
                             $i++;
                             echo 

@@ -88,9 +88,7 @@
             <div class="row">
                 <div class="col-sm-3 leftMain">
                     <div class="card">
-                        <h2>Card1</h2>
-
-                        <p>USER ICON</p>
+                        <?php echo '<h2>'.$_SESSION['Username'].'</h2>'; ?>
                         
                         <?php
                             $servername = "localhost";
@@ -118,18 +116,15 @@
                             echo "</div>";
                       
                         ?>
-                        
-                        <div class="card forms" style="width: 100%">
                             <h4>Change profile picture</h4><br>
                             <form method="post" action="upload.php" enctype="multipart/form-data">
                                 <input type="file" name="file" required>
-                                <button type="Submit" name="submit">Upload image</button>
+                                <button type="Submit" name="submit">Upload image</button><br>
                             </form>
-                        </div>
                         
                         
-                        <?php echo '<p>'.$_SESSION['Username'].'</p>'; ?>
-                        <p>log out</p><br>
+                        
+                        <p><a href="logoutSql.php">log out</a></p><br>
 
                         <p>My account</p>
                         <p>My books</p>
