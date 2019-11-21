@@ -130,16 +130,16 @@
                             {
                                 $searchQuery = $_REQUEST['searchQuery'];
 
-                                $sql = "SELECT * FROM books WHERE bk_name LIKE '%".$searchQuery."%'";
+                                $sql = "SELECT * FROM books WHERE Title LIKE '%".$searchQuery."%'";
                             }
                             else
                             {
-                                $sql = "SELECT bk_isbn, bk_name, bk_author FROM books";
+                                $sql = "SELECT Title, Authors, AverageRating, ISBN, Language, NumPages, NumRatings FROM books";
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
                             
                             $i = 0;
-                            while($row = $result->fetch_assoc() and $i < 100)/*print all rows that are stored in result*/
+                            while($row = $result->fetch_assoc() and $i < 1000)/*print all rows that are stored in result*/
                             {
                             $i++;
                             echo 
@@ -151,9 +151,12 @@
                                 </div>
                                 <div class='col-sm-9'>
                                     <br>
-                                    <h2>".$row["bk_name"]."</h2><br>
-                                    <p><strong>ISBN:</strong> ".$row["bk_isbn"]."</p>
-                                    <p><strong>Author:</strong> ".$row["bk_author"]."</p>
+                                    <h2>".$row["Title"]."</h2><br>
+                                    <p><strong>Author:</strong> ".$row["Authors"]."</p>
+                                    <p><strong>Isbn:</strong> ".$row["ISBN"]."</p>
+                                    <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
+                                    <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
+                                    <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
                                     <br><br><br><br><br><br>
                                 </div>
                             </div>
