@@ -139,47 +139,29 @@
                             $result = $connection->query($sql);/*store all rows in result*/
                             
                             $i = 0;
-                            while($row = $result->fetch_assoc())/*print all rows that are stored in result*/
+                            while($row = $result->fetch_assoc() and $i < 10)/*print all rows that are stored in result*/
                             {
-                                while($i < 10)
-                                {
-                                    $i++;
-                                    echo $i;
-                                    echo 
-                                    "
-                                    <div class='resultCard'>
-                                        <div class='col-sm-3'>
-                                            <img src='res/bookCover.jpg' style='height: 15em;'>
-                                        </div>
-                                        <div class='col-sm-9'>
-                                            <br>
-                                            <h2>".$row["bk_name"]."</h2><br>
-                                            <p><strong>ISBN:</strong> ".$row["bk_isbn"]."</p>
-                                            <p><strong>Author:</strong> ".$row["bk_author"]."</p>
-                                            <br><br><br><br><br><br>
-                                        </div>
-                                    </div>
-                                    ";
-                                }
-                            }
-                            echo "Showing ".$i." results.<br>";
-                            
-                        ?>
-                        </div>
-                        <br><br><br>
-                        <div class="resultCard">
-                            <div class="result">
-                                <div class="col-sm-3">
-                                    <img src="res/bookCover.jpg" style="height: 15em;">
+                            $i++;
+                            echo 
+                            "
+                            <div class='resultCard'>
+                                ".$i."
+                                <div class='col-sm-3'>
+                                    <img src='res/bookCover.jpg' style='height: 15em;'>
                                 </div>
-                                <div class="col-sm-9">
-                                    <br><br><br>
-                                    <p>Name</p>
-                                    <p>Author</p>
-                                    <p>Description</p>
+                                <div class='col-sm-9'>
+                                    <br>
+                                    <h2>".$row["bk_name"]."</h2><br>
+                                    <p><strong>ISBN:</strong> ".$row["bk_isbn"]."</p>
+                                    <p><strong>Author:</strong> ".$row["bk_author"]."</p>
                                     <br><br><br><br><br><br>
                                 </div>
                             </div>
+                            ";
+                            }
+                            echo "<p>Displaying ".$i." results.</p>";
+                            
+                        ?>
                         </div>
                     </div>
                 </div>
