@@ -36,7 +36,7 @@
                         <input type="search" id="quickSearchBox" placeholder="Quick Search" style="margin-top: 1em">
                         <input type="button" value="Go!">
                         <a href="Results.html">
-                            <h4>Go to advanced search</h4>
+                            <h5>Go to advanced search</h5>
                         </a>
                     </div>
                 </div>
@@ -122,18 +122,6 @@
 
                 <div class="row">
                     <div class="col-sm-3 leftMain">
-                        <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                            {
-                                echo'<br><p>logged in as: ';
-                                echo $_SESSION['Username'];
-                                echo'</p>';
-                            }
-                            else
-                            {
-                                echo"not logged in";
-                            }
-                        ?>
                         <div class="card">
                             <h2>Contact Us</h2>
                             <p>For any inqueries please feel free to get in contact with using the email or phone number below:

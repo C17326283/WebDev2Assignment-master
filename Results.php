@@ -101,13 +101,22 @@
                     </div>
                     <div class="col-sm-9 rightMain">
                         <div class="card">
-                            <form action="" method="post">  
-                            <input type="text" name="searchQuery" placeholder="Search" style="width:100%" /><br />  
-                            <input type="submit" value="Search" />  
-                            </form> 
+                            <form action="" method="post">
+                                <div class="searchBubble">
+                                    <select name="Filter">
+                                        <option value="Quick">Quick</option>
+                                        <option value="Book Name">Book Name</option>
+                                        <option value="Author">Author</option>
+                                        <option value="Isbn">Isbn</option>
+                                    </select>
+                                    <input type="text" class="searchBox" name="searchQuery" placeholder="Search" />
+                                    <input type="submit" class="searchButton" value="Search" />
+                                </div>
+                            </form>
                         </div>
-                        
-                        <?php
+
+                        <div class="card" style=" padding:1px;">
+                            <?php
                             //setting db details:
                             $servername = "localhost";
                             $username = "root";
@@ -128,30 +137,37 @@
                                 $sql = "SELECT bk_isbn, bk_name, bk_author FROM books";
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
-                        
+                            
+                            $i = 0;
                             while($row = $result->fetch_assoc())/*print all rows that are stored in result*/
                             {
-                            echo 
-                            "
-                            <div class='card'>
-                                <div class='col-sm-3'>
-                                    <img src='res/bookCover.jpg' style='height: 15em;'>
-                                </div>
-                                <div class='col-sm-9'>
-                                    <br>
-                                    <h3>".$row["bk_name"]."</h3><br>
-                                    <p>ISBN: ".$row["bk_isbn"]."</p>
-                                    <p>Author: ".$row["bk_author"]."</p>
-                                    <br><br><br><br><br><br>
-                                </div>
-                            </div>
-                            
-                            
-                            ";
+                                while($i < 10)
+                                {
+                                    $i++;
+                                    echo $i;
+                                    echo 
+                                    "
+                                    <div class='resultCard'>
+                                        <div class='col-sm-3'>
+                                            <img src='res/bookCover.jpg' style='height: 15em;'>
+                                        </div>
+                                        <div class='col-sm-9'>
+                                            <br>
+                                            <h2>".$row["bk_name"]."</h2><br>
+                                            <p><strong>ISBN:</strong> ".$row["bk_isbn"]."</p>
+                                            <p><strong>Author:</strong> ".$row["bk_author"]."</p>
+                                            <br><br><br><br><br><br>
+                                        </div>
+                                    </div>
+                                    ";
+                                }
                             }
+                            echo "Showing ".$i." results.<br>";
+                            
                         ?>
+                        </div>
                         <br><br><br>
-                        <div class="card">
+                        <div class="resultCard">
                             <div class="result">
                                 <div class="col-sm-3">
                                     <img src="res/bookCover.jpg" style="height: 15em;">

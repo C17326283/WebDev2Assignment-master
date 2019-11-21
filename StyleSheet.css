@@ -36,15 +36,41 @@ p {
 
 }
 
-h1 {
+h1/*Welcome*/
+{
     margin: 0px;
 }
 
-h2 {
+h2/*card heading*/
+{
     margin-top: .1em;
     margin-bottom: .1em;
     text-decoration: underline;
 }
+h3
+{
+    
+}
+h4
+{
+    
+}
+h5
+{
+    text-align: center;
+    float: center;
+    margin: 0px;
+    padding: 10px 0px;
+    font-size: medium;
+}
+.h6 /*tab box font*/
+{
+    margin: 0px;
+    margin-bottom: 2px;
+    font-size: Large;
+    padding: 0px
+}
+
 
 .banner-box {
     margin: 0px;
@@ -184,6 +210,14 @@ nav {
     background: #fffff9;
     margin: 1em 2em;
     padding: 1em 2em;
+    overflow: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
+}
+.resultCard {
+    background: #fffff9;
+    margin: 1em 1em;
+    padding: .5em .5em;
     overflow: auto;
     border-radius: 3px;
     box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
@@ -336,9 +370,52 @@ td {
     padding: 15px;
 }
 
-.searchAndGo
+.searchBubble
 {
     border-radius: 18px;
     background: red;
+    display:inline;
+    width: 100%;
+    margin: 0px;
+}
+.searchBubble input[type=text]
+{
+    float: left;
+    width: calc(100% - 14em);
+    
+    padding: 5px 20px;
+    margin: 0px 0px 10px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: large;
+    height: 3em;
+    
+}
+.searchBubble select
+{
+    float: left;
+    width: 7em;
+    
+    padding: 5px 20px;
+    margin: 0px 0px 10px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: large;
+    background: #e2e2e2;
+    height: 3em;
+}
+.searchBubble input[type=submit]
+{
+    padding: 5px 20px;
+    margin: 0px 0px 10px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: large;
+    width: 7em;
+    background-color: #db994b;
+    height: 3em;
 }
 
