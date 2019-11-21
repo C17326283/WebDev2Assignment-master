@@ -335,3 +335,10 @@ th,
 td {
     padding: 15px;
 }
+
+.searchAndGo
+{
+    border-radius: 18px;
+    background: red;
+}
+

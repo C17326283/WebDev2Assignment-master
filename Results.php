@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    <?php
+            /*For logging in*/
+            session_start();
+        ?>
+
     <div class="wholePage">
         <div class="container-fluid">
 
@@ -96,67 +101,63 @@
                     </div>
                     <div class="col-sm-9 rightMain">
                         <div class="card">
-                            <input type="button" value="Filter">
-                            <input type="search" id="quickSearchBox" placeholder="Quick Search">
-                            <input type="button" value="Go!">
-                            <input type="button" value="Sort By ">
-
+                            <form action="" method="post">  
+                            <input type="text" name="searchQuery" placeholder="Search" style="width:100%" /><br />  
+                            <input type="submit" value="Search" />  
+                            </form> 
                         </div>
+                        
+                        <?php
+                            //setting db details:
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "project2";
+                            //establish a connection:
+                            $connection = new mysqli($servername, $username, $password, $dbname);
+                            //run a query and store results in variable $result:
+                        
+                            if (!empty($_REQUEST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
+                            {
+                                $searchQuery = $_REQUEST['searchQuery'];
+
+                                $sql = "SELECT * FROM books WHERE bk_name LIKE '%".$searchQuery."%'";
+                            }
+                            else
+                            {
+                                $sql = "SELECT bk_isbn, bk_name, bk_author FROM books";
+                            }
+                            $result = $connection->query($sql);/*store all rows in result*/
+                        
+                            while($row = $result->fetch_assoc())/*print all rows that are stored in result*/
+                            {
+                            echo 
+                            "
+                            <div class='card'>
+                                <div class='col-sm-3'>
+                                    <img src='res/bookCover.jpg' style='height: 15em;'>
+                                </div>
+                                <div class='col-sm-9'>
+                                    <br>
+                                    <h3>".$row["bk_name"]."</h3><br>
+                                    <p>ISBN: ".$row["bk_isbn"]."</p>
+                                    <p>Author: ".$row["bk_author"]."</p>
+                                    <br><br><br><br><br><br>
+                                </div>
+                            </div>
+                            
+                            
+                            ";
+                            }
+                        ?>
+                        <br><br><br>
                         <div class="card">
                             <div class="result">
                                 <div class="col-sm-3">
                                     <img src="res/bookCover.jpg" style="height: 15em;">
                                 </div>
                                 <div class="col-sm-9">
-                                    <br>
-                                    <p>Name</p>
-                                    <p>Author</p>
-                                    <p>Description</p>
-                                    <br><br><br><br><br><br>
-                                </div>
-                            </div>
-                            <div class="result">
-                                <div class="col-sm-3">
-                                    <img src="res/bookCover.jpg" style="height: 15em;">
-                                </div>
-                                <div class="col-sm-9">
-                                    <br>
-                                    <p>Name</p>
-                                    <p>Author</p>
-                                    <p>Description</p>
-                                    <br><br><br><br><br><br>
-                                </div>
-                            </div>
-                            <div class="result">
-                                <div class="col-sm-3">
-                                    <img src="res/bookCover.jpg" style="height: 15em;">
-                                </div>
-                                <div class="col-sm-9">
-                                    <br>
-                                    <p>Name</p>
-                                    <p>Author</p>
-                                    <p>Description</p>
-                                    <br><br><br><br><br><br>
-                                </div>
-                            </div>
-                            <div class="result">
-                                <div class="col-sm-3">
-                                    <img src="res/bookCover.jpg" style="height: 15em;">
-                                </div>
-                                <div class="col-sm-9">
-                                    <br>
-                                    <p>Name</p>
-                                    <p>Author</p>
-                                    <p>Description</p>
-                                    <br><br><br><br><br><br>
-                                </div>
-                            </div>
-                            <div class="result">
-                                <div class="col-sm-3">
-                                    <img src="res/bookCover.jpg" style="height: 15em;">
-                                </div>
-                                <div class="col-sm-9">
-                                    <br>
+                                    <br><br><br>
                                     <p>Name</p>
                                     <p>Author</p>
                                     <p>Description</p>
