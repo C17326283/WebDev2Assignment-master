@@ -1,4 +1,15 @@
 <?php
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "project2";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$id = $_SESSION['Username'];
+
+
+
 if(isset($_POST['submit']))
 {
     $file = $_FILES['file'];
@@ -20,9 +31,11 @@ if(isset($_POST['submit']))
         {
             if($fileSize < 300000)
             {
-                $fileNameNew = uniqid('', true).".".$fileActualExt;
+                $fileNameNew = "profile".$id.".".$fileActualExt;
                 $fileDestination = 'uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
+                $sql = "UPDATE users SET imgStatus=1 WHERE username='$id';";
+                $result = mysqli_query($conn, $sql);
                 header("Location: myAccount.php");
             }
             else

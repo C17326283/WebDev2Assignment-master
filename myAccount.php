@@ -92,6 +92,32 @@
 
                         <p>USER ICON</p>
                         
+                        <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "project2";
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                        
+                            
+                            $id = $_SESSION['Username'];
+                            $sqlImg = "SELECT * FROM users WHERE username='$id' AND imgStatus='1'";
+                            $result = mysqli_query($conn, $sqlImg) OR die(mysqli_error($conn));
+                            $numrows = mysqli_num_rows($result);
+                            
+                            echo "<div>";
+                        
+                                if($numrows == 0)
+                                {
+                                    echo "<img src='res/default.PNG' style='width:100px;height:100px;'>";
+                                }
+                                else if($numrows == 1)
+                                {
+                                    echo "<img src='uploads/profileHometest111.jpg' style='width:100px;height:100px;'>";
+                                }
+                            echo "</div>";
+                      
+                        ?>
                         
                         <div class="card forms" style="width: 100%">
                             <h4>Change profile picture</h4><br>
