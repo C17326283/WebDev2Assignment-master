@@ -157,23 +157,23 @@
                             echo 
                             "<table>
                             <tr>
-                                <th>Name: </th>
-                                <td>".$row["name"]."</td>
-                                <td><a href='changeName.php'>click to change</a></td>
+                                <th>Username: </th>
+                                <td>".$row["username"]."</td>
+                                <td><a href='deleteAccount.php'>Delete Account</a></td>
                             </tr>
                             <br>
                             
                             <tr>
-                                <th>Username: </th>
-                                <td>".$row["username"]."</td>
-                                <td><a href='https://www.google.com/'>click to change</a></td>
+                                <th>Name: </th>
+                                <td>".$row["name"]."</td>
+                                <td><a href='changeName.php'>Change Name</a></td>
                             </tr>
                             <br>
                             
                             <tr>
                                 <th>Email: </th>
                                 <td>".$row["email"]."</td>
-                                <td><a href='changeEmail.php'>click to change</a></td>
+                                <td><a href='changeEmail.php'>Change Email</a></td>
                             </tr>
                             </table>";
                             
