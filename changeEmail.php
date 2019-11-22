@@ -28,45 +28,45 @@
 
 
         <nav>
-            <div class="row navRow">
-                <a href="index.php">
-                    <div class="col-sm-2 tab-box current-box">
-                        <img src="res/HomeWhite.png">
-                        <h6>Home</h6>
-                    </div>
-                </a>
-
-                <a href="Results.php">
-                    <div class="col-sm-2 tab-box">
-                        <img src="res/magnifyingGlassIcon.png">
-                        <h6>Search</h6>
-                    </div>
-                </a>
-                <a href="howToUse.php">
-                    <div class="col-sm-2 tab-box">
-                        <img src="res/questionIcon.png">
-                        <h6>How to use</h6>
-                    </div>
-                </a>
-                <a href="aboutUs.php">
-                    <div class="col-sm-2 tab-box">
-                        <img src="res/aboutUsIcon.png">
-                        <h6>About Us</h6>
-                    </div>
-                </a>
-                <a href="contact.php">
-                    <div class="col-sm-2 tab-box">
-                        <img src="res/ContactIcon.png">
-                        <div class="navText">
-                            <h6>Contact</h6>
+                <div class="row navRow">
+                    <a href="index.php">
+                        <div class="col-sm-2 tab-box current-box">
+                            <img src="res/HomeWhite.png">
+                            <h6>Home</h6>
                         </div>
-                    </div>
-                </a>
+                    </a>
+
+                    <a href="Results.php">
+                        <div class="col-sm-2 tab-box">
+                            <img src="res/magnifyingGlassIcon.png">
+                            <h6>Search</h6>
+                        </div>
+                    </a>
+                    <a href="howToUse.php">
+                        <div class="col-sm-2 tab-box">
+                            <img src="res/questionIcon.png">
+                            <h6>How to use</h6>
+                        </div>
+                    </a>
+                    <a href="aboutUs.php">
+                        <div class="col-sm-2 tab-box">
+                            <img src="res/aboutUsIcon.png">
+                            <h6>About Us</h6>
+                        </div>
+                    </a>
+                    <a href="contact.php">
+                        <div class="col-sm-2 tab-box">
+                            <img src="res/ContactIcon.png">
+                            <div class="navText">
+                                <h6>Contact</h6>
+                            </div>
+                        </div>
+                    </a>
 
 
-                <div class="col-sm-2 tab-box" onclick="slide()">
-                    <img class="login" src="res/personIcon.png">
-                    <?php
+                    <div class="col-sm-2 tab-box" onclick="slide()">
+                        <img class="login" src="res/personIcon.png">
+                        <?php
                             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                             {
                                 echo '<h6>'.$_SESSION['Username'].'</h6>';
@@ -76,31 +76,31 @@
                                 echo"<h6>Account</h6>";
                             }
                         ?>
-                </div>
+                    </div>
 
-            </div>
-        </nav>
+                </div>
+            </nav>
 
         <div class="mainBody">
             <div class="moreMenu" id="menuSlide">
-                <ul>
-                    <li><a href="loginUser.php">
-                            <p>Login</p>
-                        </a></li>
-                    <li><a href="registerUser.php">
-                            <p>Register</p>
-                        </a></li>
-                    <li><a href="logoutSql.php">
-                            <p>Log out</p>
-                        </a></li>
-                    <li><a href="myAccount.php">
-                            <p>My Account</p>
-                        </a></li>
-                    <li><a href="myBooks.php">
-                            <p>My Books</p>
-                        </a></li>
-                </ul>
-            </div>
+                    <ul>
+                        <li><a href="loginUser.php">
+                                <p>Login</p>
+                            </a></li>
+                        <li><a href="registerUser.php">
+                                <p>Register</p>
+                            </a></li>
+                        <li><a href="logoutSql.php">
+                                <p>Log out</p>
+                            </a></li>
+                        <li><a href="myAccount.php">
+                                <p>My Account</p>
+                            </a></li>
+                        <li><a href="myBooks.php">
+                                <p>My Books</p>
+                            </a></li>
+                    </ul>
+                </div>
             <div class="card forms">
                 <h4><strong>Please enter your new email.</strong></h4>
                 <form method="post" action="changeEmailSql.php">

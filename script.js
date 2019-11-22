@@ -1,6 +1,6 @@
 function slide() 
 {
-    $(document.getElementById("menuSlide")).slideToggle("slow");
+    $(document.getElementById("menuSlide")).slideToggle(200);
 }
 
 
