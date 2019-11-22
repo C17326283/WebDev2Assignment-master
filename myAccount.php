@@ -159,7 +159,7 @@
                             <tr>
                                 <th>Name: </th>
                                 <td>".$row["name"]."</td>
-                                <td><a href='https://www.google.com/'>click to change</a></td>
+                                <td><a href='changeName.php'>click to change</a></td>
                             </tr>
                             <br>
                             
