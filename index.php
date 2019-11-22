@@ -112,6 +112,9 @@
                         <li><a href="myAccount.php">
                                 <p>My Account</p>
                             </a></li>
+                        <li><a href="myBooks.php">
+                                <p>My Books</p>
+                            </a></li>
                     </ul>
                 </div>
                 <div class="gallery">
