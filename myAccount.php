@@ -173,7 +173,7 @@
                             <tr>
                                 <th>Email: </th>
                                 <td>".$row["email"]."</td>
-                                <td><a href='https://www.google.com/'>click to change</a></td>
+                                <td><a href='changeEmail.php'>click to change</a></td>
                             </tr>
                             </table>";
                             

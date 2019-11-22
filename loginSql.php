@@ -29,10 +29,16 @@
 
             if ($numrows == 1)
             {
+                //$sqlid = "SELECT userID FROM users WHERE Username = '$userUsername'"; 
+                //$resultid = mysqli_query($conn, $sql) OR die(mysqli_error($conn));
+                //$actualid = mysqli_fetch_row($resultid);
+                
+                
                 echo "Logged in";
                 $_SESSION['loggedin'] = true;
                 $_SESSION['Username'] = $userUsername;
                 $_SESSION['Password'] = $userPassword;
+                //$_SESSION['UserID'] = $actualid;
                 header("location: index.php");
             }
             else
