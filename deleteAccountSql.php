@@ -20,7 +20,7 @@
     
             $id = $_SESSION['Username'];
         
-            $sql = "DELETE * FROM users WHERE username='$id';";
+            $sql = "DELETE FROM users WHERE username='$id';";
             $result = mysqli_query($conn, $sql);
             header("Location: logoutSql.php");     
 
