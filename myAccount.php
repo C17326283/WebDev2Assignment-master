@@ -111,7 +111,7 @@
                                 }
                                 else if($numrows == 1)
                                 {
-                                    echo "<img src='uploads/profileHometest111.jpg' style='width:100px;height:100px;'>";
+                                    echo "<img src='uploads/profile".$id.".jpg' style='width:100px;height:100px;'>";
                                 }
                             echo "</div>";
                       
