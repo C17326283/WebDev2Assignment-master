@@ -3,14 +3,9 @@
 <body>
     <?php
             session_start();
-        
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "project2";
 
             // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli("localhost", "root", "", "project2");
 
             // Check connection
             if ($conn->connect_error) {
