@@ -104,8 +104,7 @@
                             <form action="" method="post">
                                 <div class="searchBubble">
                                     <select name="Filter">
-                                        <option value="Quick">Quick</option>
-                                        <option value="Book Name">Book Name</option>
+                                        <option value="Title">Title</option>
                                         <option value="Author">Author</option>
                                         <option value="Isbn">Isbn</option>
                                     </select>
@@ -129,8 +128,23 @@
                             if (!empty($_REQUEST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
                             {
                                 $searchQuery = $_REQUEST['searchQuery'];
+                                $searchType = $_REQUEST['Filter'];
 
-                                $sql = "SELECT * FROM books WHERE Title LIKE '%".$searchQuery."%'";
+                                if($searchType == "Title")
+                                {
+                                    $sql = "SELECT * FROM books WHERE Title LIKE '%".$searchQuery."%'";
+                                }
+                                else if($searchType == "Author")
+                                {
+                                    $sql = "SELECT * FROM books WHERE Authors LIKE '%".$searchQuery."%'";
+                                }
+                                else if($searchType == "Isbn")
+                                {
+                                    $sql = "SELECT * FROM books WHERE ISBN LIKE '%".$searchQuery."%'";
+                                }
+                                
+                                echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong></p>";
+                                
                             }
                             else
                             {
@@ -138,6 +152,7 @@
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
                             
+                                
                             $i = 0;
                             while($row = $result->fetch_assoc() and $i < 1000)/*print all rows that are stored in result*/
                             {
