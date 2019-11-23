@@ -26,8 +26,9 @@
             {
                 echo "Logged in";
                 $_SESSION['loggedin'] = true;
-                $_SESSION['Username'] = $userUsername;
-                $_SESSION['Password'] = $userPassword;
+                
+                $row = $result->fetch_assoc();
+                $_SESSION['Username'] = $row["username"];//Sets the session username to the username of the account that just logged in
                 header("location: index.php");
             }
             else
