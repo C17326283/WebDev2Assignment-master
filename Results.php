@@ -124,11 +124,6 @@
                             <p>3 and up</p>
                             <p>4 and up</p>
                             <h3>Language</h3>
-                            <form action="" method="post">
-                                <input type="radio" name="lan" value="eng" />eng
-                                <input type="radio" name="lan" value="spa" />spa
-                                <input type="radio" name="lan" value="fre" />fre
-                            </form>
                             <p>English</p>
                             <p>Spanish</p>
                             <p>French</p>
@@ -145,17 +140,17 @@
                         <div class="card">
                             <form action="" method="post">
                                 <div class="searchBubble">
-                                    <select name="Type">
+                                    <select name="Type" id="searchType">
                                         <!--values are used to compare to DB row-->
                                         <option value="Title">Title</option>
                                         <option value="Authors">Authors</option>
                                         <option value="ISBN">Isbn</option>
                                     </select>
-                                    <input type="text" class="searchBox" name="searchQuery" placeholder="Search" />
+                                    <input type="text" class="searchBox" name="searchQuery" id="searchBar" placeholder="Search" />
                                     <input type="submit" class="searchButton" value="Search" />
                                 </div>
                                 <p>Sort By:</p>
-                                <select name="Sort">
+                                <select name="Sort" id="searchSort">
                                     <option value="Title">Title (Alphabetical)</option>
                                     <option value="Authors">Authors (Alphabetical)</option>
                                     <option value="ISBN">Isbn (Increasing)</option>
@@ -164,12 +159,33 @@
                                     <option value="Language">Language (Alphabetical)</option>
                                 </select>
                                 <p>Num of results to show:</p>
-                                <select name="MaxNumResults">
+                                <select name="MaxNumResults" id="searchMaxResults">
                                     <option value=10>10</option>
                                     <option value=100>100</option>
                                     <option value=1000>1000</option>
                                     <option value=100000>All</option>
                                 </select>
+                                <p>Language:</p>
+                                <select name="filterLan" id="filterLan">
+                                        <!--values are used to compare to DB row-->
+                                        <option value="en">English</option>
+                                        
+                                        <option value="ara">arabic?</option>
+                                        <option value="dan">Danish</option>
+                                        <option value="fre">French</option>
+                                        <option value="ger">Germany</option>
+                                        <option value="grc">Greek</option>
+                                        <option value="ita">Italian</option>
+                                        <option value="jpn">Japanese</option>
+                                        <option value="lat">Latin</option>
+                                        <option value="nl">Dutch?</option>
+                                        <option value="por">Portugese</option>
+                                        <option value="rus">Russian</option>
+                                        <option value="spa">Spanish</option>
+                                        <option value="srp">Serbian</option>
+                                        <option value="zho">Chinese</option>
+                                        <option value="mul">*Multiple*</option>
+                                    </select>
                             </form>
                         </div>
 
@@ -184,27 +200,31 @@
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
                         
-                            $MaxNumResults = 100;
                             if (!empty($_POST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
                             {
                                 $searchQuery = $_POST['searchQuery'];
                                 $searchType = $_POST['Type'];
                                 $searchSort = $_POST['Sort'];
                                 $MaxNumResults = $_POST['MaxNumResults'];
-                                
+                                $filterLan = $_POST['filterLan'];
 /*
                                 $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchType;*/
-                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchSort;
-                                
+                                $sql = "SELECT * FROM books WHERE
+                                ".$searchType." LIKE '%".$searchQuery."%'
+                                AND 
+                                Language LIKE '%".$filterLan."%'
+                                ORDER BY ".$searchSort;
                                 
                                 echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong>";
-                                
                             }
                             else
                             {
+                                $MaxNumResults = $_POST['MaxNumResults'];
+                                
                                 $sql = "SELECT * FROM books";
                                 
                                 echo "<p>Displaying all books";
+                                
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
                             echo " (".mysqli_num_rows($result)." results found.)</p>";
@@ -239,6 +259,14 @@
                             echo "<p>Displaying ".$i." results.</p>";
                             
                         ?>
+                            <script type="text/javascript">
+                                document.getElementById('searchBar').value = "<?php echo $searchQuery; ?>";
+                                document.getElementById('searchType').value = "<?php echo $searchType; ?>";
+                                document.getElementById('searchSort').value = "<?php echo $searchSort; ?>";
+                                document.getElementById('searchMaxResults').value = "<?php echo $MaxNumResults; ?>";
+                                document.getElementById('filterLan').value = "<?php echo $filterLan; ?>";
+                            </script>
+                            
                         </div>
                     </div>
                 </div>
