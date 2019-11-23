@@ -97,6 +97,7 @@
         if(errorEmpty == false && errorEmail == false && errorUsername == false && errorPassword == false)
         {
             $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword, #form-succes").val("");
+            window.location.href = "loginUser.php";
         }
         
     </script>

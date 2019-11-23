@@ -2,31 +2,66 @@
 
 <body>
     <?php
-            session_start();
-        
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "project2";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
-            echo "Connected successfully <br>";
+        session_start();
     
-            $id = $_SESSION['Username'];
-            $name = $_POST["Name"];
-        
-            $sql = "UPDATE users SET name='$name' WHERE username='$id';";
-            $result = mysqli_query($conn, $sql);
-            header("Location: myAccount.php");        
+        if(isset($_POST['submit']))
+        {
+            $username = $_SESSION['Username'];
+            $name = $_POST['name'];
+            
+            $errorEmpty = false;
+            
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
+            
+            if(empty($name))
+            {
+                echo "<span class='form-error'>Please enter a valid name!</span>";
+                $errorEmpty = true;
+            }
+            else
+            {
+                $sql = "UPDATE users SET name='$name' WHERE username='$username';";
+                $result = mysqli_query($conn, $sql);
 
-            $conn->close();
-        ?>
+                if ($conn->query($sql) === TRUE)
+                {
+                    echo "<span class='form-success'>Name changed!</span>";
+
+                }
+                else
+                {
+                    echo "Error: <br>".$conn->error;
+                }
+
+                $conn->close();
+            }
+        }
+        else
+        {
+            echo "There was an error!";
+        }
+    ?>
+    
+    <script>
+        $("#change-name").removeClass("input-error");
+        
+        var errorEmpty = "<?php echo $errorEmpty; ?>";
+
+        if(errorEmpty == true)
+        {
+            $("#change-name").addClass("input-error");
+        }
+        if(errorEmpty == false)
+        {
+            $("#change-name").val("");
+            window.location.href = "myAccount.php";
+
+        }
+        
+    </script>
+
 </body>
 
 </html>

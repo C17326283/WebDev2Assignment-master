@@ -114,12 +114,43 @@
             <div class="row">
                 <div class="col-sm-3 leftMain">
                     <div class="card">
-                        <h2>Card1</h2>
+                        <h2>Our Libraries</h2>
+                        <br>
+                        <p>
+                            Our Libraries form part of the Community and Cultural Development Department in Dún Laoghaire-Rathdown County Council. The county has eight branch libraries serving the educational and recreational needs of all who live, work or study in the Dún Laoghaire-Rathdown area. Current library membership is 58,000 and continues to grow. 1.4 million books were issued last year.
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-9 rightMain">
                     <div class="card">
-                        <h2>Card2 About Us</h2>
+                        <h2>Code of Conduct and the Customers Role</h2>
+                        <p>
+                            We welcome your comments and suggestions on how we can improve our services in the future. 
+                            If you would like to comment or make a suggestion please email 123library@lib.com.
+                        </p>
+                        <p>
+                            Just as the customer is entitled to the highest level of customer service, Library staff should receive the same levels of respect and courtesy from the customer. The following conduct is not acceptable: -
+                        </p>
+                        <p>
+                            <br>Behaviour that is disruptive and interferes with the use and enjoyment of Library facilities.
+                          
+                            <br>Harassment of staff or members of the public by use of abusive, racist, obscene or threatening language.
+
+                            <br>Use of violence or threat of violence towards staff and/or members of the public.
+
+                            <br>Malicious damage to and/or theft of Library property.
+
+                            <br>Food and drink (with the exception of bottled water) may not be consumed in the Library.
+
+                            <br>The use of alcohol or illicit drugs while using Library facilities.
+
+                            <br>Smoking/vaping on Library premises.
+
+                            <br>Leaving personal property unattended in any Library.
+                        </p>
+
+                        
+                        
                     </div>
                 </div>
             </div>

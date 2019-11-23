@@ -11,6 +11,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <script>
+        $(document).ready(function() 
+        {
+            $("form").submit(function(event)
+            {
+                event.preventDefault();//preventing the normal post action of the form
+                var username = $("#log-username").val();
+                var password = $("#log-password").val();
+                var submit = $("#log-submit").val();
+                $(".form-message").load("loginSql.php", {
+                    username: username,
+                    password: password,
+                    submit: submit
+                });
+            });
+            
+        });
+    
+    </script>
 
     <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css" />
@@ -87,10 +107,11 @@
                 <h4><strong>Enter your details to log in.</strong></h4><br>
                 <form method="post" action="loginSql.php">
                     <p>Username:</p>
-                    <input type="text" id="Username" name="Username" minlength="3" maxlength="40" required><br>
+                    <input type="text" id="log-username" name="username" minlength="3" maxlength="40" ><br>
                     <p>Password:</p>
-                    <input type="password" id="Password" name="Password" minlength="4" maxlength="40" required><br>
-                    <input type="Submit" value="Log in">
+                    <input type="password" id="log-password" name="password" minlength="4" maxlength="40" ><br>
+                    <input type="Submit" id="log-submit" value="Log in">
+                    <p class="form-message" id="form-message"></p>
                 </form>
             </div>
         </div>

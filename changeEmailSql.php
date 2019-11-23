@@ -51,7 +51,7 @@
 
         if(errorEmail == true)
         {
-            $("#register-email").addClass("input-error");
+            $("#change-email").addClass("input-error");
         }
         if(errorEmail == false)
         {
