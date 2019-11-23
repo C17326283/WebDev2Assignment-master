@@ -27,7 +27,7 @@
                 echo "<span class='form-error'>This username has been taken!</span>";
                 $errorUsername = true;
             }
-            if(empty($name) || empty($email) || empty($username) || empty($password))
+            elseif(empty($name) || empty($email) || empty($username) || empty($password))
             {
                 echo "<span class='form-error'>Fill in all fields!</span>";
                 $errorEmpty = true;
