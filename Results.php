@@ -125,10 +125,10 @@
                             <p>4 and up</p>
                             <h3>Language</h3>
                             <form action="" method="post">
-  <input type="radio" name="lan" value="eng" />eng
-  <input type="radio" name="lan" value="spa" />spa
-  <input type="radio" name="lan" value="fre" />fre
-</form>
+                                <input type="radio" name="lan" value="eng" />eng
+                                <input type="radio" name="lan" value="spa" />spa
+                                <input type="radio" name="lan" value="fre" />fre
+                            </form>
                             <p>English</p>
                             <p>Spanish</p>
                             <p>French</p>
@@ -145,7 +145,8 @@
                         <div class="card">
                             <form action="" method="post">
                                 <div class="searchBubble">
-                                    <select name="Type"><!--values are used to compare to DB row-->
+                                    <select name="Type">
+                                        <!--values are used to compare to DB row-->
                                         <option value="Title">Title</option>
                                         <option value="Authors">Authors</option>
                                         <option value="ISBN">Isbn</option>
@@ -155,13 +156,20 @@
                                 </div>
                                 <p>Sort By:</p>
                                 <select name="Sort">
-                                        <option value="Title">Title (Alphabetical)</option>
-                                        <option value="Authors">Authors (Alphabetical)</option>
-                                        <option value="ISBN">Isbn (Increasing)</option>
-                                        <option value="NumPages">Pages(Increasing)</option>
-                                        <option value="AverageRating">Rating (Increasing)</option>
-                                        <option value="Language">Language (Alphabetical)</option>
-                                    </select>
+                                    <option value="Title">Title (Alphabetical)</option>
+                                    <option value="Authors">Authors (Alphabetical)</option>
+                                    <option value="ISBN">Isbn (Increasing)</option>
+                                    <option value="NumPages">Pages(Increasing)</option>
+                                    <option value="AverageRating">Rating (Increasing)</option>
+                                    <option value="Language">Language (Alphabetical)</option>
+                                </select>
+                                <p>Num of results to show:</p>
+                                <select name="MaxNumResults">
+                                    <option value=10>10</option>
+                                    <option value=100>100</option>
+                                    <option value=1000>1000</option>
+                                    <option value=100000>All</option>
+                                </select>
                             </form>
                         </div>
 
@@ -176,11 +184,13 @@
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
                         
+                            $MaxNumResults = 100;
                             if (!empty($_POST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
                             {
                                 $searchQuery = $_POST['searchQuery'];
                                 $searchType = $_POST['Type'];
                                 $searchSort = $_POST['Sort'];
+                                $MaxNumResults = $_POST['MaxNumResults'];
                                 
 /*
                                 $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchType;*/
@@ -201,7 +211,7 @@
                             
                                 
                             $i = 0;
-                            while($row = $result->fetch_assoc() and $i < 100)/*print all rows that are stored in result*/
+                            while($row = $result->fetch_assoc() and $i < $MaxNumResults)/*print all rows that are stored in result*/
                             {
                             $i++;
                             echo 

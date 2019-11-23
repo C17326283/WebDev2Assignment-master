@@ -39,7 +39,7 @@
                 echo "<span class='form-error'>Passwords do not match!</span>";
                 $errorPassword = true;
             }
-            elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))/*php fuction*/
             {
                 echo "<span class='form-error'>Enter a valid email!</span>";
                 $errorEmail = true;
