@@ -64,7 +64,7 @@
         }
         if(errorEmpty == false && errorDetails == false)
         {
-            $("#log-username, #log-password, #form-succes").val("");
+            $("#log-username, #log-password").val("");
             window.location.href = "index.php";
         }
         

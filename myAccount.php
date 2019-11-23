@@ -117,11 +117,7 @@
                         <?php echo '<h2>'.$_SESSION['Username'].'</h2>'; ?>
 
                         <?php
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "project2";
-                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            $conn = new mysqli("localhost", "root", "", "project2");
                         
                             
                             $id = $_SESSION['Username'];
@@ -161,20 +157,13 @@
                     <div class="card">
                         <h2>My Details</h2>
                         <?php
-                            //setting db details:
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "project2";
+                            
                             //establish a connection:
-                            $connection = new mysqli($servername, $username, $password, $dbname);
+                            $connection = new mysqli("localhost", "root", "", "project2");
                             //run a query and store results in variable $result:
+                            $sql = "SELECT name, username, email FROM users WHERE username ='".$_SESSION['Username']."' ";
                         
-                        
-                        
-                        $sql = "SELECT name, username, email FROM users WHERE username ='".$_SESSION['Username']."' ";
-                        
-                        $result = $connection->query($sql);
+                            $result = $connection->query($sql);
                         
                             // output data of each row
                             while($row = $result->fetch_assoc())

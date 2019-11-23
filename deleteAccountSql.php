@@ -71,7 +71,7 @@
         }
         if(errorEmpty == false && errorDetails == false)
         {
-            $("#del-username, #del-password, #form-succes").val("");
+            $("#del-username, #del-password").val("");
             window.location.href = "logoutSql.php";
         }
         

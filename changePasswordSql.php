@@ -67,7 +67,7 @@
         
         if(errorEmpty == false && errorPassword == false)
         {
-            $("#change-password, #change-confirmpassword, #form-succes").val("");
+            $("#change-password, #change-confirmpassword").val("");
             window.location.href = "myAccount.php";
         }
         

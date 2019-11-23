@@ -66,7 +66,7 @@
         
         if(errorEmpty == false && errorEmail == false)
         {
-            $("#con-name, #con-email, #con-message, #form-succes").val("");
+            $("#con-name, #con-email, #con-message").val("");
         }
         
     </script>
