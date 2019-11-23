@@ -419,3 +419,22 @@ td {
     height: 3em;
 }
 
+.form-message
+{
+    text-align: center;
+}
+.form-error
+{
+    color: red;
+}
+
+.form-success
+{
+    color: green;
+}
+
+.input-error
+{
+    box-shadow: 0 0 5px red;
+}
+

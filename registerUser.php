@@ -12,6 +12,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="StyleSheet" href="stylesheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
+    
+    <script>
+        $(document).ready(function() 
+        {
+            $("form").submit(function(event)
+            {
+                event.preventDefault();//preventing the normal post action of the form
+                var name = $("#register-name").val();
+                var username = $("#register-username").val();
+                var email = $("#register-email").val();
+                var password = $("#register-password").val();
+                var submit = $("#register-submit").val();
+                $(".form-message").load("registerUserSql.php", {
+                    name: name,
+                    username: username,
+                    email: email,
+                    password: password,
+                    submit: submit
+                });
+            });
+            
+        });
+    
+    </script>
 </head>
 
 <body>
@@ -71,14 +95,15 @@
                 <h4><strong>Please enter your details below to make an account.</strong></h4><br>
                 <form method="post" action="registerUserSql.php">
                     <p>Name:</p>
-                    <input type="text" id="Name" name="Name" minlength="3" maxlength="40" required><br>
+                    <input type="text" id="register-name" name="name" minlength="3" maxlength="40" ><br>
                     <p>Username:</p>
-                    <input type="text" id="Username" name="Username" minlength="3" maxlength="40" required><br>
+                    <input type="text" id="register-username" name="username" minlength="3" maxlength="40" ><br>
                     <p>Email:</p>
-                    <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
+                    <input type="email" id="register-email" name="email" minlength="8" maxlength="50" ><br>
                     <p>Password:</p>
-                    <input type="password" id="Pass" name="Password" minlength="4" maxlength="40" required><br>
-                    <input type="Submit" value="Register">
+                    <input type="password" id="register-password" name="password" minlength="4" maxlength="40" ><br>
+                    <input type="submit" id="register-submit" value="Register">
+                    <p class="form-message" id="form-message"></p>
                 </form>
             </div>
         </div>
