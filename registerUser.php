@@ -26,12 +26,14 @@
                 var username = $("#register-username").val();
                 var email = $("#register-email").val();
                 var password = $("#register-password").val();
+                var confirmpassword = $("#register-confirmpassword").val();
                 var submit = $("#register-submit").val();
                 $(".form-message").load("registerUserSql.php", {
                     name: name,
                     username: username,
                     email: email,
                     password: password,
+                    confirmpassword: confirmpassword,
                     submit: submit
                 });
             });
@@ -115,6 +117,8 @@
                     <input type="email" id="register-email" name="email" minlength="8" maxlength="50" ><br>
                     <p>Password:</p>
                     <input type="password" id="register-password" name="password" minlength="4" maxlength="40" ><br>
+                    <p>Confirm Password:</p>
+                    <input type="password" id="register-confirmpassword" name="confirmpassword" minlength="4" maxlength="40" ><br>
                     <input type="submit" id="register-submit" value="Register">
                     <p class="form-message" id="form-message"></p>
                 </form>
