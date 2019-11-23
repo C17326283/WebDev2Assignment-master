@@ -11,6 +11,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <script>
+        $(document).ready(function() 
+        {
+            $("form").submit(function(event)
+            {
+                event.preventDefault();//preventing the normal post action of the form
+                var name = $("#con-name").val();
+                var email = $("#con-email").val();
+                var message = $("#con-message").val();
+                var submit = $("#con-submit").val();
+                $(".form-message").load("contactSql.php", {
+                    name: name,
+                    email: email,
+                    message: message,
+                    submit: submit
+                });
+            });
+            
+        });
+    
+    </script>
 
     <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css" />
@@ -117,12 +139,13 @@
                 <h4><strong>Please enter your information and message below. </strong></h4>
                 <form method="post" action="contactSql.php">
                     <p>Name:</p>
-                    <input type="text" id="Name" name="Name" required>
+                    <input type="text" id="con-name" name="name" >
                     <p>Email:</p>
-                    <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
+                    <input type="email" id="con-email" name="email" minlength="8" maxlength="50" ><br>
                     <p>Message:</p>
-                    <textarea id="Message" name="Message" rows="6" cols="100%" required></textarea>
-                    <input type="Submit" value="Submit">
+                    <textarea id="con-message" name="message" rows="6" cols="100%" ></textarea>
+                    <input type="Submit" id="con-submit" value="Submit">
+                    <p class="form-message" id="form-message"></p>
                 </form>
             </div>
         </div>
