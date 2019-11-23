@@ -5,50 +5,50 @@
     
         if(isset($_POST['submit']))
         {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $message = $_POST['message'];
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
+            $name = mysqli_real_escape_string($conn, $_POST['name']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $message = mysqli_real_escape_string($conn, $_POST['message']);
             
             $errorEmpty = false;
             $errorEmail = false;
             
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "project2");
             
             if(empty($name) || empty($email) || empty($message))
             {
                 echo "<span class='form-error'>Fill in all fields!</span>";
                 $errorEmpty = true;
             }
-            elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))/*php fuction*/
+            elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) //php function
             {
                 echo "<span class='form-error'>Enter a valid email!</span>";
                 $errorEmail = true;
             }
             else
             {
-                $newname = mysqli_real_escape_string($conn, $name);
-                $newemail = mysqli_real_escape_string($conn, $email);
-                $newmessage = mysqli_real_escape_string($conn, $message);
-
-                
+                //create a template
                 $sql = "INSERT INTO contact (name, email, message) VALUES (?, ?, ?);";
+                //create a prepared statement
                 $stmt = mysqli_stmt_init($conn);
+                //prepare the prepared statement
                 if(!mysqli_stmt_prepare($stmt, $sql))
                 {
                     echo "SQL statement failed";
                 }
                 else
                 {
-                    mysqli_stmt_bind_param($stmt, "sss", $newname, $newemail, $newmessage);
+                    //bind parameters to the placeholder
+                    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
+                    //run parameters inside database
                     mysqli_stmt_execute($stmt);
                     
                     echo "<span class='form-success'>Contact sent successfully!</span>";
                 }
                 
-
-                $conn->close();
             }
+            $conn->close();
         }
         else
         {
