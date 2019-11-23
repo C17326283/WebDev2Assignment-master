@@ -152,9 +152,8 @@
 
                         <p><a href="logoutSql.php">log out</a></p><br>
 
-                        <p>My account</p>
-                        <p>My books</p>
-                        <p>Account Settings</p>
+                        <br>
+                        <a href='changePassword.php'>Change Password</a>
 
                     </div>
                 </div>
