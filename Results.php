@@ -140,6 +140,14 @@
                                     <input type="text" class="searchBox" name="searchQuery" placeholder="Search" />
                                     <input type="submit" class="searchButton" value="Search" />
                                 </div>
+                                <select name="Sort">
+                                        <option value="Title">Title</option>
+                                        <option value="Author">Author</option>
+                                        <option value="Isbn">Isbn</option>
+                                        <option value="Pages">Pages</option>
+                                        <option value="Rating">Rating</option>
+                                        <option value="Language">Language</option>
+                                    </select>
                             </form>
                         </div>
 
@@ -159,31 +167,23 @@
                                 $searchQuery = $_REQUEST['searchQuery'];
                                 $searchType = $_REQUEST['Filter'];
 
-                                if($searchType == "Title")
-                                {
-                                    $sql = "SELECT * FROM books WHERE Title LIKE '%".$searchQuery."%'";
-                                }
-                                else if($searchType == "Author")
-                                {
-                                    $sql = "SELECT * FROM books WHERE Authors LIKE '%".$searchQuery."%'";
-                                }
-                                else if($searchType == "Isbn")
-                                {
-                                    $sql = "SELECT * FROM books WHERE ISBN LIKE '%".$searchQuery."%'";
-                                }
+                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY Title";
+                                
                                 
                                 echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong></p>";
                                 
                             }
                             else
                             {
-                                $sql = "SELECT Title, Authors, AverageRating, ISBN, Language, NumPages, NumRatings FROM books";
+                                $sql = "SELECT * FROM books";
+                                
+                                echo "<p>Displaying all books</p>";
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
                             
                                 
                             $i = 0;
-                            while($row = $result->fetch_assoc() and $i < 1000)/*print all rows that are stored in result*/
+                            while($row = $result->fetch_assoc() and $i < 100)/*print all rows that are stored in result*/
                             {
                             $i++;
                             echo 
@@ -201,7 +201,9 @@
                                     <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
                                     <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
                                     <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
+                                    <p><strong>Language:</strong> ".$row["Language"]."</p>
                                     <br><br><br><br><br><br>
+                                    
                                 </div>
                             </div>
                             ";

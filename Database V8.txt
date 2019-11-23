@@ -7091,7 +7091,6 @@ INSERT INTO `contact` (`contactID`, `name`, `email`, `message`) VALUES
 --
 
 CREATE TABLE `users` (
-  `userID` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `username` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,
