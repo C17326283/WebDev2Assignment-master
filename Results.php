@@ -118,14 +118,27 @@
                     <div class="col-sm-3 leftMain">
                         <div class="card">
                             <h2>Filters</h2>
-                            <h3>Department</h3>
-                            <p>Children</p>
-                            <p>Thriller</p>
-                            <h3>Author</h3>
+                            <h3>Rating</h3>
+                            <p>1 and up</p>
+                            <p>2 and up</p>
+                            <p>3 and up</p>
+                            <p>4 and up</p>
                             <h3>Language</h3>
-                            <h3>Age range</h3>
-                            <h3>In stock</h3>
-                            <h3>Book format</h3>
+                            <form action="" method="post">
+  <input type="radio" name="lan" value="eng" />eng
+  <input type="radio" name="lan" value="spa" />spa
+  <input type="radio" name="lan" value="fre" />fre
+</form>
+                            <p>English</p>
+                            <p>Spanish</p>
+                            <p>French</p>
+                            <h3>Num pages</h3>
+                            sliders
+                            <h3>Num of ratings</h3>
+                            <p>Over 100</p>
+                            <p>Over 1000</p>
+                            <p>Over 10000</p>
+                            <p>Over 100000</p>
                         </div>
                     </div>
                     <div class="col-sm-9 rightMain">
