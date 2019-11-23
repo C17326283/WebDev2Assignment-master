@@ -31,12 +31,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `books` (
   `Title` varchar(239) DEFAULT NULL,
   `Authors` varchar(540) DEFAULT NULL,
-  `AverageRating` varchar(93) DEFAULT NULL,
+  `AverageRating` decimal(10,2) DEFAULT NULL,
   `ISBN` varchar(10) DEFAULT NULL,
   `Language` varchar(13) DEFAULT NULL,
-  `NumPages` varchar(11) DEFAULT NULL,
-  `NumRatings` varchar(13) DEFAULT NULL,
-  `NumReviews` varchar(18) DEFAULT NULL
+  `NumPages` int(11) DEFAULT NULL,
+  `NumRatings` int(13) DEFAULT NULL,
+  `NumReviews` int(18) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

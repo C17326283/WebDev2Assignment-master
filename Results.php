@@ -132,21 +132,22 @@
                         <div class="card">
                             <form action="" method="post">
                                 <div class="searchBubble">
-                                    <select name="Filter">
+                                    <select name="Type"><!--values are used to compare to DB row-->
                                         <option value="Title">Title</option>
-                                        <option value="Author">Author</option>
-                                        <option value="Isbn">Isbn</option>
+                                        <option value="Authors">Authors</option>
+                                        <option value="ISBN">Isbn</option>
                                     </select>
                                     <input type="text" class="searchBox" name="searchQuery" placeholder="Search" />
                                     <input type="submit" class="searchButton" value="Search" />
                                 </div>
+                                <p>Sort By:</p>
                                 <select name="Sort">
-                                        <option value="Title">Title</option>
-                                        <option value="Author">Author</option>
-                                        <option value="Isbn">Isbn</option>
-                                        <option value="Pages">Pages</option>
-                                        <option value="Rating">Rating</option>
-                                        <option value="Language">Language</option>
+                                        <option value="Title">Title (Alphabetical)</option>
+                                        <option value="Authors">Authors (Alphabetical)</option>
+                                        <option value="ISBN">Isbn (Increasing)</option>
+                                        <option value="NumPages">Pages(Increasing)</option>
+                                        <option value="AverageRating">Rating (Increasing)</option>
+                                        <option value="Language">Language (Alphabetical)</option>
                                     </select>
                             </form>
                         </div>
@@ -162,12 +163,15 @@
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
                         
-                            if (!empty($_REQUEST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
+                            if (!empty($_POST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
                             {
-                                $searchQuery = $_REQUEST['searchQuery'];
-                                $searchType = $_REQUEST['Filter'];
-
-                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY Title";
+                                $searchQuery = $_POST['searchQuery'];
+                                $searchType = $_POST['Type'];
+                                $searchSort = $_POST['Sort'];
+                                
+/*
+                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchType;*/
+                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchSort;
                                 
                                 
                                 echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong></p>";
