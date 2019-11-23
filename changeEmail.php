@@ -11,8 +11,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
     <script src="script.js"></script>
+    
+    <script>
+        $(document).ready(function() 
+        {
+            $("form").submit(function(event)
+            {
+                event.preventDefault();//preventing the normal post action of the form
+                var email = $("#change-email").val();
+                var submit = $("#change-submit").val();
+                $(".form-message").load("changeEmailSql.php", {
+                    email: email,
+                    submit: submit
+                });
+            });
+
+        });
+    </script>
+    
     <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
     <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
@@ -105,8 +122,9 @@
                 <h4><strong>Please enter your new email.</strong></h4>
                 <form method="post" action="changeEmailSql.php">
                     <p>New Email:</p>
-                    <input type="email" id="Email" name="Email" minlength="8" maxlength="50" required><br>
-                    <input type="Submit" value="Submit">
+                    <input type="email" id="change-email" name="email" minlength="8" maxlength="50" required><br>
+                    <input type="Submit" id="change-submit" value="Submit">
+                    <p class="form-message" id="form-message"></p>
                 </form>
             </div>
         </div>
