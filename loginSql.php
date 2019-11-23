@@ -60,7 +60,7 @@
         }
         if(errorDetails == true)
         {
-            $("#log-email, #log-password").addClass("input-error");
+            $("#log-username, #log-password").addClass("input-error");
         }
         if(errorEmpty == false && errorDetails == false)
         {

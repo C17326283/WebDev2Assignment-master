@@ -11,6 +11,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <script>
+        $(document).ready(function() 
+        {
+            $("form").submit(function(event)
+            {
+                event.preventDefault();//preventing the normal post action of the form
+                var username = $("#del-username").val();
+                var password = $("#del-password").val();
+                var submit = $("#del-submit").val();
+                $(".form-message").load("deleteAccountSql.php", {
+                    username: username,
+                    password: password,
+                    submit: submit
+                });
+            });
+            
+        });
+    
+    </script>
 
     <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css" />
@@ -113,9 +133,14 @@
                 </ul>
             </div>
             <div class="card forms">
-                <h4><strong>Are you sure you want to delete your account?</strong></h4>
+                <h4><strong>Please re-enter your username and password</strong></h4>
                 <form method="post" action="deleteAccountSql.php">
-                    <input type="Submit" value="Delete Account">
+                    <p>Username:</p>
+                    <input type="text" id="del-username" name="username" minlength="3" maxlength="40" ><br>
+                    <p>Password:</p>
+                    <input type="password" id="del-password" name="password" minlength="4" maxlength="40" ><br>
+                    <input type="Submit" id="del-submit" value="Delete Account">
+                    <p class="form-message" id="form-message"></p>
                 </form>
             </div>
         </div>
