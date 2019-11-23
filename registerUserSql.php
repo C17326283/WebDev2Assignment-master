@@ -9,10 +9,12 @@
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $confirmpassword = $_POST['confirmpassword'];
             
             $errorEmpty = false;
             $errorEmail = false;
             $errorUsername = false;
+            $errorPassword = false;
             
             // Create connection
             $conn = new mysqli("localhost", "root", "", "project2");
@@ -31,6 +33,11 @@
             {
                 echo "<span class='form-error'>Fill in all fields!</span>";
                 $errorEmpty = true;
+            }
+            elseif($password != $confirmpassword)
+            {
+                echo "<span class='form-error'>Passwords do not match!</span>";
+                $errorPassword = true;
             }
             elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
@@ -62,16 +69,17 @@
     ?>
     
     <script>
-        $("#register-name, #register-username, #register-email, #register-password").removeClass("input-error");
+        $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").removeClass("input-error");
         
         var errorEmpty = "<?php echo $errorEmpty; ?>";
         var errorEmail = "<?php echo $errorEmail; ?>";
         var errorUsername = "<?php echo $errorUsername; ?>";
+        var errorPassword = "<?php echo $errorPassword; ?>";
 
         
         if(errorEmpty == true)
         {
-           $("#register-name, #register-username, #register-email, #register-password").addClass("input-error");
+           $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").addClass("input-error");
         }
         if(errorEmail == true)
         {
@@ -81,10 +89,14 @@
         {
             $("#register-username").addClass("input-error");
         }
-        
-        if(errorEmpty == false && errorEmail == false && errorUsername == false)
+        if(errorPassword == true)
         {
-            $("#register-name, #register-username, #register-email, #register-password, #form-succes").val("");
+            $("#register-password, #register-confirmpassword").addClass("input-error");
+        }
+        
+        if(errorEmpty == false && errorEmail == false && errorUsername == false && errorPassword == false)
+        {
+            $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword, #form-succes").val("");
         }
         
     </script>
