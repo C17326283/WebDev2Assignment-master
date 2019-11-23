@@ -18,7 +18,7 @@
     <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
 </head>
 
-<body>
+<body onload="document.forms['searchFrom'].submit()">
     <?php
             /*For logging in*/
             session_start();
@@ -138,7 +138,7 @@
                     </div>
                     <div class="col-sm-9 rightMain">
                         <div class="card">
-                            <form action="" method="post">
+                            <form action="" method="post" name="searchForm">
                                 <div class="searchBubble">
                                     <select name="Type" id="searchType">
                                         <!--values are used to compare to DB row-->
@@ -146,7 +146,7 @@
                                         <option value="Authors">Authors</option>
                                         <option value="ISBN">Isbn</option>
                                     </select>
-                                    <input type="text" class="searchBox" name="searchQuery" id="searchBar" placeholder="Search" />
+                                    <input type="text" class="searchBox" name="searchQuery" id="searchBar" />
                                     <input type="submit" class="searchButton" value="Search" />
                                 </div>
                                 <p>Sort By:</p>
@@ -169,7 +169,7 @@
                                 <select name="filterLan" id="filterLan">
                                         <!--values are used to compare to DB row-->
                                         <option value="en">English</option>
-                                        
+                                        <option value="en">no filter</option>
                                         <option value="ara">arabic?</option>
                                         <option value="dan">Danish</option>
                                         <option value="fre">French</option>
@@ -199,8 +199,9 @@
                             //establish a connection:
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
-                        
-                            if (!empty($_POST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
+                            
+                           
+                            if (!empty($_POST['searchQuery']))/*if they have submitted*/
                             {
                                 $searchQuery = $_POST['searchQuery'];
                                 $searchType = $_POST['Type'];
@@ -216,17 +217,16 @@
                                 ORDER BY ".$searchSort;
                                 
                                 echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong>";
+                                $hasSearched = true;
                             }
-                            else
+                            if (empty($_POST['searchQuery']))/*set default values*/
                             {
-                                $MaxNumResults = $_POST['MaxNumResults'];
-                                
-                                $sql = "SELECT * FROM books";
-                                
+                                $MaxNumResults = 100;
+
+                                $sql = "SELECT * FROM books ORDER BY Title";
                                 echo "<p>Displaying all books";
-                                
                             }
-                            $result = $connection->query($sql);/*store all rows in result*/
+                            $result = $connection->query($sql) or die($connection->error);/*store all rows in result*/
                             echo " (".mysqli_num_rows($result)." results found.)</p>";
                             
                                 
