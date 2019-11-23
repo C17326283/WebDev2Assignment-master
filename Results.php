@@ -187,16 +187,17 @@
                                 $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchSort;
                                 
                                 
-                                echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong></p>";
+                                echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong>";
                                 
                             }
                             else
                             {
                                 $sql = "SELECT * FROM books";
                                 
-                                echo "<p>Displaying all books</p>";
+                                echo "<p>Displaying all books";
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
+                            echo " (".mysqli_num_rows($result)." results found.)</p>";
                             
                                 
                             $i = 0;
