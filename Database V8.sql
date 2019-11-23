@@ -7076,13 +7076,6 @@ CREATE TABLE `contact` (
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`contactID`, `name`, `email`, `message`) VALUES
-(1, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'This is my first message.'),
-(2, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'This my second.'),
-(3, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'third times a charg'),
-(4, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'four guys burgers and fries'),
-(5, 'Kyle Heffernan', 'kyleheff99@gmail.com', 'four guys burgers and fries');
-
 -- --------------------------------------------------------
 
 --
@@ -7101,13 +7094,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`name`, `username`, `email`, `password`, `imgStatus`) VALUES
-('Hometest111', 'Hometest111', 'home@test1.com', 'hometest111', 1),
-('Ryan Byrne', 'ryandbyrne', 'ryby@rybyr.com', '123456', 0),
-('ryky', 'rykyry', 'ryky@kyry', 'ryky', 0),
-('John Blog', 'johnblog', 'john@blog.com', 'johnblog', 1),
-('newman', 'newman', 'new@man.com', 'newman', 1),
-('rayn', 'rayn', 'rayn@rayn', 'rayn', 1);
 
 --
 -- Indexes for dumped tables
