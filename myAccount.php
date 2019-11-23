@@ -20,8 +20,19 @@
 
 <body>
     <?php
-            /*For logging in*/
-            session_start();
+        /*For logging in*/
+        session_start();
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+        {
+        }
+    else
+    {
+        echo"<script language='javascript'>
+            window.confirm('sometext');
+        </script>";
+        
+         header('Location: loginUser.php');
+    }
         ?>
     <div class="container-fluid wholePage">
 
@@ -65,15 +76,15 @@
                 <div class="col-sm-2 tab-box" onclick="slide()">
                     <img class="login" src="res/personIcon.png">
                     <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                            {
-                                echo '<h6>'.$_SESSION['Username'].'</h6>';
-                            }
-                            else
-                            {
-                                echo"<h6>Account</h6>";
-                            }
-                        ?>
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        {
+                            echo '<h6>'.$_SESSION['Username'].'</h6>';
+                        }
+                        else
+                        {
+                            echo"<h6>Account</h6>";
+                        }
+                    ?>
                 </div>
 
             </div>

@@ -3,7 +3,7 @@ function slide()
     $(document.getElementById("menuSlide")).slideToggle(200);
 }
 
-function onLoadSubmit()
+function hidenPage()
 {
-	document.searchForm.submit();
+	window.alert("sometext");
 }

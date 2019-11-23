@@ -18,7 +18,7 @@
     <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
 </head>
 
-<body onload="document.forms['searchFrom'].submit()">
+<body>
     <?php
             /*For logging in*/
             session_start();
@@ -169,7 +169,7 @@
                                 <select name="filterLan" id="filterLan">
                                         <!--values are used to compare to DB row-->
                                         <option value="en">English</option>
-                                        <option value="en">no filter</option>
+                                        <option value="">no filter</option>
                                         <option value="ara">arabic?</option>
                                         <option value="dan">Danish</option>
                                         <option value="fre">French</option>
@@ -201,31 +201,38 @@
                             //run a query and store results in variable $result:
                             
                            
-                            if (!empty($_POST['searchQuery']))/*if they have submitted*/
+                            if (!empty($_POST['searchQuery']))
                             {
                                 $searchQuery = $_POST['searchQuery'];
                                 $searchType = $_POST['Type'];
                                 $searchSort = $_POST['Sort'];
                                 $MaxNumResults = $_POST['MaxNumResults'];
                                 $filterLan = $_POST['filterLan'];
-/*
-                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY ".$searchType;*/
-                                $sql = "SELECT * FROM books WHERE
-                                ".$searchType." LIKE '%".$searchQuery."%'
-                                AND 
-                                Language LIKE '%".$filterLan."%'
-                                ORDER BY ".$searchSort;
+
+                                if ($_POST['searchQuery'] == '*')/*if they have submitted*/
+                                {
+                                    $sql = "SELECT * FROM books WHERE Language LIKE '%".$filterLan."%'
+                                    ORDER BY ".$searchSort;
+                                }
+                                else
+                                {
+                                    $sql = "SELECT * FROM books WHERE
+                                    ".$searchType." LIKE '%".$searchQuery."%'
+                                    AND 
+                                    Language LIKE '%".$filterLan."%'
+                                    ORDER BY ".$searchSort;
+                                }
                                 
                                 echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong>";
-                                $hasSearched = true;
                             }
-                            if (empty($_POST['searchQuery']))/*set default values*/
+                            else
                             {
-                                $MaxNumResults = 100;
+                                $MaxNumResults = 10;
 
                                 $sql = "SELECT * FROM books ORDER BY Title";
                                 echo "<p>Displaying all books";
                             }
+                            
                             $result = $connection->query($sql) or die($connection->error);/*store all rows in result*/
                             echo " (".mysqli_num_rows($result)." results found.)</p>";
                             
@@ -251,7 +258,6 @@
                                     <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
                                     <p><strong>Language:</strong> ".$row["Language"]."</p>
                                     <br><br><br><br><br><br>
-                                    
                                 </div>
                             </div>
                             ";
