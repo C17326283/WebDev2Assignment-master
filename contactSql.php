@@ -27,17 +27,25 @@
             }
             else
             {
-                $sql = "INSERT INTO contact (name, email, message)
-                VALUES ('$name','$email', '$message')";
+                $newname = mysqli_real_escape_string($conn, $name);
+                $newemail = mysqli_real_escape_string($conn, $email);
+                $newmessage = mysqli_real_escape_string($conn, $message);
 
-                if ($conn->query($sql) === TRUE)
+                
+                $sql = "INSERT INTO contact (name, email, message) VALUES (?, ?, ?);";
+                $stmt = mysqli_stmt_init($conn);
+                if(!mysqli_stmt_prepare($stmt, $sql))
                 {
-                    echo "<span class='form-success'>Contact sent successfully!</span>";
+                    echo "SQL statement failed";
                 }
                 else
                 {
-                    echo "Error: <br>".$conn->error;
+                    mysqli_stmt_bind_param($stmt, "sss", $newname, $newemail, $newmessage);
+                    mysqli_stmt_execute($stmt);
+                    
+                    echo "<span class='form-success'>Contact sent successfully!</span>";
                 }
+                
 
                 $conn->close();
             }
