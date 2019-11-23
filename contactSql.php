@@ -74,7 +74,7 @@
         
         if(errorEmpty == false && errorEmail == false)
         {
-            $("#con-name, #con-email, #con-message").val("");
+            $("#con-name, #con-email, #con-message").val(""); //clearing text fields
         }
         
     </script>
