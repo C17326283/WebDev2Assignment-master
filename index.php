@@ -15,6 +15,7 @@
     <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
+    <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
 </head>
 
 <body>
@@ -99,19 +100,34 @@
             <div class="mainBody">
                 <div class="moreMenu" id="menuSlide">
                     <ul>
-                        <li><a href="loginUser.php">
-                                <p>Login</p>
-                            </a></li>
-                        <li><a href="registerUser.php">
-                                <p>Register</p>
-                            </a></li>
-                        <li><a href="logoutSql.php">
-                                <p>Log out</p>
-                            </a></li>
-                        <li><a href="myAccount.php">
-                                <p>My Account</p>
-                            </a></li>
+                        <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                            {
+                                echo'
+                                <li><a href="myAccount.php">
+                                        <p>My Account</p>
+                                    </a></li>
+                                <li><a href="myBooks.php">
+                                        <p>My Books</p>
+                                    </a></li>
+                                <li><a href="logoutSql.php">
+                                        <p>Log out</p>
+                                    </a></li>
+                                ';
+                            }
+                            else
+                            {
+                                echo '                            <li><a href="loginUser.php">
+                                    <p>Login</p>
+                                </a></li>
+                                <li><a href="registerUser.php">
+                                    <p>Register</p>
+                                </a></li>
+                                ';
+                            }
+                        ?>
                     </ul>
+
                 </div>
                 <div class="gallery">
                     <img src="res/sampletop.jpg">

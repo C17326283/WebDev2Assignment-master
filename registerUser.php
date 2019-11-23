@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="StyleSheet" href="stylesheet.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script src="script.js"></script>
+    <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
     
     <script>
@@ -36,6 +39,8 @@
         });
     
     </script>
+    
+    <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
 </head>
 
 <body>
@@ -46,7 +51,7 @@
         <nav>
             <div class="row navRow">
                 <a href="index.php">
-                    <div class="col-sm-2 tab-box">
+                    <div class="col-sm-2 tab-box current-box">
                         <img src="res/HomeWhite.png">
                         <h6>Home</h6>
                     </div>
@@ -78,12 +83,20 @@
                         </div>
                     </div>
                 </a>
-                <div class="col-sm-1 tab-box" style="visibility:hidden;">
-                </div>
 
 
-                <div class="col-sm-1 tab-box" onclick="slide()" style="padding:16px;">
-                    <img class="login" src="res/DropIcon.png">
+                <div class="col-sm-2 tab-box" onclick="slide()">
+                    <img class="login" src="res/personIcon.png">
+                    <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                            {
+                                echo '<h6>'.$_SESSION['Username'].'</h6>';
+                            }
+                            else
+                            {
+                                echo"<h6>Account</h6>";
+                            }
+                        ?>
                 </div>
 
             </div>

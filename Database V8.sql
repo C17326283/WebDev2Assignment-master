@@ -44,7 +44,6 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`Title`, `Authors`, `AverageRating`, `ISBN`, `Language`, `NumPages`, `NumRatings`, `NumReviews`) VALUES
-('title', 'authors', 'average_rating', 'isbn', 'language_code', '# num_pages', 'ratings_count', 'text_reviews_count'),
 ('Harry Potter and the Half-Blood Prince (Harry Potter  #6)', 'J.K. Rowling-Mary GrandPré', '4.56', '439785960', 'eng', '652', '1944099', '26249'),
 ('Harry Potter and the Order of the Phoenix (Harry Potter  #5)', 'J.K. Rowling-Mary GrandPré', '4.49', '439358078', 'eng', '870', '1996446', '27613'),
 ('Harry Potter and the Sorcerer\'s Stone (Harry Potter  #1)', 'J.K. Rowling-Mary GrandPré', '4.47', '439554934', 'eng', '320', '5629932', '70390'),
@@ -7091,7 +7090,6 @@ INSERT INTO `contact` (`contactID`, `name`, `email`, `message`) VALUES
 --
 
 CREATE TABLE `users` (
-  `userID` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `username` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,

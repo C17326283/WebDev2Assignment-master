@@ -84,8 +84,7 @@
 
             <div class="mainBody">
                 <div class="moreMenu" id="menuSlide">
-                    <ul>
-                        <?php
+                    <?php
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                         {
                             echo'
@@ -111,45 +110,15 @@
                             ';
                         }
                     ?>
-                    </ul>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-3 leftMain">
                         <div class="card">
                             <h2>Filters</h2>
-                            <h3>Department</h3>
-                            <p>Children</p>
-                            <p>Thriller</p>
-                            <h3>Author</h3>
-                            <h3>Language</h3>
-                            <h3>Age range</h3>
-                            <h3>In stock</h3>
-                            <h3>Book format</h3>
                         </div>
                     </div>
                     <div class="col-sm-9 rightMain">
-                        <div class="card">
-                            <form action="" method="post">
-                                <div class="searchBubble">
-                                    <select name="Filter">
-                                        <option value="Title">Title</option>
-                                        <option value="Author">Author</option>
-                                        <option value="Isbn">Isbn</option>
-                                    </select>
-                                    <input type="text" class="searchBox" name="searchQuery" placeholder="Search" />
-                                    <input type="submit" class="searchButton" value="Search" />
-                                </div>
-                                <select name="Sort">
-                                        <option value="Title">Title</option>
-                                        <option value="Author">Author</option>
-                                        <option value="Isbn">Isbn</option>
-                                        <option value="Pages">Pages</option>
-                                        <option value="Rating">Rating</option>
-                                        <option value="Language">Language</option>
-                                    </select>
-                            </form>
-                        </div>
 
                         <div class="card" style=" padding:1px;">
                             <?php
@@ -165,25 +134,17 @@
                             if (!empty($_REQUEST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
                             {
                                 $searchQuery = $_REQUEST['searchQuery'];
-                                $searchType = $_REQUEST['Filter'];
 
-                                $sql = "SELECT * FROM books WHERE ".$searchType." LIKE '%".$searchQuery."%' ORDER BY Title";
-                                
-                                
-                                echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong></p>";
-                                
+                                $sql = "SELECT * FROM books WHERE Title LIKE '%".$searchQuery."%'";
                             }
                             else
                             {
-                                $sql = "SELECT * FROM books";
-                                
-                                echo "<p>Displaying all books</p>";
+                                $sql = "SELECT Title, Authors, AverageRating, ISBN, Language, NumPages, NumRatings FROM books";
                             }
                             $result = $connection->query($sql);/*store all rows in result*/
                             
-                                
                             $i = 0;
-                            while($row = $result->fetch_assoc() and $i < 100)/*print all rows that are stored in result*/
+                            while($row = $result->fetch_assoc() and $i < 1000)/*print all rows that are stored in result*/
                             {
                             $i++;
                             echo 
@@ -201,9 +162,7 @@
                                     <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
                                     <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
                                     <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
-                                    <p><strong>Language:</strong> ".$row["Language"]."</p>
                                     <br><br><br><br><br><br>
-                                    
                                 </div>
                             </div>
                             ";
