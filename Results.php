@@ -4,7 +4,7 @@
 
 <head>
     <title>Home</title>
-    <meta charset="utf-8"><!-- character set -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -133,9 +133,9 @@
                                     <p>Language:</p>
                                     <select name="filterLan" id="filterLan">
                                         <!--values are used to compare to DB row-->
+                                        <option value="">No Filter</option>
                                         <option value="en">English</option>
-                                        <option value="">no filter</option>
-                                        <option value="ara">arabic?</option>
+                                        <option value="ara">Arabic</option>
                                         <option value="dan">Danish</option>
                                         <option value="fre">French</option>
                                         <option value="ger">Germany</option>
@@ -143,13 +143,12 @@
                                         <option value="ita">Italian</option>
                                         <option value="jpn">Japanese</option>
                                         <option value="lat">Latin</option>
-                                        <option value="nl">Dutch?</option>
+                                        <option value="nl">Dutch</option>
                                         <option value="por">Portugese</option>
                                         <option value="rus">Russian</option>
                                         <option value="spa">Spanish</option>
                                         <option value="srp">Serbian</option>
                                         <option value="zho">Chinese</option>
-                                        <option value="mul">*Multiple*</option>
                                     </select>
                                 </div>
                                 <div style="float:left">
@@ -227,8 +226,7 @@
                             while($row = $result->fetch_assoc() and $i < $MaxNumResults)/*print all rows that are stored in result*/
                             {
                             $i++;
-                            echo 
-                            "
+                            echo "
                             <div class='col-lg-6 col-md-12'>
                                 <div class='resultCard'> 
                                     <div class='leftResult'>
@@ -240,8 +238,13 @@
                                         <p><strong>Isbn: </strong>".$row["ISBN"]."</p>
                                         <p><strong>Num of pages: </strong>".$row["NumPages"]."</p>
                                         <p><strong>Average Rating: </strong>".$row["AverageRating"]."</p>
-                                        <p><strong>Language: </strong>".$row["Language"]."</p>
-                                        <a href='saveBookSql.php?id=".$row["ISBN"]."'>Add to My Books</a>
+                                        <p><strong>Language: </strong>".$row["Language"]."</p>";
+                                
+                                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                                        {
+                                            echo"<a href='saveBookSql.php?id=".$row["ISBN"]."'>Add to My Books</a>";
+                                        }
+                            echo "
                                     </div>
                                 </div>
                             </div>
