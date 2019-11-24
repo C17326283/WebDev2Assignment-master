@@ -20,19 +20,17 @@
 
 <body>
     <?php
-        /*For logging in*/
+        /*Use Details accross pages with session*/
         session_start();
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+        /*Prevent logged out user from accessing this page through url */
+        if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true)
         {
+            echo"<script language='javascript'>
+                window.confirm('sometext');
+            </script>";
+
+             header('Location: loginUser.php');
         }
-    else
-    {
-        echo"<script language='javascript'>
-            window.confirm('sometext');
-        </script>";
-        
-         header('Location: loginUser.php');
-    }
         ?>
     <div class="container-fluid wholePage">
 
