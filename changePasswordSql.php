@@ -6,15 +6,16 @@
         
         if(isset($_POST['submit']))
         {
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
             $username = $_SESSION['Username'];
-            $password = $_POST['password'];
-            $confirmpassword = $_POST['confirmpassword'];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $confirmpassword = mysqli_real_escape_string($conn, $_POST['confirmpassword']);
             
             $errorEmpty = false;
             $errorPassword = false;
             
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "project2");
             
             if(empty($password) || empty($confirmpassword))
             {
@@ -28,21 +29,27 @@
             }
             else
             {
-                $sql = "UPDATE users SET password='$password' WHERE username='$username';";
-                $result = mysqli_query($conn, $sql);
-
-                if ($conn->query($sql) === TRUE)
+                //create a template
+                $sql = "UPDATE users SET password=? WHERE username='$username';";
+                //create a prepared statement
+                $stmt = mysqli_stmt_init($conn);
+                //prepare the prepared statement
+                if(!mysqli_stmt_prepare($stmt, $sql))
                 {
-                    echo "<span class='form-success'>Password changed!</span>";
-
+                    echo "SQL statement failed";
                 }
                 else
                 {
-                    echo "Error: <br>".$conn->error;
+                    //bind parameters to the placeholder
+                    mysqli_stmt_bind_param($stmt, "s", $password);
+                    //run parameters inside database
+                    mysqli_stmt_execute($stmt);
+                    
+                    echo "<span class='form-success'>Password changed!</span>";
                 }
-
-                $conn->close();
+                
             }
+            $conn->close();
         }
         else
         {
