@@ -6,13 +6,14 @@
     
         if(isset($_POST['submit']))
         {
-            $username = $_SESSION['Username'];
-            $email = $_POST['email'];
-            
-            $errorEmail = false;
-            
             // Create connection
             $conn = new mysqli("localhost", "root", "", "project2");
+            
+            
+            $username = $_SESSION['Username'];
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            
+            $errorEmail = false;
             
             
             if(!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -22,21 +23,27 @@
             }
             else
             {
-                $sql = "UPDATE users SET email='$email' WHERE username='$username';";
-                $result = mysqli_query($conn, $sql);
-
-                if ($conn->query($sql) === TRUE)
+                //create a template
+                $sql = "UPDATE users SET email=? WHERE username='$username';";
+                //create a prepared statement
+                $stmt = mysqli_stmt_init($conn);
+                //prepare the prepared statement
+                if(!mysqli_stmt_prepare($stmt, $sql))
                 {
-                    echo "<span class='form-success'>Email changed!</span>";
-
+                    echo "SQL statement failed";
                 }
                 else
                 {
-                    echo "Error: <br>".$conn->error;
+                    //bind parameters to the placeholder
+                    mysqli_stmt_bind_param($stmt, "s", $email);
+                    //run parameters inside database
+                    mysqli_stmt_execute($stmt);
+                    
+                    echo "<span class='form-success'>Email changed!</span>";
                 }
-
-                $conn->close();
+                
             }
+            $conn->close();
         }
         else
         {

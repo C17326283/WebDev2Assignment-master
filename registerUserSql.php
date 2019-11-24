@@ -5,62 +5,86 @@
     
         if(isset($_POST['submit']))
         {
-            $name = $_POST['name'];
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $confirmpassword = $_POST['confirmpassword'];
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
+            $name = mysqli_real_escape_string($conn, $_POST['name']);
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $confirmpassword = mysqli_real_escape_string($conn, $_POST['confirmpassword']);
             
             $errorEmpty = false;
             $errorEmail = false;
             $errorUsername = false;
             $errorPassword = false;
             
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "project2");
             
-            
-            $check = "SELECT * FROM users WHERE Username = '$username'"; 
-            $result = mysqli_query($conn, $check) OR die(mysqli_error($conn));
-            $numrows = mysqli_num_rows($result);
-            
-            if ($numrows > 0)
+            //create a template
+            $sqlcheck = "SELECT * FROM users WHERE Username = ?;";
+            //create a prepared statement
+            $stmtcheck = mysqli_stmt_init($conn);
+            //prepare the prepared statement
+            if(!mysqli_stmt_prepare($stmtcheck, $sqlcheck))
             {
-                echo "<span class='form-error'>This username has been taken!</span>";
-                $errorUsername = true;
-            }
-            elseif(empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword))
-            {
-                echo "<span class='form-error'>Fill in all fields!</span>";
-                $errorEmpty = true;
-            }
-            elseif($password != $confirmpassword)
-            {
-                echo "<span class='form-error'>Passwords do not match!</span>";
-                $errorPassword = true;
-            }
-            elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))/*php fuction*/
-            {
-                echo "<span class='form-error'>Enter a valid email!</span>";
-                $errorEmail = true;
+                echo "SQL statement failed";
             }
             else
             {
-
-                $sql = "INSERT INTO Users (name, username, email, password)
-                VALUES ('$name','$username','$email', '$password')";
-
-                if ($conn->query($sql) === TRUE)
+                //bind parameters to the placeholder
+                mysqli_stmt_bind_param($stmtcheck, "s", $username);
+                //run parameters inside database
+                mysqli_stmt_execute($stmtcheck);
+                $result = mysqli_stmt_get_result($stmtcheck);
+                $numrows = mysqli_num_rows($result);
+                
+                
+                if ($numrows > 0)
                 {
-                    echo "<span class='form-success'>Account created!</span>";
+                    echo "<span class='form-error'>This username has been taken!</span>";
+                    $errorUsername = true;
+                }
+                elseif(empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword))
+                {
+                    echo "<span class='form-error'>Fill in all fields!</span>";
+                    $errorEmpty = true;
+                }
+                elseif($password != $confirmpassword)
+                {
+                    echo "<span class='form-error'>Passwords do not match!</span>";
+                    $errorPassword = true;
+                }
+                elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))/*php fuction*/
+                {
+                    echo "<span class='form-error'>Enter a valid email!</span>";
+                    $errorEmail = true;
                 }
                 else
                 {
-                    echo "Error: <br>".$conn->error;
-                }
+                    //create a template
+                    $sql = "INSERT INTO Users (name, username, email, password) VALUES (?, ?, ?, ?);";
+                    //create a prepared statement
+                    $stmt = mysqli_stmt_init($conn);
+                    //prepare the prepared statement
+                    if(!mysqli_stmt_prepare($stmt, $sql))
+                    {
+                        echo "SQL statement failed";
+                    }
+                    else
+                    {
+                        //bind parameters to the placeholder
+                        mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $email, $password);
+                        //run parameters inside database
+                        mysqli_stmt_execute($stmt);
 
-                $conn->close();
+                        echo "<span class='form-success'>Account created!</span>";
+                    }
+
+                }
             }
+            
+            
+            $conn->close();
         }
         else
         {
@@ -96,6 +120,7 @@
         
         if(errorEmpty == false && errorEmail == false && errorUsername == false && errorPassword == false)
         {
+            //clearing text fields then redirecting to login page
             $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").val("");
             window.location.href = "loginUser.php";
         }

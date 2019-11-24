@@ -6,47 +6,69 @@
     
         if(isset($_POST['submit']))
         {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
+            
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $id = $_SESSION['Username'];
             
             $errorEmpty = false;
             $errorDetails = false;
             
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "project2");
-            
-            $sql = "SELECT * FROM users WHERE username = '$username' AND password ='$password'";
-            $result = mysqli_query($conn, $sql) OR die(mysqli_error($conn));
-            $numrows = mysqli_num_rows($result);
             
             
-            if(empty($username) || empty($password))
+            //create a template
+            $sqlcheck = "SELECT * FROM users WHERE username = ? AND password = ?;";
+            //create a prepared statement
+            $stmtcheck = mysqli_stmt_init($conn);
+            //prepare the prepared statement
+            if(!mysqli_stmt_prepare($stmtcheck, $sqlcheck))
             {
-                echo "<span class='form-error'>Fill in all fields!</span>";
-                $errorEmpty = true;
-            }
-            elseif(!$numrows > 0 || $username != $id)
-            {
-                echo "<span class='form-error'>Invalid account details!</span>";
-                $errorDetails = true;
+                echo "SQL statement failed";
             }
             else
             {
-                $sql = "DELETE FROM users WHERE username='$id';";
-                $result = mysqli_query($conn, $sql);
+                //bind parameters to the placeholder
+                mysqli_stmt_bind_param($stmtcheck, "ss", $username, $password);
+                //run parameters inside database
+                mysqli_stmt_execute($stmtcheck);
+                $result = mysqli_stmt_get_result($stmtcheck);
+                $numrows = mysqli_num_rows($result);
                 
-                if ($conn->query($sql) === TRUE)
+                   
+                if(empty($username) || empty($password))
                 {
-                    echo "<span class='form-success'>Account deleted!</span>";
-
+                    echo "<span class='form-error'>Fill in all fields!</span>";
+                    $errorEmpty = true;
+                }
+                elseif(!$numrows > 0 || $username != $id)
+                {
+                    echo "<span class='form-error'>Invalid account details!</span>";
+                    $errorDetails = true;
                 }
                 else
                 {
-                    echo "Error: <br>".$conn->error;
-                }
+                    $sql = "DELETE FROM users WHERE username='$id';";
+                    $result = mysqli_query($conn, $sql);
 
+                    if ($conn->query($sql) === TRUE)
+                    {
+                        echo "<span class='form-success'>Account deleted!</span>";
+
+                    }
+                    else
+                    {
+                        echo "Error: <br>".$conn->error;
+                    }
+
+                }
+                
             }
+            
+            
+            $conn->close();
         }
         else
         {
