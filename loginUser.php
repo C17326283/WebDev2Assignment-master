@@ -113,6 +113,7 @@
                     <input type="Submit" id="log-submit" value="Log in">
                     <p class="form-message" id="form-message"></p>
                 </form>
+                <p style="text-align:center;">If you do not have an account you can make one: <a href="registerUser.php">HERE</a></p>
             </div>
         </div>
         <footer>
