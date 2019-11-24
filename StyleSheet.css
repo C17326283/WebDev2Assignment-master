@@ -47,9 +47,11 @@ h2/*card heading*/
     margin-bottom: .1em;
     text-decoration: underline;
 }
-h3
+h3/*result card heading*/
 {
-    
+    margin-top: .1em;
+    margin-bottom: .1em;
+    font-size: x-large;
 }
 h4
 {
@@ -118,7 +120,6 @@ nav {
     /*roundness of box*/
     border: 2px solid #db994b;
     min-height: 4.5em;
-
 }
 
 .current-box {
@@ -210,14 +211,6 @@ nav {
     background: #fffff9;
     margin: 1em 2em;
     padding: 1em 2em;
-    overflow: auto;
-    border-radius: 3px;
-    box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
-}
-.resultCard {
-    background: #fffff9;
-    margin: 1em 1em;
-    padding: .5em .5em;
     overflow: auto;
     border-radius: 3px;
     box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
@@ -418,6 +411,72 @@ td {
     background-color: #db994b;
     height: 3em;
 }
+.resultCard
+{
+    background: #fffff9;
+    padding: 1em 1em;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
+    float: left;
+    border: 4em;
+    height: 20em;
+    width: 100%;
+    margin: .5em 0em;
+    position: relative;
+}
+.leftResult
+{
+    width: 25%;
+    float: left;
+}
+.leftResult img
+{
+    width: 100%;
+    height: auto;
+    max-width: 28em;
+    max-height: 18em;
+}
+.rightResult
+{
+    width: 70%;
+    float: left;
+    margin: .2em;
+    padding-left: 1em;
+    overflow:hidden;
+}
+.rightResult a
+{
+    color: black;
+    text-align: center;
+    vertical-align: bottom;
+    padding: .5em;
+    margin: 0px;
+    border-radius: 7px;
+    border: 2px solid #db994b;
+    float: right;
+    bottom: 1em;
+    right: 1em;
+    position: absolute;
+    
+    
+}
+.rightResult p
+{
+    font-size: 150%;
+    
+}
+
+color: snow;
+    text-align: center;
+    vertical-align: bottom;
+    border-top: 1px solid white;
+    padding: .1em;
+    margin: 0px;
+    border-radius: 9px;
+    /*roundness of box*/
+    border: 2px solid #db994b;
+    min-height: 4.5em;
 
 .form-message
 {

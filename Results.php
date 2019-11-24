@@ -115,28 +115,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-3 leftMain">
-                        <div class="card">
-                            <h2>Filters</h2>
-                            <h3>Rating</h3>
-                            <p>1 and up</p>
-                            <p>2 and up</p>
-                            <p>3 and up</p>
-                            <p>4 and up</p>
-                            <h3>Language</h3>
-                            <p>English</p>
-                            <p>Spanish</p>
-                            <p>French</p>
-                            <h3>Num pages</h3>
-                            sliders
-                            <h3>Num of ratings</h3>
-                            <p>Over 100</p>
-                            <p>Over 1000</p>
-                            <p>Over 10000</p>
-                            <p>Over 100000</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 rightMain">
+                    <div class="col-sm-12 rightMain">
                         <div class="card">
                             <form action="" method="post" name="searchForm">
                                 <div class="searchBubble">
@@ -149,24 +128,10 @@
                                     <input type="text" class="searchBox" name="searchQuery" id="searchBar" />
                                     <input type="submit" class="searchButton" value="Search" />
                                 </div>
-                                <p>Sort By:</p>
-                                <select name="Sort" id="searchSort">
-                                    <option value="Title">Title (Alphabetical)</option>
-                                    <option value="Authors">Authors (Alphabetical)</option>
-                                    <option value="ISBN">Isbn (Increasing)</option>
-                                    <option value="NumPages">Pages(Increasing)</option>
-                                    <option value="AverageRating">Rating (Increasing)</option>
-                                    <option value="Language">Language (Alphabetical)</option>
-                                </select>
-                                <p>Num of results to show:</p>
-                                <select name="MaxNumResults" id="searchMaxResults">
-                                    <option value=10>10</option>
-                                    <option value=100>100</option>
-                                    <option value=1000>1000</option>
-                                    <option value=100000>All</option>
-                                </select>
-                                <p>Language:</p>
-                                <select name="filterLan" id="filterLan">
+                                
+                                <div style="float:left; margin-right:10px;">
+                                    <p>Language:</p>
+                                    <select name="filterLan" id="filterLan">
                                         <!--values are used to compare to DB row-->
                                         <option value="en">English</option>
                                         <option value="">no filter</option>
@@ -186,23 +151,31 @@
                                         <option value="zho">Chinese</option>
                                         <option value="mul">*Multiple*</option>
                                     </select>
+                                </div>
+                                <div style="float:left">
+                                    <p>Num of Rows: </p>
+                                    <select name="MaxNumResults" id="searchMaxResults">
+                                        <option value=10>10</option>
+                                        <option value=100>100</option>
+                                        <option value=1000>1000</option>
+                                        <option value=100000>All</option>
+                                    </select>
+                                </div>
+                                <div style="float:right">
+                                    <p>Sort By:</p>
+                                    <select name="Sort" id="searchSort">
+                                        <option value="Title">Title (Alphabetical)</option>
+                                        <option value="Authors">Authors (Alphabetical)</option>
+                                        <option value="ISBN">Isbn (Increasing)</option>
+                                        <option value="NumPages">Pages(Increasing)</option>
+                                        <option value="AverageRating">Rating (Increasing)</option>
+                                        <option value="Language">Language (Alphabetical)</option>
+                                    </select>
+                                </div>
                             </form>
                         </div>
 
-                        <div class="card" style=" padding:1px;">
-                            <div class='resultCard'>
-                                ".$i."
-                                    <br>
-                                    <h2>".$row["Title"]."</h2><br>
-                                    <p><strong>Author:</strong> ".$row["Authors"]."</p>
-                                    <p><strong>Isbn:</strong> ".$row["ISBN"]."</p>
-                                    <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
-                                    <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
-                                    <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
-                                    <p><strong>Language:</strong> ".$row["Language"]."</p>
-                                    <a href='saveBookSql.php?id=".$row["ISBN"]."'>click</a>
-                            </div>
-                            
+                        <div class="card">
                             <?php
                             //setting db details:
                             $servername = "localhost";
@@ -256,21 +229,20 @@
                             $i++;
                             echo 
                             "
-                            <div class='resultCard'>
-                                ".$i."
-                                <div class='col-sm-3'>
-                                    <img src='res/bookCover.jpg' style='height: 15em;'>
-                                </div>
-                                <div class='col-sm-9'>
-                                    <br>
-                                    <h2>".$row["Title"]."</h2><br>
-                                    <p><strong>Author:</strong> ".$row["Authors"]."</p>
-                                    <p><strong>Isbn:</strong> ".$row["ISBN"]."</p>
-                                    <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
-                                    <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
-                                    <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
-                                    <p><strong>Language:</strong> ".$row["Language"]."</p>
-                                    <a href='saveBookSql.php?id=".$row["ISBN"]."'>click</a>
+                            <div class='col-lg-6 col-md-12'>
+                                <div class='resultCard'> 
+                                    <div class='leftResult'>
+                                        <img src='res/bookCover.jpg'>
+                                    </div>
+                                    <div class='rightResult'>
+                                        <h3>".$row["Title"]."</h3>
+                                        <p><strong>Author: </strong>".$row["Authors"]."</p>
+                                        <p><strong>Isbn: </strong>".$row["ISBN"]."</p>
+                                        <p><strong>Num of pages: </strong>".$row["NumPages"]."</p>
+                                        <p><strong>Average Rating: </strong>".$row["AverageRating"]."</p>
+                                        <p><strong>Language: </strong>".$row["Language"]."</p>
+                                        <a href='saveBookSql.php?id=".$row["ISBN"]."'>Add to My Books</a>
+                                    </div>
                                 </div>
                             </div>
                             ";
@@ -283,8 +255,8 @@
                                 document.getElementById('searchSort').value = "<?php echo $searchSort; ?>";
                                 document.getElementById('searchMaxResults').value = "<?php echo $MaxNumResults; ?>";
                                 document.getElementById('filterLan').value = "<?php echo $filterLan; ?>";
+
                             </script>
-                            
                         </div>
                     </div>
                 </div>
