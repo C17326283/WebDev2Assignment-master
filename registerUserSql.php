@@ -5,19 +5,19 @@
     
         if(isset($_POST['submit']))
         {
-            $name = $_POST['name'];
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $confirmpassword = $_POST['confirmpassword'];
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
+            $name = mysqli_real_escape_string($conn, $_POST['name']);
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $confirmpassword = mysqli_real_escape_string($conn, $_POST['confirmpassword']);
             
             $errorEmpty = false;
             $errorEmail = false;
             $errorUsername = false;
             $errorPassword = false;
-            
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "project2");
             
             
             $check = "SELECT * FROM users WHERE Username = '$username'"; 
@@ -46,21 +46,27 @@
             }
             else
             {
-
-                $sql = "INSERT INTO Users (name, username, email, password)
-                VALUES ('$name','$username','$email', '$password')";
-
-                if ($conn->query($sql) === TRUE)
+                //create a template
+                $sql = "INSERT INTO Users (name, username, email, password) VALUES (?, ?, ?, ?);";
+                //create a prepared statement
+                $stmt = mysqli_stmt_init($conn);
+                //prepare the prepared statement
+                if(!mysqli_stmt_prepare($stmt, $sql))
                 {
-                    echo "<span class='form-success'>Account created!</span>";
+                    echo "SQL statement failed";
                 }
                 else
                 {
-                    echo "Error: <br>".$conn->error;
+                    //bind parameters to the placeholder
+                    mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $email, $password);
+                    //run parameters inside database
+                    mysqli_stmt_execute($stmt);
+                    
+                    echo "<span class='form-success'>Account created!</span>";
                 }
 
-                $conn->close();
             }
+            $conn->close();
         }
         else
         {
@@ -96,6 +102,7 @@
         
         if(errorEmpty == false && errorEmail == false && errorUsername == false && errorPassword == false)
         {
+            //clearing text fields then redirecting to login page
             $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").val("");
             window.location.href = "loginUser.php";
         }

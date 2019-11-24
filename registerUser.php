@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
     
     <script>
-        $(document).ready(function() 
+        $(document).ready(function() //waits for everything else to load
         {
-            $("form").submit(function(event)
+            $("form").submit(function(event) //on submit
             {
                 event.preventDefault();//preventing the normal post action of the form
                 var name = $("#register-name").val();
@@ -35,7 +35,7 @@
                     password: password,
                     confirmpassword: confirmpassword,
                     submit: submit
-                });
+                }); //loading sql page and passing form results as parameters
             });
             
         });
