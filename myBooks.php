@@ -20,8 +20,17 @@
 
 <body>
     <?php
-            /*For logging in*/
-            session_start();
+        /*Use Details accross pages with session*/
+        session_start();
+        /*Prevent logged out user from accessing this page through url */
+        if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true)
+        {
+            echo"<script language='javascript'>
+                window.confirm('sometext');
+            </script>";
+
+             header('Location: loginUser.php');
+        }
         ?>
 
     <div class="wholePage">
@@ -112,14 +121,8 @@
                     ?>
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-3 leftMain">
-                        <div class="card">
-                            <h2>Filters</h2>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 rightMain">
-
+                <div class="resultsMain">
+                    <div class="allCards">
                         <div class="card" style=" padding:1px;">
 
 
@@ -132,6 +135,7 @@
                             //establish a connection:
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
+                            $i = 0;
                             $sql = "SELECT * FROM userBooks WHERE Username = 'ryry'";
                             $result = $connection->query($sql) OR die(mysqli_error($connection));
                             while($row = $result ->fetch_assoc())
@@ -141,24 +145,34 @@
                                 $resultBook = $connection->query($sqlBook) OR die(mysqli_error($connection));
                                 while($rowBook = $resultBook ->fetch_assoc())
                                 {
-                                    echo"
+                                    $i++;
+                                echo "
+                                <div class='col-lg-6 col-md-12'>
                                     <div class='resultCard'>
-                                        <div class='col-sm-3'>
-                                            <img src='res/bookCover.jpg' style='height: 15em;'>
+                                        <div class='leftResult'>
+                                            <img src='res/bookCover.jpg'>
                                         </div>
-                                        <div class='col-sm-9'>
-                                            <br>
-                                            <h2>".$rowBook["Title"]."</h2><br>
-                                            <p><strong>Author:</strong> ".$rowBook["Authors"]."</p>
-                                            <p><strong>Isbn:</strong> ".$rowBook["ISBN"]."</p>
-                                            <p><strong>Num of pages:</strong> ".$rowBook["NumPages"]."</p>
-                                            <p><strong>Average Rating:</strong> ".$rowBook["AverageRating"]."</p>
-                                            <p><strong>Num of Ratings:</strong> ".$rowBook["NumRatings"]."</p>
-                                            <p><strong>Language:</strong> ".$rowBook["Language"]."</p>
-                                            <br><br><br><br><br><br>
+                                        <div class='rightResult'>
+                                            <h3>".$i.". ".$rowBook["Title"]."</h3>
+                                            <p><strong>Author: </strong>".$rowBook["Authors"]."</p>
+                                            <p><strong>Average Rating: </strong>".$rowBook["AverageRating"]."</p>
+                                            <p><strong>Num of pages: </strong>".$rowBook["NumPages"]."</p>
+                                            <p><strong>Isbn: </strong>".$rowBook["ISBN"]."</p>
+                                            <p><strong>Language: </strong>".$rowBook["Language"]."</p>
+                                            <a href='delMyBookSql.php?id=".$rowBook["ISBN"]."'>Remove from My Books</a>
                                         </div>
-                                    </div>";
+                                    </div>
+                                </div>
+                                ";
                                 }
+                                
+                            }
+                            if($i == 0)
+                            {
+                                echo"
+                                <div class='Card''>
+                                <h3 style='text-align: center; margin:2em'>You have not saved any books.</h3>
+                                </div>";
                             }
                         ?>
                         </div>

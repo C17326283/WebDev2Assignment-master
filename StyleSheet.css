@@ -49,9 +49,9 @@ h2/*card heading*/
 }
 h3/*result card heading*/
 {
-    margin-top: .1em;
-    margin-bottom: .1em;
-    font-size: x-large;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    font-size: 2.3em;
 }
 h4
 {
@@ -203,7 +203,7 @@ nav {
     padding: 0px;
 }
 
-.rightMain {
+.resultsBody {
     padding: 0px;
 }
 
@@ -411,6 +411,16 @@ td {
     background-color: #db994b;
     height: 3em;
 }
+.searchFilter 
+{
+    float: left;
+    display: inline;
+}
+.searchFilter p, select
+{
+    float: left;
+    display: inline;
+}
 .resultCard
 {
     background: #fffff9;
@@ -458,25 +468,11 @@ td {
     bottom: 1em;
     right: 1em;
     position: absolute;
-    
-    
 }
 .rightResult p
 {
-    font-size: 150%;
-    
+    font-size: 150%; 
 }
-
-color: snow;
-    text-align: center;
-    vertical-align: bottom;
-    border-top: 1px solid white;
-    padding: .1em;
-    margin: 0px;
-    border-radius: 9px;
-    /*roundness of box*/
-    border: 2px solid #db994b;
-    min-height: 4.5em;
 
 .form-message
 {

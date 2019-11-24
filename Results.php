@@ -114,8 +114,7 @@
                     </ul>
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-12 rightMain">
+                    <div class="resultsBody">
                         <div class="card">
                             <form action="" method="post" name="searchForm">
                                 <div class="searchBubble">
@@ -129,13 +128,12 @@
                                     <input type="submit" class="searchButton" value="Search" />
                                 </div>
                                 
-                                <div style="float:left; margin-right:10px;">
-                                    <p>Language:</p>
-                                    <select name="filterLan" id="filterLan">
+                                <div class="searchFilter" style="float:left; margin-right:10px;">
+                                    <p>Language: &nbsp</p>
+                                    <select name="filterLan" id="filterLan" >
                                         <!--values are used to compare to DB row-->
                                         <option value="">No Filter</option>
                                         <option value="en">English</option>
-                                        <option value="ara">Arabic</option>
                                         <option value="dan">Danish</option>
                                         <option value="fre">French</option>
                                         <option value="ger">Germany</option>
@@ -148,11 +146,10 @@
                                         <option value="rus">Russian</option>
                                         <option value="spa">Spanish</option>
                                         <option value="srp">Serbian</option>
-                                        <option value="zho">Chinese</option>
                                     </select>
                                 </div>
-                                <div style="float:left">
-                                    <p>Num of Rows: </p>
+                                <div class="searchFilter" style="float:left">
+                                    <p>Num of Rows: &nbsp</p>
                                     <select name="MaxNumResults" id="searchMaxResults">
                                         <option value=10>10</option>
                                         <option value=100>100</option>
@@ -160,8 +157,8 @@
                                         <option value=100000>All</option>
                                     </select>
                                 </div>
-                                <div style="float:right">
-                                    <p>Sort By:</p>
+                                <div class="searchFilter" style="float:right">
+                                    <p>Sort By:&nbsp</p>
                                     <select name="Sort" id="searchSort">
                                         <option value="Title">Title (Alphabetical)</option>
                                         <option value="Authors">Authors (Alphabetical)</option>
@@ -194,7 +191,7 @@
                                 $MaxNumResults = $_POST['MaxNumResults'];
                                 $filterLan = $_POST['filterLan'];
 
-                                if ($_POST['searchQuery'] == '*')/*if they have submitted*/
+                                if ($_POST['searchQuery'] == '*' or $_POST['searchQuery'] == ' ')/*if they have submitted*/
                                 {
                                     $sql = "SELECT * FROM books WHERE Language LIKE '%".$filterLan."%'
                                     ORDER BY ".$searchSort;
@@ -208,18 +205,20 @@
                                     ORDER BY ".$searchSort;
                                 }
                                 
-                                echo "<p>Returning results for <strong>".$searchQuery."</strong> in <strong>".$searchType."</strong>";
+                                echo "<div class='card' style='margin: 1em;'><p>Returning results for <strong style='color:#006500'>".$searchQuery."</strong> in <strong style='color:#006500'>".$searchType."</strong>";
                             }
                             else
                             {
-                                $MaxNumResults = 10;
+                                $MaxNumResults = 100;
 
                                 $sql = "SELECT * FROM books ORDER BY Title";
-                                echo "<p>Displaying all books";
+                                echo "<div class='card' style='margin: 1em;'><p>Displaying all books";
                             }
                             
                             $result = $connection->query($sql) or die($connection->error);/*store all rows in result*/
-                            echo " (".mysqli_num_rows($result)." results found.)</p>";
+                            echo "
+                            (".mysqli_num_rows($result)." results found.)</p></div>
+                            ";
                             
                                 
                             $i = 0;
@@ -233,16 +232,16 @@
                                         <img src='res/bookCover.jpg'>
                                     </div>
                                     <div class='rightResult'>
-                                        <h3>".$row["Title"]."</h3>
+                                        <h3>".$i.". ".$row["Title"]."</h3>
                                         <p><strong>Author: </strong>".$row["Authors"]."</p>
-                                        <p><strong>Isbn: </strong>".$row["ISBN"]."</p>
-                                        <p><strong>Num of pages: </strong>".$row["NumPages"]."</p>
                                         <p><strong>Average Rating: </strong>".$row["AverageRating"]."</p>
+                                        <p><strong>Num of pages: </strong>".$row["NumPages"]."</p>
+                                        <p><strong>Isbn: </strong>".$row["ISBN"]."</p>
                                         <p><strong>Language: </strong>".$row["Language"]."</p>";
                                 
                                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                                         {
-                                            echo"<a href='saveBookSql.php?id=".$row["ISBN"]."'>Add to My Books</a>";
+                                            echo"<a href='saveMyBookSql.php?id=".$row["ISBN"]."'>Add to My Books</a>";
                                         }
                             echo "
                                     </div>
@@ -262,7 +261,6 @@
                             </script>
                         </div>
                     </div>
-                </div>
 
             </div>
         </div>
