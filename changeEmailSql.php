@@ -50,23 +50,21 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#change-email").removeClass("input-error");
-        
+
         var errorEmail = "<?php echo $errorEmail; ?>";
 
-        if(errorEmail == true)
-        {
+        if (errorEmail == true) {
             $("#change-email").addClass("input-error");
         }
-        if(errorEmail == false)
-        {
+        if (errorEmail == false) {
             $("#change-email").val("");
             window.location.href = "myAccount.php";
 
         }
-        
+
     </script>
 
 </body>

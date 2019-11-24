@@ -3,7 +3,7 @@
 <!-- language-->
 
 <head>
-    <title>Home</title>
+    <title>About Us</title>
     <meta charset="utf-8"><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
@@ -15,7 +15,7 @@
     <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
-    <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
+    <link rel="icon" href="res/TitleLogo.png" type="image/icon type">
 </head>
 
 <body>
@@ -26,43 +26,43 @@
     <div class="container-fluid wholePage">
 
         <nav>
-                <div class="row navRow">
-                    <a href="index.php">
-                        <div class="col-sm-2 logoBox">
-                            <img src="res/logo.png">
-                        </div>
-                    </a>
+            <div class="row navRow">
+                <a href="index.php">
+                    <div class="col-sm-2 logoBox">
+                        <img src="res/logo.png">
+                    </div>
+                </a>
 
-                    <a href="Results.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/magnifyingGlassIcon.png">
-                            <h6>Search</h6>
+                <a href="Results.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/magnifyingGlassIcon.png">
+                        <h6>Search</h6>
+                    </div>
+                </a>
+                <a href="howToUse.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/questionIcon.png">
+                        <h6>How to use</h6>
+                    </div>
+                </a>
+                <a href="aboutUs.php">
+                    <div class="col-sm-2 tab-box current-box">
+                        <img src="res/aboutUsIcon.png">
+                        <h6>About Us</h6>
+                    </div>
+                </a>
+                <a href="contact.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/ContactIcon.png">
+                        <div class="navText">
+                            <h6>Contact</h6>
                         </div>
-                    </a>
-                    <a href="howToUse.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/questionIcon.png">
-                            <h6>How to use</h6>
-                        </div>
-                    </a>
-                    <a href="aboutUs.php">
-                        <div class="col-sm-2 tab-box current-box">
-                            <img src="res/aboutUsIcon.png">
-                            <h6>About Us</h6>
-                        </div>
-                    </a>
-                    <a href="contact.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/ContactIcon.png">
-                            <div class="navText">
-                                <h6>Contact</h6>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
+                </a>
 
 
-                    <div class="col-sm-2 tab-box" onclick="slide()">
-                        <?php
+                <div class="col-sm-2 tab-box" onclick="slide()">
+                    <?php
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                         {
                             $conn = new mysqli("localhost", "root", "", "project2");
@@ -93,15 +93,15 @@
                             echo"<h6>Account</h6>";
                         }
                         ?>
-                    </div>
-
                 </div>
-            </nav>
 
-            <div class="mainBody">
-                <div class="moreMenu" id="menuSlide">
-                    <ul>
-                        <?php
+            </div>
+        </nav>
+
+        <div class="mainBody">
+            <div class="moreMenu" id="menuSlide">
+                <ul>
+                    <?php
                             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                             {
                                 echo'
@@ -127,9 +127,9 @@
                                 ';
                             }
                         ?>
-                    </ul>
+                </ul>
 
-                </div>
+            </div>
 
             <div class="row">
                 <div class="col-sm-3 leftMain">
@@ -146,13 +146,13 @@
                         <h2>The owners:</h2>
                         <br>
                         <img src="res/owners.jpg" style="width:400px;height:300px">
-                    
+
                     </div>
                     <div class="card">
                         <h2>Code of Conduct and the Customers Role</h2>
                         <br>
                         <p>
-                            We welcome your comments and suggestions on how we can improve our services in the future. 
+                            We welcome your comments and suggestions on how we can improve our services in the future.
                             If you would like to comment or make a suggestion please email 123library@lib.com.
                         </p>
                         <p>
@@ -160,7 +160,7 @@
                         </p>
                         <p>
                             <br>Behaviour that is disruptive and interferes with the use and enjoyment of Library facilities.
-                          
+
                             <br>Harassment of staff or members of the public by use of abusive, racist, obscene or threatening language.
 
                             <br>Use of violence or threat of violence towards staff and/or members of the public.

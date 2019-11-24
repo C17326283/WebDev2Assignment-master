@@ -3,7 +3,7 @@
 <!-- language-->
 
 <head>
-    <title>Home</title>
+    <title>Contact</title>
     <meta charset="utf-8"><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="icon" href="res/TitleLogo.png" type="image/icon type">
 
     <script>
         $(document).ready(function() //waits for everything else to load

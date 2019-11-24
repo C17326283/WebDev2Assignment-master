@@ -7,7 +7,6 @@ body {
 }
 
 .wholePage
-
 /*need for footer*/
     {
     min-height: 80em;
@@ -23,6 +22,7 @@ body {
     width: 100%;
     margin: 0px;
     padding: 0px;
+    position: relative;
 }
 
 .row {
@@ -36,37 +36,45 @@ p {
 
 }
 
-h1/*Welcome*/
-{
+h1
+
+/*Welcome*/
+    {
     margin: 0px;
 }
 
-h2/*card heading*/
-{
+h2
+
+/*card heading*/
+    {
     margin-top: .1em;
     margin-bottom: .1em;
     text-decoration: underline;
 }
-h3/*result card heading*/
-{
+
+h3
+
+/*result card heading*/
+    {
     margin-top: 0em;
     margin-bottom: 0em;
     font-size: 2.3em;
 }
-h4
-{
-    
-}
-h5
-{
+
+h4 {}
+
+h5 {
     text-align: center;
     float: center;
     margin: 0px;
     padding: 10px 0px;
     font-size: medium;
 }
-.h6 /*tab box font*/
-{
+
+.h6
+
+/*tab box font*/
+    {
     margin: 0px;
     margin-bottom: 2px;
     font-size: Large;
@@ -109,6 +117,7 @@ nav {
 .current-box {
     background: #cb7714;
 }
+
 .tab-box {
     color: snow;
     text-align: center;
@@ -120,8 +129,8 @@ nav {
     border: 2px solid #db994b;
     height: 4.5em;
 }
-.tab-box img
-{
+
+.tab-box img {
     width: 60%;
     max-width: 2.5em;
     margin: 0px;
@@ -139,7 +148,8 @@ nav {
     border: 2px solid snow;
     text-decoration: none;
 }
-.logoBox{
+
+.logoBox {
     text-align: center;
     vertical-align: bottom;
     border-top: 1px solid white;
@@ -148,17 +158,18 @@ nav {
     border: 2px solid #db994b;
     height: 4.5em;
     padding: .3em;
-    
+
 }
-.logoBox img
-{
+
+.logoBox img {
     margin-top: auto;
     margin-bottom: auto;
     max-height: 100%;
     max-width: 100%;
-    
-    
+
+
 }
+
 .logoBox:hover {
     border: 2px solid snow;
     text-decoration: none;
@@ -234,6 +245,8 @@ footer {
     color: #b2b2b2;
     position: absolute;
     bottom: 0;
+    z-index: -1;
+    margin-top: 2em;
 }
 
 
@@ -375,21 +388,23 @@ td {
     padding: 1em;
     width: 30%;
 }
-td{width: em}
 
-.searchBubble
-{
+td {
+    width: em
+}
+
+.searchBubble {
     border-radius: 18px;
     background: red;
-    display:inline;
+    display: inline;
     width: 100%;
     margin: 0px;
 }
-.searchBubble input[type=text]
-{
+
+.searchBubble input[type=text] {
     float: left;
     width: calc(100% - 14em);
-    
+
     padding: 5px 20px;
     margin: 0px 0px 10px 0px;
     display: inline-block;
@@ -397,13 +412,13 @@ td{width: em}
     box-sizing: border-box;
     font-size: large;
     height: 3em;
-    
+
 }
-.searchBubble select
-{
+
+.searchBubble select {
     float: left;
     width: 7em;
-    
+
     padding: 5px 20px;
     margin: 0px 0px 10px 0px;
     display: inline-block;
@@ -413,8 +428,8 @@ td{width: em}
     background: #e2e2e2;
     height: 3em;
 }
-.searchBubble input[type=submit]
-{
+
+.searchBubble input[type=submit] {
     padding: 5px 20px;
     margin: 0px 0px 10px 0px;
     display: inline-block;
@@ -425,18 +440,19 @@ td{width: em}
     background-color: #db994b;
     height: 3em;
 }
-.searchFilter 
-{
+
+.searchFilter {
     float: left;
     display: inline;
 }
-.searchFilter p, select
-{
+
+.searchFilter p,
+select {
     float: left;
     display: inline;
 }
-.resultCard
-{
+
+.resultCard {
     background: #fffff9;
     padding: 1em 1em;
     overflow: hidden;
@@ -449,28 +465,28 @@ td{width: em}
     margin: .5em 0em;
     position: relative;
 }
-.leftResult
-{
+
+.leftResult {
     width: 25%;
     float: left;
 }
-.leftResult img
-{
+
+.leftResult img {
     width: 100%;
     height: auto;
     max-width: 28em;
     max-height: 18em;
 }
-.rightResult
-{
+
+.rightResult {
     width: 70%;
     float: left;
     margin: .2em;
     padding-left: 1em;
-    overflow:hidden;
+    overflow: hidden;
 }
-.rightResult a
-{
+
+.rightResult a {
     color: black;
     text-align: center;
     vertical-align: bottom;
@@ -483,16 +499,18 @@ td{width: em}
     right: 1em;
     position: absolute;
 }
-.rightResult p
-{
-    font-size: 150%; 
+
+.rightResult p {
+    font-size: 150%;
 }
-.userInfo
-{
+
+.userInfo {
     width: 100%;
 }
-.userInfo h4, .userInfo p, .userInfo a
-{
+
+.userInfo h4,
+.userInfo p,
+.userInfo a {
     float: left;
     font-size: 1.5em;
     vertical-align: top;
@@ -500,14 +518,12 @@ td{width: em}
     padding: 0px;
     color: green;
 }
-.userInfo a
-{
-}
-input[type='file'] 
-{
-}
-.profCard
-{
+
+.userInfo a {}
+
+input[type='file'] {}
+
+.profCard {
     background: #fffff9;
     margin: 1em 1em;
     padding: 1em 1.5em;
@@ -516,28 +532,25 @@ input[type='file']
     box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
     text-align: center;
 }
-.profImg
-{
-    text-align:center;
-    width:100%;max-width: 15em;
+
+.profImg {
+    text-align: center;
+    width: 100%;
+    max-width: 15em;
 }
 
-.form-message
-{
+.form-message {
     text-align: center;
 }
-.form-error
-{
+
+.form-error {
     color: red;
 }
 
-.form-success
-{
+.form-success {
     color: green;
 }
 
-.input-error
-{
+.input-error {
     box-shadow: 0 0 5px red;
 }
-

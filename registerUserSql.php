@@ -93,40 +93,35 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").removeClass("input-error");
-        
+
         var errorEmpty = "<?php echo $errorEmpty; ?>";
         var errorEmail = "<?php echo $errorEmail; ?>";
         var errorUsername = "<?php echo $errorUsername; ?>";
         var errorPassword = "<?php echo $errorPassword; ?>";
 
-        
-        if(errorEmpty == true)
-        {
-           $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").addClass("input-error");
+
+        if (errorEmpty == true) {
+            $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").addClass("input-error");
         }
-        if(errorEmail == true)
-        {
+        if (errorEmail == true) {
             $("#register-email").addClass("input-error");
         }
-        if(errorUsername == true)
-        {
+        if (errorUsername == true) {
             $("#register-username").addClass("input-error");
         }
-        if(errorPassword == true)
-        {
+        if (errorPassword == true) {
             $("#register-password, #register-confirmpassword").addClass("input-error");
         }
-        
-        if(errorEmpty == false && errorEmail == false && errorUsername == false && errorPassword == false)
-        {
+
+        if (errorEmpty == false && errorEmail == false && errorUsername == false && errorPassword == false) {
             //clearing text fields then redirecting to login page
             $("#register-name, #register-username, #register-email, #register-password, #register-confirmpassword").val("");
             window.location.href = "loginUser.php";
         }
-        
+
     </script>
 
 </body>

@@ -3,7 +3,7 @@
 <!-- language-->
 
 <head>
-    <title>Home</title>
+    <title>Log out</title>
     <meta charset="utf-8"><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
@@ -16,6 +16,7 @@
     <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
     <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
+    <link rel="icon" href="res/TitleLogo.png" type="image/icon type">
 </head>
 
 <body>
@@ -35,43 +36,43 @@
     <div class="container-fluid wholePage">
 
         <nav>
-                <div class="row navRow">
-                    <a href="index.php">
-                        <div class="col-sm-2 logoBox">
-                            <img src="res/logo.png">
-                        </div>
-                    </a>
+            <div class="row navRow">
+                <a href="index.php">
+                    <div class="col-sm-2 logoBox">
+                        <img src="res/logo.png">
+                    </div>
+                </a>
 
-                    <a href="Results.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/magnifyingGlassIcon.png">
-                            <h6>Search</h6>
+                <a href="Results.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/magnifyingGlassIcon.png">
+                        <h6>Search</h6>
+                    </div>
+                </a>
+                <a href="howToUse.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/questionIcon.png">
+                        <h6>How to use</h6>
+                    </div>
+                </a>
+                <a href="aboutUs.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/aboutUsIcon.png">
+                        <h6>About Us</h6>
+                    </div>
+                </a>
+                <a href="contact.php">
+                    <div class="col-sm-2 tab-box">
+                        <img src="res/ContactIcon.png">
+                        <div class="navText">
+                            <h6>Contact</h6>
                         </div>
-                    </a>
-                    <a href="howToUse.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/questionIcon.png">
-                            <h6>How to use</h6>
-                        </div>
-                    </a>
-                    <a href="aboutUs.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/aboutUsIcon.png">
-                            <h6>About Us</h6>
-                        </div>
-                    </a>
-                    <a href="contact.php">
-                        <div class="col-sm-2 tab-box">
-                            <img src="res/ContactIcon.png">
-                            <div class="navText">
-                                <h6>Contact</h6>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
+                </a>
 
 
-                    <div class="col-sm-2 tab-box  current-box" onclick="slide()">
-                        <?php
+                <div class="col-sm-2 tab-box  current-box" onclick="slide()">
+                    <?php
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                         {
                             $conn = new mysqli("localhost", "root", "", "project2");
@@ -102,15 +103,15 @@
                             echo"<h6>Account</h6>";
                         }
                         ?>
-                    </div>
-
                 </div>
-            </nav>
 
-            <div class="mainBody">
-                <div class="moreMenu" id="menuSlide">
-                    <ul>
-                        <?php
+            </div>
+        </nav>
+
+        <div class="mainBody">
+            <div class="moreMenu" id="menuSlide">
+                <ul>
+                    <?php
                             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                             {
                                 echo'
@@ -136,9 +137,9 @@
                                 ';
                             }
                         ?>
-                    </ul>
+                </ul>
 
-                </div>
+            </div>
 
             <div class="row">
                 <div class="col-sm-3 leftMain">
@@ -165,8 +166,12 @@
                             echo '<h3>'.$_SESSION['Username'].'</h3>';
                             echo "</div>";
                         ?>
-                        <div class="card" style="text-align:center"><p><a href="myBooks.php">My Books</a></p></div>
-                        <div class="card" style="text-align:center"><p><a href="logoutSql.php">log out</a></p></div>
+                        <div class="card" style="text-align:center">
+                            <p><a href="myBooks.php">My Books</a></p>
+                        </div>
+                        <div class="card" style="text-align:center">
+                            <p><a href="logoutSql.php">log out</a></p>
+                        </div>
 
                     </div>
                 </div>
@@ -215,15 +220,18 @@
                             ";
                             }
                             ?>
-                        <br><hr><br>
+                        <br>
+                        <hr><br>
                         <table>
-                        <tr>
-                            <form method="post" action="upload.php" enctype="multipart/form-data">
-                                <th ><h4>Change profile picture</h4></th>
-                                <td><input type="file" name="file" style="color:transparent; width:90px; margin-left:auto;margin-right:auto;"  required></td>
-                                <td><button type="Submit" name="submit">Upload image</button></td>
-                            </form>
-                        </tr>
+                            <tr>
+                                <form method="post" action="upload.php" enctype="multipart/form-data">
+                                    <th>
+                                        <h4>Change profile picture</h4>
+                                    </th>
+                                    <td><input type="file" name="file" style="color:transparent; width:90px; margin-left:auto;margin-right:auto;" required></td>
+                                    <td><button type="Submit" name="submit">Upload image</button></td>
+                                </form>
+                            </tr>
                         </table>
                     </div>
                 </div>

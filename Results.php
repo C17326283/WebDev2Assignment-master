@@ -3,7 +3,7 @@
 <!-- language-->
 
 <head>
-    <title>Home</title>
+    <title>Search</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
@@ -16,6 +16,7 @@
     <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
     <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
+    <link rel="icon" href="res/TitleLogo.png" type="image/icon type">
 </head>
 
 <body>
