@@ -124,11 +124,13 @@
                 <div class="col-sm-9 rightMain">
                     <div class="card">
                         <h2>The owners:</h2>
+                        <br>
                         <img src="res/owners.jpg" style="width:400px;height:300px">
                     
                     </div>
                     <div class="card">
                         <h2>Code of Conduct and the Customers Role</h2>
+                        <br>
                         <p>
                             We welcome your comments and suggestions on how we can improve our services in the future. 
                             If you would like to comment or make a suggestion please email 123library@lib.com.

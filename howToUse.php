@@ -114,12 +114,54 @@
             <div class="row">
                 <div class="col-sm-3 leftMain">
                     <div class="card">
-                        <h2>Card1</h2>
+                        <h2>Did you know?</h2>
+                        <br>
+                        <p>
+                            Books were invented by Thomas Book in 1789 when he spoke
+                            to a piece of paper.
+                        </p>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <h2>Did you know?</h2>
+                        <br>
+                        <p>
+                            The first ever library to be opened was originally supposed 
+                            to be a restaurant, but when they ran out of chicken, it was
+                            decided that they would store books from there on out.
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-9 rightMain">
                     <div class="card">
-                        <h2>Card2 Explanation</h2>
+                        <br>
+                        <h2>Becoming a member</h2>
+                        <br>
+                        <p>
+                            You can create an account <a href="registerUser.php">here.</a>
+                            Once you register, you can log in and favourite any books you like.
+                            You can then view your favourite books and change your account details.
+                            It only takes 30 seconds to make an account and it's completely free!
+                        </p>
+                        <br>
+                        <h2>Searching for books</h2>
+                        <br>
+                        <p>
+                            You can search for books <a href="Results.php">here.</a>
+                            There are many ways to filter your search to find exactly the book you need,
+                            such as sorting by title, author, language or ISBN. You can even change the order 
+                            the results are displayed in! If you're logged in, you will also have the option
+                            to save a book to your favourites so you won't forget it anytime soon!
+                        </p>
+                        <br>
+                        <h2>Account details</h2>
+                        <br>
+                        <p>
+                            Even after you make your account, you can still change your details to whatever you
+                            prefer, so there's no need to stress if you entered in the wrong name! Simply go to
+                            the myAccount page and you will be prompted with the option to change most of your details.
+                            Just make sure to use a valid email address!
+                        </p>
                     </div>
                 </div>
             </div>

@@ -130,7 +130,7 @@
                             <p>Email: 123library@lib.com</p><br>
                             <p>Phone: 085 1234321</p><br>
 
-                            <p>You can also submit a feedback form here: link</p>
+                            <p>You can also submit a feedback <a href="contact.php">form</a></p>
                         </div>
 
                         <div class="card">
