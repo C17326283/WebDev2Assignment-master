@@ -39,7 +39,7 @@
                 <div class="row navRow">
                     <a href="index.php">
                         <div class="col-sm-2 logoBox current-box">
-                            <img src="res/logosample.png">
+                            <img src="res/logo.png">
                         </div>
                     </a>
 
