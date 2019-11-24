@@ -13,9 +13,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
     <script>
-        $(document).ready(function() 
+        $(document).ready(function() //waits for everything else to load
         {
-            $("form").submit(function(event)
+            $("form").submit(function(event) //on submit
             {
                 event.preventDefault();//preventing the normal post action of the form
                 var name = $("#change-name").val();
@@ -23,7 +23,7 @@
                 $(".form-message").load("changeNameSql.php", {
                     name: name,
                     submit: submit
-                });
+                }); //loading sql page and passing form results as parameters
             });
 
         });

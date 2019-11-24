@@ -14,9 +14,9 @@
     <script src="script.js"></script>
     
     <script>
-        $(document).ready(function() 
+        $(document).ready(function() //waits for everything else to load
         {
-            $("form").submit(function(event)
+            $("form").submit(function(event) //on submit
             {
                 event.preventDefault();//preventing the normal post action of the form
                 var email = $("#change-email").val();
@@ -24,7 +24,7 @@
                 $(".form-message").load("changeEmailSql.php", {
                     email: email,
                     submit: submit
-                });
+                }); //loading sql page and passing form results as parameters
             });
 
         });
