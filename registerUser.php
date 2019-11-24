@@ -122,6 +122,7 @@
                     <input type="submit" id="register-submit" value="Register">
                     <p class="form-message" id="form-message"></p>
                 </form>
+                <p style="text-align:center;">If you already have an account you can log in: <a href="loginUser.php">HERE</a></p>
             </div>
         </div>
         <footer>
