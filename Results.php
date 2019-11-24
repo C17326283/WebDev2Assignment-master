@@ -173,13 +173,8 @@
 
                         <div class="card">
                             <?php
-                            //setting db details:
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "project2";
                             //establish a connection:
-                            $connection = new mysqli($servername, $username, $password, $dbname);
+                            $connection = new mysqli("localhost", "root", "", "project2");
                             //run a query and store results in variable $result:
                             
                            
