@@ -18,20 +18,36 @@
             {
             die("Connection failed: " . mysqli_connect_error());
             }
-            // sql to delete a record
-            $sql = "INSERT INTO `userbooks`(`Username`, `BookISBN`) VALUES ('$user',$id)";
-
-            if (mysqli_query($conn, $sql))
+    
+            $sqlcheck = "SELECT * FROM `userbooks`WHERE Username='$user' AND BookISBN='$id'";
+            $result = mysqli_query($conn, $sqlcheck);
+            $numrows = mysqli_num_rows($result);
+            if($numrows > 0)
             {
                 mysqli_close($conn);
-                echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
-
+                echo "<script> window.alert('Book already added!'); window.location.href='Results.php';</script>";
             }
             else
             {
-                mysqli_close($conn);
-                echo "<script> window.alert('There was a problem adding your book!'); window.location.href='Results.php';</script>";
+                // sql to delete a record
+                $sql = "INSERT INTO `userbooks`(`Username`, `BookISBN`) VALUES ('$user',$id)";
+
+                if (mysqli_query($conn, $sql))
+                {
+                    mysqli_close($conn);
+                    echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
+
+                }
+                else
+                {
+                    mysqli_close($conn);
+                    echo "<script> window.alert('There was a problem adding your book!'); window.location.href='Results.php';</script>";
+                }
+                
             }
+    
+            
+            
             ?>
 </body>
 
