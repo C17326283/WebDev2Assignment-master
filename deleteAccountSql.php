@@ -62,7 +62,7 @@
                         $sql = "DELETE FROM users WHERE username='$id';";
                         $result = mysqli_query($conn, $sql);
                         
-                        $sqlbook = "DELETE * FROM userbooks WHERE username='$id';";
+                        $sqlbook = "DELETE FROM userbooks WHERE username='$id';";
                         $resultbook = mysqli_query($conn, $sql);
 
                         if ($conn->query($sql) === TRUE)
