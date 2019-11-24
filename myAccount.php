@@ -228,7 +228,7 @@
                                     <th>
                                         <h4>Change profile picture</h4>
                                     </th>
-                                    <td><input type="file" name="file" style="color:transparent; width:90px; margin-left:auto;margin-right:auto;" required></td>
+                                    <td><input type="file" name="file" style="color:transparent; width:90px; margin-left:auto;margin-right:auto;cursor: pointer;" required></td>
                                     <td><button type="Submit" name="submit">Upload image</button></td>
                                 </form>
                             </tr>

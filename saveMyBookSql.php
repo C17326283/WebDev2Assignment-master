@@ -18,36 +18,25 @@
             {
             die("Connection failed: " . mysqli_connect_error());
             }
-    
-            $sqlcheck = "SELECT * FROM `userbooks`WHERE Username='$user' AND BookISBN='$id'";
-            $result = mysqli_query($conn, $sqlcheck);
-            $numrows = mysqli_num_rows($result);
-            if($numrows > 0)
+            // sql to delete a record
+            $sql = "INSERT INTO `userbooks`(`Username`, `BookISBN`) VALUES ('$user',$id)";
+
+            if (mysqli_query($conn, $sql))
             {
                 mysqli_close($conn);
-                echo "<script> window.alert('Book already added!'); window.location.href='Results.php';</script>";
+                echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
+
             }
             else
             {
-                // sql to delete a record
-                $sql = "INSERT INTO `userbooks`(`Username`, `BookISBN`) VALUES ('$user',$id)";
-
-                if (mysqli_query($conn, $sql))
-                {
-                    mysqli_close($conn);
-                    echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
-
-                }
-                else
-                {
-                    mysqli_close($conn);
-                    echo "<script> window.alert('There was a problem adding your book!'); window.location.href='Results.php';</script>";
-                }
-                
+                mysqli_close($conn);
+                echo "<script> window.alert('Error adding book!'); window.location.href='Results.php';</script>";
             }
+<<<<<<< HEAD
     
             
-            
+=======
+>>>>>>> 36aeabe8c30f604be4909fd4145fdb73ff370652
             ?>
 </body>
 
