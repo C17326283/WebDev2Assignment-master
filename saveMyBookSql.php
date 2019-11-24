@@ -30,7 +30,7 @@
             else
             {
                 mysqli_close($conn);
-                echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
+                echo "<script> window.alert('Error adding book!'); window.location.href='Results.php';</script>";
             }
             ?>
 </body>

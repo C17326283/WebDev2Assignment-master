@@ -8,7 +8,7 @@ body {
 
 .wholePage
 /*need for footer*/
-    {
+{
     min-height: 80em;
     overflow: hidden;
     display: block;
@@ -128,6 +128,7 @@ nav {
     border-radius: 9px;
     border: 2px solid #db994b;
     height: 4.5em;
+    cursor: pointer;
 }
 
 .tab-box img {
@@ -187,12 +188,14 @@ nav {
     margin-left: auto;
     max-height: 400px;
     overflow: hidden;
+    vertical-align: middle;
 }
 
 .gallery img {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    vertical-align: middle;
 }
 
 .Welcome {
@@ -218,8 +221,14 @@ nav {
     text-align: center;
 }
 
-.leftMain {
+.leftMain
+{
     background: #ebebeb;
+    padding: 0px;
+    height: 100%;
+}
+.rightMain
+{
     padding: 0px;
 }
 
@@ -247,6 +256,7 @@ footer {
     bottom: 0;
     z-index: -1;
     margin-top: 2em;
+    height: 6em;
 }
 
 
@@ -521,7 +531,6 @@ select {
 
 .userInfo a {}
 
-input[type='file'] {}
 
 .profCard {
     background: #fffff9;
@@ -553,4 +562,18 @@ input[type='file'] {}
 
 .input-error {
     box-shadow: 0 0 5px red;
+}
+
+
+
+@media only screen and (max-width: 600px)
+{
+body
+{
+background-color: lightblue;
+}
+nav
+    {
+        background-color: aqua;
+    }
 }

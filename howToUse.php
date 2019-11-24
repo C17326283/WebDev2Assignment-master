@@ -186,11 +186,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <footer>
-            <p>By Kyle Heffernan & Ryan Byrne</p>
-            <p>TU Dublin</p>
+        <p>By Kyle Heffernan & Ryan Byrne</p>
+        <p>TU Dublin</p>
         </footer>
     </div>
+    
 </body>
