@@ -38,8 +38,8 @@
             <nav>
                 <div class="row navRow">
                     <a href="index.php">
-                        <div class="col-sm-2 tab-box current-box">
-                            <img src="res/logosample.png" style="width:100%; height:100%">
+                        <div class="col-sm-2 logoBox current-box">
+                            <img src="res/logosample.png">
                         </div>
                     </a>
 

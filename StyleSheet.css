@@ -74,10 +74,7 @@ h5
 }
 
 
-.banner-box {
-    margin: 0px;
-    padding: 2px
-}
+
 
 .topLogo {
     width: 100%;
@@ -109,6 +106,9 @@ nav {
 
 }
 
+.current-box {
+    background: #cb7714;
+}
 .tab-box {
     color: snow;
     text-align: center;
@@ -117,27 +117,11 @@ nav {
     padding: .1em;
     margin: 0px;
     border-radius: 9px;
-    /*roundness of box*/
     border: 2px solid #db994b;
-    min-height: 4.5em;
+    height: 4.5em;
 }
-
-.current-box {
-    background: #cb7714;
-}
-
-.tab-menu {
-    color: snow;
-    text-align: center;
-    vertical-align: bottom;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    background-color: #e87909;
-    border-bottom: 1px solid white;
-    padding: 0px;
-}
-
-.tab-box img {
+.tab-box img
+{
     width: 60%;
     max-width: 2.5em;
     margin: 0px;
@@ -155,6 +139,31 @@ nav {
     border: 2px solid snow;
     text-decoration: none;
 }
+.logoBox{
+    text-align: center;
+    vertical-align: bottom;
+    border-top: 1px solid white;
+    margin: 0px;
+    border-radius: 9px;
+    border: 2px solid #db994b;
+    height: 4.5em;
+    padding: .3em;
+    
+}
+.logoBox img
+{
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 100%;
+    max-width: 100%;
+    
+    
+}
+.logoBox:hover {
+    border: 2px solid snow;
+    text-decoration: none;
+}
+
 
 .mainBody {
     width: 100%;
