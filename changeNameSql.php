@@ -57,7 +57,6 @@
         {
             $("#change-name").val("");
             window.location.href = "myAccount.php";
-
         }
         
     </script>

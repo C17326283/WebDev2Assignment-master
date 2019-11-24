@@ -190,6 +190,19 @@
                         </div>
 
                         <div class="card" style=" padding:1px;">
+                            <div class='resultCard'>
+                                ".$i."
+                                    <br>
+                                    <h2>".$row["Title"]."</h2><br>
+                                    <p><strong>Author:</strong> ".$row["Authors"]."</p>
+                                    <p><strong>Isbn:</strong> ".$row["ISBN"]."</p>
+                                    <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
+                                    <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
+                                    <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
+                                    <p><strong>Language:</strong> ".$row["Language"]."</p>
+                                    <a href='saveBookSql.php?id=".$row["ISBN"]."'>click</a>
+                            </div>
+                            
                             <?php
                             //setting db details:
                             $servername = "localhost";
@@ -257,14 +270,13 @@
                                     <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
                                     <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
                                     <p><strong>Language:</strong> ".$row["Language"]."</p>
-                                    <br><br><br><br><br><br>
+                                    <a href='saveBookSql.php?id=".$row["ISBN"]."'>click</a>
                                 </div>
                             </div>
                             ";
                             }
-                            echo "<p>Displaying ".$i." results.</p>";
-                            
                         ?>
+                            <!--keep values in search-->
                             <script type="text/javascript">
                                 document.getElementById('searchBar').value = "<?php echo $searchQuery; ?>";
                                 document.getElementById('searchType').value = "<?php echo $searchType; ?>";

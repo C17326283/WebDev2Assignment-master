@@ -121,6 +121,8 @@
                     <div class="col-sm-9 rightMain">
 
                         <div class="card" style=" padding:1px;">
+
+
                             <?php
                             //setting db details:
                             $servername = "localhost";
@@ -130,45 +132,34 @@
                             //establish a connection:
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
-                        
-                            if (!empty($_REQUEST['searchQuery']))/*If submitted something in form then search for that, else search for all*/
+                            $sql = "SELECT * FROM userBooks WHERE Username = 'ryry'";
+                            $result = $connection->query($sql) OR die(mysqli_error($connection));
+                            while($row = $result ->fetch_assoc())
                             {
-                                $searchQuery = $_REQUEST['searchQuery'];
-
-                                $sql = "SELECT * FROM books WHERE Title LIKE '%".$searchQuery."%'";
+                                $sqlBook = "SELECT * FROM books WHERE ISBN LIKE ".$row["BookISBN"];
+                                
+                                $resultBook = $connection->query($sqlBook) OR die(mysqli_error($connection));
+                                while($rowBook = $resultBook ->fetch_assoc())
+                                {
+                                    echo"
+                                    <div class='resultCard'>
+                                        <div class='col-sm-3'>
+                                            <img src='res/bookCover.jpg' style='height: 15em;'>
+                                        </div>
+                                        <div class='col-sm-9'>
+                                            <br>
+                                            <h2>".$rowBook["Title"]."</h2><br>
+                                            <p><strong>Author:</strong> ".$rowBook["Authors"]."</p>
+                                            <p><strong>Isbn:</strong> ".$rowBook["ISBN"]."</p>
+                                            <p><strong>Num of pages:</strong> ".$rowBook["NumPages"]."</p>
+                                            <p><strong>Average Rating:</strong> ".$rowBook["AverageRating"]."</p>
+                                            <p><strong>Num of Ratings:</strong> ".$rowBook["NumRatings"]."</p>
+                                            <p><strong>Language:</strong> ".$rowBook["Language"]."</p>
+                                            <br><br><br><br><br><br>
+                                        </div>
+                                    </div>";
+                                }
                             }
-                            else
-                            {
-                                $sql = "SELECT Title, Authors, AverageRating, ISBN, Language, NumPages, NumRatings FROM books";
-                            }
-                            $result = $connection->query($sql);/*store all rows in result*/
-                            
-                            $i = 0;
-                            while($row = $result->fetch_assoc() and $i < 1000)/*print all rows that are stored in result*/
-                            {
-                            $i++;
-                            echo 
-                            "
-                            <div class='resultCard'>
-                                ".$i."
-                                <div class='col-sm-3'>
-                                    <img src='res/bookCover.jpg' style='height: 15em;'>
-                                </div>
-                                <div class='col-sm-9'>
-                                    <br>
-                                    <h2>".$row["Title"]."</h2><br>
-                                    <p><strong>Author:</strong> ".$row["Authors"]."</p>
-                                    <p><strong>Isbn:</strong> ".$row["ISBN"]."</p>
-                                    <p><strong>Num of pages:</strong> ".$row["NumPages"]."</p>
-                                    <p><strong>Average Rating:</strong> ".$row["AverageRating"]."</p>
-                                    <p><strong>Num of Ratings:</strong> ".$row["NumRatings"]."</p>
-                                    <br><br><br><br><br><br>
-                                </div>
-                            </div>
-                            ";
-                            }
-                            echo "<p>Displaying ".$i." results.</p>";
-                            
                         ?>
                         </div>
                     </div>
