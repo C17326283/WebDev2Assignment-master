@@ -25,19 +25,13 @@
             {
                 mysqli_close($conn);
                 echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
-
             }
             else
             {
                 mysqli_close($conn);
                 echo "<script> window.alert('Error adding book!'); window.location.href='Results.php';</script>";
             }
-<<<<<<< HEAD
-    
-            
-=======
->>>>>>> 36aeabe8c30f604be4909fd4145fdb73ff370652
-            ?>
+        ?>
 </body>
 
 </html>
