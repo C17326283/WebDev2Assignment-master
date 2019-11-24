@@ -27,12 +27,11 @@
         <div class="container-fluid">
 
             <div class="row top">
-                <div class="col-sm-3 banner-box">
-                    <a href="index.php">
-                        <img class="topLogo" src="res/logosample.png">
-                    </a>
+                <div class="Welcome" style="text-align:center;">
+                    <h1>Welcome to the Ry and Ky public Libary!</h1>
                 </div>
-                <div class="col-sm-9 banner-box">
+                <div class="gallery">
+                    <img src="res/sampletop.jpg">
                 </div>
             </div>
 
@@ -40,8 +39,7 @@
                 <div class="row navRow">
                     <a href="index.php">
                         <div class="col-sm-2 tab-box current-box">
-                            <img src="res/HomeWhite.png">
-                            <h6>Home</h6>
+                            <img src="res/logosample.png" style="width:100%; height:100%">
                         </div>
                     </a>
 
@@ -98,10 +96,10 @@
                             {
                                 echo'
                                 <li><a href="myAccount.php">
-                                        <p>My Account</p>
+                                        <p>My Account Details</p>
                                     </a></li>
                                 <li><a href="myBooks.php">
-                                        <p>My Books</p>
+                                        <p>My Saved Books</p>
                                     </a></li>
                                 <li><a href="logoutSql.php">
                                         <p>Log out</p>
@@ -121,12 +119,6 @@
                         ?>
                     </ul>
 
-                </div>
-                <div class="gallery">
-                    <img src="res/sampletop.jpg">
-                </div>
-                <div class="Welcome">
-                    <h1>Welcome to the Ry and Ky public Libary!</h1>
                 </div>
 
                 <div class="row">

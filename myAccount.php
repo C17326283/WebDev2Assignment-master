@@ -123,8 +123,6 @@
             <div class="row">
                 <div class="col-sm-3 leftMain">
                     <div class="card">
-                        <?php echo '<h2>'.$_SESSION['Username'].'</h2>'; ?>
-
                         <?php
                             $conn = new mysqli("localhost", "root", "", "project2");
                         
@@ -134,31 +132,21 @@
                             $result = mysqli_query($conn, $sqlImg) OR die(mysqli_error($conn));
                             $numrows = mysqli_num_rows($result);
                             
-                            echo "<div>";
+                            echo "<div class='profCard' style='text-align: center'>";
                         
                                 if($numrows == 0)
                                 {
-                                    echo "<img src='res/default.PNG' style='width:100px;height:100px;'>";
+                                    echo "<img class='img-circle profImg' src='res/default.PNG' >";
                                 }
                                 else if($numrows == 1)
                                 {
-                                    echo "<img src='uploads/profile".$id.".jpg' style='width:100px;height:100px;'>";
+                                    echo "<img class='img-circle profImg' src='uploads/profile".$id.".jpg'>";
                                 }
+                            echo '<h3>'.$_SESSION['Username'].'</h3>';
                             echo "</div>";
-                      
                         ?>
-                        <h4>Change profile picture</h4><br>
-                        <form method="post" action="upload.php" enctype="multipart/form-data">
-                            <input type="file" name="file" required>
-                            <button type="Submit" name="submit">Upload image</button><br>
-                        </form>
-
-
-
-                        <p><a href="logoutSql.php">log out</a></p><br>
-
-                        <br>
-                        <a href='changePassword.php'>Change Password</a>
+                        <div class="card" style="text-align:center"><p><a href="myBooks.php">My Books</a></p></div>
+                        <div class="card" style="text-align:center"><p><a href="logoutSql.php">log out</a></p></div>
 
                     </div>
                 </div>
@@ -177,33 +165,46 @@
                             // output data of each row
                             while($row = $result->fetch_assoc())
                             {
-                            echo 
-                            "<table>
+                            echo
+                            "
+                            <table>
                             <tr>
-                                <th>Username: </th>
-                                <td>".$row["username"]."</td>
-                                <td><a href='deleteAccount.php'>Delete Account</a></td>
+                                <th><h4>Name: </h4></th>
+                                <td><p>".$row["name"]."</p></td>
+                                <td><p><a href='changeName.php'>Change Name</p></a></td>
                             </tr>
+                            <tr>
+                                <th><h4>Email: </h4></th>
+                                <td><p>".$row["email"]."<p></td>
+                                <td><p><a href='changeEmail.php'>Change Email<p></a></td>
+                            </tr>
+                            <tr>
+                                <th><h4>Username: </h4></th>
+                                <td><p>".$row["username"]."</p></td>
+                                <td><p><a href='deleteAccount.php'>Delete Account</p></a></td>
+                            </tr>
+                            <tr>
+                                <th><h4>Password: </h4></th>
+                                <td><p>HIDDEN</p></td>
+                                <td><p><a href='changePassword.php'>Change Password</a></td>
+                                
+                            </tr>
+                            <tr>
                             <br>
-                            
-                            <tr>
-                                <th>Name: </th>
-                                <td>".$row["name"]."</td>
-                                <td><a href='changeName.php'>Change Name</a></td>
-                            </tr>
-                            <br>
-                            
-                            <tr>
-                                <th>Email: </th>
-                                <td>".$row["email"]."</td>
-                                <td><a href='changeEmail.php'>Change Email</a></td>
-                            </tr>
-                            </table>";
-                            
+                            </table>
+                            ";
                             }
-                            echo "</table>";
-
-                        ?>
+                            ?>
+                        <br><hr><br>
+                        <table>
+                        <tr>
+                            <form method="post" action="upload.php" enctype="multipart/form-data">
+                                <th ><h4>Change profile picture</h4></th>
+                                <td><input type="file" name="file" style="color:transparent; width:90px; margin-left:auto;margin-right:auto;"  required></td>
+                                <td><button type="Submit" name="submit">Upload image</button></td>
+                            </form>
+                        </tr>
+                        </table>
                     </div>
                 </div>
             </div>

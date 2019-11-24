@@ -356,12 +356,17 @@ th,
 td {
     border: 1px solid black;
     border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
 }
+
 
 th,
 td {
-    padding: 15px;
+    padding: 1em;
+    width: 30%;
 }
+td{width: em}
 
 .searchBubble
 {
@@ -473,9 +478,40 @@ td {
 {
     font-size: 150%; 
 }
-
-
-
+.userInfo
+{
+    width: 100%;
+}
+.userInfo h4, .userInfo p, .userInfo a
+{
+    float: left;
+    font-size: 1.5em;
+    vertical-align: top;
+    margin: 0px;
+    padding: 0px;
+    color: green;
+}
+.userInfo a
+{
+}
+input[type='file'] 
+{
+}
+.profCard
+{
+    background: #fffff9;
+    margin: 1em 1em;
+    padding: 1em 1.5em;
+    overflow: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+.profImg
+{
+    text-align:center;
+    width:100%;max-width: 15em;
+}
 
 .form-message
 {
