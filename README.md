@@ -8,7 +8,7 @@ view your databases.
 Create a database called project2
 Click on project2 and click import. Select the file DatabaseConfig.sql and Click Go.
 After a few seconds, you should see the 4 tables in your database.
-Now open a new tab and type localhost/WebDevAssignment-master/index.php
+Now open a new tab and type localhost/WebDev2Assignment-master/index.php
 You should now see the homepage of the site.
 
 Website instructions:
