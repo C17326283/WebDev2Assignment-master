@@ -50,22 +50,20 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#change-name").removeClass("input-error");
-        
+
         var errorEmpty = "<?php echo $errorEmpty; ?>";
 
-        if(errorEmpty == true)
-        {
+        if (errorEmpty == true) {
             $("#change-name").addClass("input-error");
         }
-        if(errorEmpty == false)
-        {
+        if (errorEmpty == false) {
             $("#change-name").val("");
             window.location.href = "myAccount.php";
         }
-        
+
     </script>
 
 </body>

@@ -3,7 +3,7 @@
 <!-- language-->
 
 <head>
-    <title>Home</title>
+    <title>Change Password</title>
     <meta charset="utf-8"><!-- character set -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile rendering and touch zooming -->
@@ -15,41 +15,43 @@
     <script src="script.js"></script>
     <link rel="StyleSheet" href="StyleSheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&lang=en" rel="stylesheet">
-    
+    <link rel="icon" href="res/TitleLogo.png" type="image/icon type">
+
     <script>
         $(document).ready(function() //waits for everything else to load
-        {
-            $("form").submit(function(event) //on submit
             {
-                event.preventDefault();//preventing the normal post action of the form
-                var password = $("#change-password").val();
-                var confirmpassword = $("#change-confirmpassword").val();
-                var submit = $("#change-submit").val();
-                $(".form-message").load("changePasswordSql.php", {
-                    password: password,
-                    confirmpassword: confirmpassword,
-                    submit: submit
-                }); //loading sql page and passing form results as parameters
+                $("form").submit(function(event) //on submit
+                    {
+                        event.preventDefault(); //preventing the normal post action of the form
+                        var password = $("#change-password").val();
+                        var confirmpassword = $("#change-confirmpassword").val();
+                        var submit = $("#change-submit").val();
+                        $(".form-message").load("changePasswordSql.php", {
+                            password: password,
+                            confirmpassword: confirmpassword,
+                            submit: submit
+                        }); //loading sql page and passing form results as parameters
+                    });
+
             });
-            
-        });
-    
+
     </script>
-    
+
     <link rel="icon" href="res/sampleTitleLogo.png" type="image/icon type">
 </head>
 
 <body>
+    <?php
+        /*For logging in*/
+        session_start();
+    ?>
     <div class="container-fluid wholePage">
-
-
 
         <nav>
             <div class="row navRow">
                 <a href="index.php">
-                    <div class="col-sm-2 tab-box current-box">
-                        <img src="res/HomeWhite.png">
-                        <h6>Home</h6>
+                    <div class="col-sm-2 logoBox">
+                        <img src="res/logo.png">
                     </div>
                 </a>
 
@@ -82,16 +84,36 @@
 
 
                 <div class="col-sm-2 tab-box" onclick="slide()">
-                    <img class="login" src="res/personIcon.png">
                     <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        {
+                            $conn = new mysqli("localhost", "root", "", "project2");
+
+                            $id = $_SESSION['Username'];
+                            $sqlImg = "SELECT * FROM users WHERE username='$id' AND imgStatus='1'";
+                            $result = mysqli_query($conn, $sqlImg) OR die(mysqli_error($conn));
+                            $numrows = mysqli_num_rows($result);
+
+                            echo '<div class="login">';
+
+                            if($numrows == 0)
                             {
-                                echo '<h6>'.$_SESSION['Username'].'</h6>';
+                                echo "<img src='res/default.PNG'>";
                             }
-                            else
+                            else if($numrows == 1)
                             {
-                                echo"<h6>Account</h6>";
+                                echo "<img src='uploads/profile".$id.".jpg'>";
                             }
+                            echo '</div>';
+                            $conn->close();
+
+                            echo '<h6>'.$_SESSION['Username'].'</h6>';
+                        }
+                        else
+                        {
+                            echo'<img class="login" src="res/personIcon.png">';
+                            echo"<h6>Account</h6>";
+                        }
                         ?>
                 </div>
 
@@ -99,21 +121,55 @@
         </nav>
 
         <div class="mainBody">
-            <div class="card forms">
-                <h4><strong>Please enter your new password.</strong></h4><br>
-                <form method="post" action="changePasswordSql.php">
-                    <p>Password:</p>
-                    <input type="password" id="change-password" name="password" minlength="4" maxlength="40" ><br>
-                    <p>Confirm Password:</p>
-                    <input type="password" id="change-confirmpassword" name="confirmpassword" minlength="4" maxlength="40" ><br>
-                    <input type="submit" id="change-submit" value="Submit">
-                    <p class="form-message" id="form-message"></p>
-                </form>
+            <div class="moreMenu" id="menuSlide">
+                <ul>
+                    <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                            {
+                                echo'
+                                <li><a href="myAccount.php">
+                                        <p>My Account Details</p>
+                                    </a></li>
+                                <li><a href="myBooks.php">
+                                        <p>My Saved Books</p>
+                                    </a></li>
+                                <li><a href="logoutSql.php">
+                                        <p>Log out</p>
+                                    </a></li>
+                                ';
+                            }
+                            else
+                            {
+                                echo ' <li><a href="loginUser.php">
+                                    <p>Login</p>
+                                </a></li>
+                                <li><a href="registerUser.php">
+                                    <p>Register</p>
+                                </a></li>
+                                ';
+                            }
+                        ?>
+                </ul>
+
             </div>
+
+            <div class="mainBody">
+                <div class="card forms">
+                    <h4><strong>Please enter your new password.</strong></h4><br>
+                    <form method="post" action="changePasswordSql.php">
+                        <p>Password:</p>
+                        <input type="password" id="change-password" name="password" minlength="4" maxlength="40"><br>
+                        <p>Confirm Password:</p>
+                        <input type="password" id="change-confirmpassword" name="confirmpassword" minlength="4" maxlength="40"><br>
+                        <input type="submit" id="change-submit" value="Submit">
+                        <p class="form-message" id="form-message"></p>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <p>By Kyle Heffernan & Ryan Byrne</p>
+                <p>TU Dublin</p>
+            </footer>
         </div>
-        <footer>
-            <p>By Kyle Heffernan & Ryan Byrne</p>
-            <p>TU Dublin</p>
-        </footer>
     </div>
 </body>

@@ -87,28 +87,25 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#del-username, #del-password").removeClass("input-error");
-        
+
         var errorEmpty = "<?php echo $errorEmpty; ?>";
         var errorDetails = "<?php echo $errorDetails; ?>";
 
-        
-        if(errorEmpty == true)
-        {
-           $("#del-username, #del-password").addClass("input-error");
-        }
-        if(errorDetails == true)
-        {
+
+        if (errorEmpty == true) {
             $("#del-username, #del-password").addClass("input-error");
         }
-        if(errorEmpty == false && errorDetails == false)
-        {
+        if (errorDetails == true) {
+            $("#del-username, #del-password").addClass("input-error");
+        }
+        if (errorEmpty == false && errorDetails == false) {
             $("#del-username, #del-password").val("");
             window.location.href = "logoutSql.php";
         }
-        
+
     </script>
 
 </body>

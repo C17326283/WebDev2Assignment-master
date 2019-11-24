@@ -58,28 +58,25 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#change-password, #change-confirmpassword").removeClass("input-error");
-        
+
         var errorEmpty = "<?php echo $errorEmpty; ?>";
         var errorPassword = "<?php echo $errorPassword; ?>";
-        
-        if(errorEmpty == true)
-        {
-           $("#change-password, #change-confirmpassword").addClass("input-error");
-        }
-        if(errorPassword == true)
-        {
+
+        if (errorEmpty == true) {
             $("#change-password, #change-confirmpassword").addClass("input-error");
         }
-        
-        if(errorEmpty == false && errorPassword == false)
-        {
+        if (errorPassword == true) {
+            $("#change-password, #change-confirmpassword").addClass("input-error");
+        }
+
+        if (errorEmpty == false && errorPassword == false) {
             $("#change-password, #change-confirmpassword").val("");
             window.location.href = "myAccount.php";
         }
-        
+
     </script>
 
 </body>

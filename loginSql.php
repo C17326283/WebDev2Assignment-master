@@ -73,28 +73,25 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#log-username, #log-password").removeClass("input-error");
-        
+
         var errorEmpty = "<?php echo $errorEmpty; ?>";
         var errorDetails = "<?php echo $errorDetails; ?>";
 
-        
-        if(errorEmpty == true)
-        {
-           $("#log-username, #log-password").addClass("input-error");
-        }
-        if(errorDetails == true)
-        {
+
+        if (errorEmpty == true) {
             $("#log-username, #log-password").addClass("input-error");
         }
-        if(errorEmpty == false && errorDetails == false)
-        {
+        if (errorDetails == true) {
+            $("#log-username, #log-password").addClass("input-error");
+        }
+        if (errorEmpty == false && errorDetails == false) {
             $("#log-username, #log-password").val("");
             window.location.href = "index.php";
         }
-        
+
     </script>
 
 </body>

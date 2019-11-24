@@ -55,28 +55,25 @@
             echo "There was an error!";
         }
     ?>
-    
+
     <script>
         $("#con-name, #con-email, #con-message").removeClass("input-error");
-        
+
         var errorEmpty = "<?php echo $errorEmpty; ?>";
         var errorEmail = "<?php echo $errorEmail; ?>";
 
-        
-        if(errorEmpty == true)
-        {
-           $("#con-name, #con-email, #con-message").addClass("input-error");
+
+        if (errorEmpty == true) {
+            $("#con-name, #con-email, #con-message").addClass("input-error");
         }
-        if(errorEmail == true)
-        {
+        if (errorEmail == true) {
             $("#con-email").addClass("input-error");
         }
-        
-        if(errorEmpty == false && errorEmail == false)
-        {
+
+        if (errorEmpty == false && errorEmail == false) {
             $("#con-name, #con-email, #con-message").val(""); //clearing text fields
         }
-        
+
     </script>
 
 </body>
