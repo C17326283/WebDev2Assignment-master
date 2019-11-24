@@ -114,11 +114,21 @@
             <div class="row">
                 <div class="col-sm-3 leftMain">
                     <div class="card">
-                        <h2>Did you know</h2>
+                        <h2>Did you know?</h2>
                         <br>
                         <p>
                             Books were invented by Thomas Book in 1789 when he spoke
                             to a piece of paper.
+                        </p>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <h2>Did you know?</h2>
+                        <br>
+                        <p>
+                            The first ever library to be opened was originally supposed 
+                            to be a restaurant, but when they ran out of chicken, it was
+                            decided that they would store books from there on out.
                         </p>
                     </div>
                 </div>
