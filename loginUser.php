@@ -87,15 +87,15 @@
                 <div class="col-sm-2 tab-box" onclick="slide()">
                     <img class="login" src="res/personIcon.png">
                     <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                            {
-                                echo '<h6>'.$_SESSION['Username'].'</h6>';
-                            }
-                            else
-                            {
-                                echo"<h6>Account</h6>";
-                            }
-                        ?>
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        {
+                            echo '<h6>'.$_SESSION['Username'].'</h6>';
+                        }
+                        else
+                        {
+                            echo"<h6>Account</h6>";
+                        }
+                    ?>
                 </div>
 
             </div>

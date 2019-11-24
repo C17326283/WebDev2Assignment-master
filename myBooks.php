@@ -136,7 +136,7 @@
                             $connection = new mysqli($servername, $username, $password, $dbname);
                             //run a query and store results in variable $result:
                             $i = 0;
-                            $sql = "SELECT * FROM userBooks WHERE Username = 'ryry'";
+                            $sql = "SELECT * FROM userBooks WHERE Username = '".$_SESSION['Username']."'";
                             $result = $connection->query($sql) OR die(mysqli_error($connection));
                             while($row = $result ->fetch_assoc())
                             {
