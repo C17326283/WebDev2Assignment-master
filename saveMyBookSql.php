@@ -24,11 +24,13 @@
             if (mysqli_query($conn, $sql))
             {
                 mysqli_close($conn);
-                header('Location: Results.php');
+                echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
+
             }
             else
             {
-                header('Location: Results.php');
+                mysqli_close($conn);
+                echo "<script> window.alert('Book added!'); window.location.href='Results.php';</script>";
             }
             ?>
 </body>
