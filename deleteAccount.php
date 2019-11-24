@@ -134,6 +134,7 @@
             </div>
             <div class="card forms">
                 <h4><strong>Please re-enter your username and password</strong></h4>
+                <h5>Case sensitive!</h5>
                 <form method="post" action="deleteAccountSql.php">
                     <p>Username:</p>
                     <input type="text" id="del-username" name="username" minlength="3" maxlength="40" ><br>

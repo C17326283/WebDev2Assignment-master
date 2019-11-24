@@ -31,7 +31,7 @@ if(isset($_POST['submit']))
         {
             if($fileSize < 300000)
             {
-                $fileNameNew = "profile".$id.".".$fileActualExt;
+                $fileNameNew = "profile".$id.".".jpg;
                 $fileDestination = 'uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 $sql = "UPDATE users SET imgStatus=1 WHERE username='$id';";
