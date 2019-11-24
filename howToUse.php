@@ -28,7 +28,7 @@
         <nav>
                 <div class="row navRow">
                     <a href="index.php">
-                        <div class="col-sm-2 logoBox current-box">
+                        <div class="col-sm-2 logoBox">
                             <img src="res/logo.png">
                         </div>
                     </a>
@@ -40,7 +40,7 @@
                         </div>
                     </a>
                     <a href="howToUse.php">
-                        <div class="col-sm-2 tab-box">
+                        <div class="col-sm-2 tab-box current-box">
                             <img src="res/questionIcon.png">
                             <h6>How to use</h6>
                         </div>

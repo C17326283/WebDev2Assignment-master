@@ -37,7 +37,7 @@
         <nav>
                 <div class="row navRow">
                     <a href="index.php">
-                        <div class="col-sm-2 logoBox current-box">
+                        <div class="col-sm-2 logoBox">
                             <img src="res/logo.png">
                         </div>
                     </a>
@@ -70,7 +70,7 @@
                     </a>
 
 
-                    <div class="col-sm-2 tab-box" onclick="slide()">
+                    <div class="col-sm-2 tab-box  current-box" onclick="slide()">
                         <?php
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
                         {

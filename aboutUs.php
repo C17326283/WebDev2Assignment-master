@@ -46,7 +46,7 @@
                         </div>
                     </a>
                     <a href="aboutUs.php">
-                        <div class="col-sm-2 tab-box  current-box">
+                        <div class="col-sm-2 tab-box current-box">
                             <img src="res/aboutUsIcon.png">
                             <h6>About Us</h6>
                         </div>
