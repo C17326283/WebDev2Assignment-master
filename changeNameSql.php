@@ -6,13 +6,14 @@
     
         if(isset($_POST['submit']))
         {
+            // Create connection
+            $conn = new mysqli("localhost", "root", "", "project2");
+            
             $username = $_SESSION['Username'];
             $name = $_POST['name'];
             
             $errorEmpty = false;
             
-            // Create connection
-            $conn = new mysqli("localhost", "root", "", "project2");
             
             
             if(empty($name))
