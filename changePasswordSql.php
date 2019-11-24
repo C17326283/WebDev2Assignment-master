@@ -40,8 +40,10 @@
                 }
                 else
                 {
+                    $newpassword = password_hash("$password", PASSWORD_DEFAULT);
+                    
                     //bind parameters to the placeholder
-                    mysqli_stmt_bind_param($stmt, "s", $password);
+                    mysqli_stmt_bind_param($stmt, "s", $newpassword);
                     //run parameters inside database
                     mysqli_stmt_execute($stmt);
                     

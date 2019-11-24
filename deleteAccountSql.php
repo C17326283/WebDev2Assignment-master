@@ -20,7 +20,7 @@
             
             
             //create a template
-            $sqlcheck = "SELECT * FROM users WHERE username = ? AND password = ?;";
+            $sqlcheck = "SELECT * FROM users WHERE username = ?;";
             //create a prepared statement
             $stmtcheck = mysqli_stmt_init($conn);
             //prepare the prepared statement
@@ -31,7 +31,7 @@
             else
             {
                 //bind parameters to the placeholder
-                mysqli_stmt_bind_param($stmtcheck, "ss", $username, $password);
+                mysqli_stmt_bind_param($stmtcheck, "s", $username);
                 //run parameters inside database
                 mysqli_stmt_execute($stmtcheck);
                 $result = mysqli_stmt_get_result($stmtcheck);
@@ -50,23 +50,32 @@
                 }
                 else
                 {
-                    $sql = "DELETE FROM users WHERE username='$id';";
-                    $result = mysqli_query($conn, $sql);
-
-                    if ($conn->query($sql) === TRUE)
+                    $row = $result->fetch_assoc();
+                    $hashedpassword = $row["password"];
+                    if(!password_verify($password, $hashedpassword))
                     {
-                        echo "<span class='form-success'>Account deleted!</span>";
-
+                        echo "<span class='form-error'>Invalid account details!</span>";
+                        $errorDetails = true;
                     }
                     else
                     {
-                        echo "Error: <br>".$conn->error;
+                        $sql = "DELETE FROM users WHERE username='$id';";
+                        $result = mysqli_query($conn, $sql);
+
+                        if ($conn->query($sql) === TRUE)
+                        {
+                            echo "<span class='form-success'>Account deleted!</span>";
+
+                        }
+                        else
+                        {
+                            echo "Error: <br>".$conn->error;
+                        }
                     }
 
                 }
                 
             }
-            
             
             $conn->close();
         }

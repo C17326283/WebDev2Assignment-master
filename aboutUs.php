@@ -154,8 +154,6 @@
                             <br>Leaving personal property unattended in any Library.
                         </p>
 
-                        
-                        
                     </div>
                 </div>
             </div>

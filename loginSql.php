@@ -11,13 +11,13 @@
             
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $password = mysqli_real_escape_string($conn, $_POST['password']);
-            
+                        
             $errorEmpty = false;
             $errorDetails = false;
             
             
             //create a template
-            $sqlcheck = "SELECT * FROM users WHERE username = ? AND password = ?;";
+            $sqlcheck = "SELECT * FROM users WHERE username = ?;";
             //create a prepared statement
             $stmtcheck = mysqli_stmt_init($conn);
             //prepare the prepared statement
@@ -28,7 +28,7 @@
             else
             {
                 //bind parameters to the placeholder
-                mysqli_stmt_bind_param($stmtcheck, "ss", $username, $password);
+                mysqli_stmt_bind_param($stmtcheck, "s", $username);
                 //run parameters inside database
                 mysqli_stmt_execute($stmtcheck);
                 $result = mysqli_stmt_get_result($stmtcheck);
@@ -47,11 +47,21 @@
                 }
                 else
                 {
-                    $_SESSION['loggedin'] = true;
-
                     $row = $result->fetch_assoc();
-                    $_SESSION['Username'] = $row["username"];//Sets the session username to the username of the account that just logged in
-                    echo "<span class='form-success'>Logged in successfully!</span>";
+                    $hashedpassword = $row["password"];
+                    if(!password_verify($password, $hashedpassword))
+                    {
+                        echo "<span class='form-error'>Invalid login details!</span>";
+                        $errorDetails = true;
+                    }
+                    else
+                    {
+                        $_SESSION['loggedin'] = true;
+
+                        $_SESSION['Username'] = $row["username"];//Sets the session username to the username of the account that just logged in
+                        echo "<span class='form-success'>Logged in successfully!</span>";
+                    }
+                    
                 }
           
                 
