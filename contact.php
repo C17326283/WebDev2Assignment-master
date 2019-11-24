@@ -87,16 +87,37 @@
 
 
                 <div class="col-sm-2 tab-box" onclick="slide()">
-                    <img class="login" src="res/personIcon.png">
+                    
                     <?php
-                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        {
+                            $conn = new mysqli("localhost", "root", "", "project2");
+
+                            $id = $_SESSION['Username'];
+                            $sqlImg = "SELECT * FROM users WHERE username='$id' AND imgStatus='1'";
+                            $result = mysqli_query($conn, $sqlImg) OR die(mysqli_error($conn));
+                            $numrows = mysqli_num_rows($result);
+
+                            echo '<div class="login">';
+
+                            if($numrows == 0)
                             {
-                                echo '<h6>'.$_SESSION['Username'].'</h6>';
+                                echo "<img src='res/default.PNG'>";
                             }
-                            else
+                            else if($numrows == 1)
                             {
-                                echo"<h6>Account</h6>";
+                                echo "<img src='uploads/profile".$id.".jpg'>";
                             }
+                            echo '</div>';
+                            $conn->close();
+
+                            echo '<h6>'.$_SESSION['Username'].'</h6>';
+                        }
+                        else
+                        {
+                            echo'<img class="login" src="res/personIcon.png">';
+                            echo"<h6>Account</h6>";
+                        }
                         ?>
                 </div>
 
