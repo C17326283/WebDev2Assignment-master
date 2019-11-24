@@ -7,8 +7,9 @@ body {
 }
 
 .wholePage
+
 /*need for footer*/
-{
+    {
     min-height: 80em;
     overflow: hidden;
     display: block;
@@ -37,8 +38,6 @@ p {
 }
 
 h1
-
-/*Welcome*/
     {
     margin: 0px;
 }
@@ -86,21 +85,6 @@ h5 {
 
 .topLogo {
     width: 100%;
-}
-
-.top-search {
-    background-color: #fff6f4;
-    float: center;
-    vertical-align: middle;
-
-    text-align: center;
-    padding: .1em 0em;
-    margin-bottom: 0px;
-
-    background: #fffff9;
-    margin: 1em 2em;
-    overflow: auto;
-    border-radius: 3px;
 }
 
 nav {
@@ -210,25 +194,13 @@ nav {
 
 }
 
-.search {
-    background-color: #fffeed;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    max-height: 400px;
-    overflow: hidden;
-    padding: 1em 0em;
-    text-align: center;
-}
-
-.leftMain
-{
+.leftMain {
     background: #ebebeb;
     padding: 0px;
     height: 100%;
 }
-.rightMain
-{
+
+.rightMain {
     padding: 0px;
 }
 
@@ -529,9 +501,6 @@ select {
     color: green;
 }
 
-.userInfo a {}
-
-
 .profCard {
     background: #fffff9;
     margin: 1em 1em;
@@ -566,34 +535,32 @@ select {
 
 
 
-@media only screen and (max-width: 768px)
-{
-    .tab-box img
-    {
+@media only screen and (max-width: 768px) {
+    .tab-box img {
         display: none;
     }
-    .tab-box h6
-    {
+
+    .tab-box h6 {
         max-width: 50%;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
-        .tab-box
-    {
+
+    .tab-box {
         height: 2em;
         text-align: center;
     }
-    h3
-    {
+
+    h3 {
         font-size: large;
     }
-    strong
-    {
+
+    strong {
         font-size: small;
     }
-    p
-    {
+
+    p {
         font-size: small;
     }
 }
